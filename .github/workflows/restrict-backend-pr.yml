@@ -1,0 +1,19 @@
+name: Restrict PRs to backend
+
+on:
+  pull_request:
+    branches:
+      - backend
+
+jobs:
+  restrict-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if source branch is allowed
+        run: |
+          ALLOWED_BRANCHES=("cerberus" "database" "AI model")
+          SOURCE_BRANCH=$(echo "${{ github.event.pull_request.head.ref }}")
+          if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${SOURCE_BRANCH} " ]]; then
+            echo "Pull requests to 'backend' can only come from 'cerberus', 'database', or 'AI model'."
+            exit 1
+          fi
