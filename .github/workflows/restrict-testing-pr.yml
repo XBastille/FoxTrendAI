@@ -1,0 +1,19 @@
+name: Restrict PRs to testing
+
+on:
+  pull_request:
+    branches:
+      - testing
+
+jobs:
+  restrict-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if source branch is allowed
+        run: |
+          ALLOWED_BRANCHES=("frontend" "backend")
+          SOURCE_BRANCH=$(echo "${{ github.event.pull_request.head.ref }}")
+          if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${SOURCE_BRANCH} " ]]; then
+            echo "Pull requests to 'testing' can only come from 'frontend' or 'backend'."
+            exit 1
+          fi
