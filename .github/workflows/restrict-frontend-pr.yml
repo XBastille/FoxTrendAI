@@ -1,0 +1,19 @@
+name: Restrict PRs to frontend
+
+on:
+  pull_request:
+    branches:
+      - frontend
+
+jobs:
+  restrict-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if source branch is allowed
+        run: |
+          ALLOWED_BRANCHES=("ajop" "nsa")
+          SOURCE_BRANCH=$(echo "${{ github.event.pull_request.head.ref }}")
+          if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${SOURCE_BRANCH} " ]]; then
+            echo "Pull requests to 'frontend' can only come from 'ajop' or 'nsa'."
+            exit 1
+          fi
