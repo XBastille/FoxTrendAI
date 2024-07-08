@@ -31,13 +31,9 @@ Clone the repository to your local machine to explore the initial codebase:
 git clone https://github.com/yourusername/trendfox.git
 ```
 
-## Contributing
-
-We welcome contributions! Please check the issues page for open tasks and submit pull requests for review.
-
 ## Contact
 
-For questions or inquiries, please contact us at [eziopuhan825@gmailcom](mailto:eziopuhan825@gmail.com).
+For questions or inquiries, please contact us at [eziopuhan825@gmail.com](mailto:eziopuhan825@gmail.com).
 
 Stay tuned for updates and thank you for your interest in Trendfox!
 
