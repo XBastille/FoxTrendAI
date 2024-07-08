@@ -35,13 +35,9 @@ git clone https://github.com/yourusername/trendfox.git
 
 We welcome contributions! Please check the issues page for open tasks and submit pull requests for review.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
-For questions or inquiries, please contact us at [your-email@example.com](mailto:your-email@example.com).
+For questions or inquiries, please contact us at [eziopuhan825@gmailcom](mailto:eziopuhan825@gmail.com).
 
 Stay tuned for updates and thank you for your interest in Trendfox!
 
