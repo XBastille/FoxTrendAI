@@ -33,7 +33,7 @@ git clone https://github.com/yourusername/trendfox.git
 
 ## Contact
 
-For questions or inquiries, please contact us at [eziopuhan825@gmail.com](mailto:eziopuhan825@gmail.com).
+For questions or inquiries, please contact me at [eziopuhan825@gmail.com](mailto:eziopuhan825@gmail.com).
 
 Stay tuned for updates and thank you for your interest in Trendfox!
 
