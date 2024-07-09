@@ -1,8 +1,8 @@
 ---
 
-# Trendfox
+# FoxTrendAI
 
-Trendfox is a comprehensive platform currently under development, designed to leverage advanced machine learning techniques to provide accurate and insightful predictions across a variety of domains. Our goal is to create a one-stop solution for businesses and individuals looking to make data-driven decisions.
+FoxTrendAI is a comprehensive platform currently under development, designed to leverage advanced machine learning techniques to provide accurate and insightful predictions across a variety of domains. Our goal is to create a one-stop solution for businesses and individuals looking to make data-driven decisions.
 
 ## Features
 
@@ -21,14 +21,14 @@ Trendfox is a comprehensive platform currently under development, designed to le
 
 ## Status
 
-Trendfox is currently in the development phase. We are working diligently to bring these features to life and will update this repository with progress as it happens.
+FoxTrendAI is currently in the development phase. We are working diligently to bring these features to life and will update this repository with progress as it happens.
 
 ## Getting Started
 
 Clone the repository to your local machine to explore the initial codebase:
 
 ```bash
-git clone https://github.com/XBastille/Trendfox.git
+git clone https://github.com/XBastille/FoxTrendAI.git
 ```
 
 ## Contact
