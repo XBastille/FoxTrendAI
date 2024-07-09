@@ -30,6 +30,9 @@ Clone the repository to your local machine to explore the initial codebase:
 ```bash
 git clone https://github.com/XBastille/FoxTrendAI.git
 ```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
