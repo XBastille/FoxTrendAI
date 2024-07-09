@@ -35,6 +35,6 @@ git clone https://github.com/XBastille/FoxTrendAI.git
 
 For questions or inquiries, please contact me at [eziopuhan825@gmail.com](mailto:eziopuhan825@gmail.com).
 
-Stay tuned for updates and thank you for your interest in Trendfox!
+Stay tuned for updates and thank you for your interest in FoxTrendAI!
 
 ---
