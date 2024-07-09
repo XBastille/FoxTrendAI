@@ -28,7 +28,7 @@ Trendfox is currently in the development phase. We are working diligently to bri
 Clone the repository to your local machine to explore the initial codebase:
 
 ```bash
-git clone git clone https://github.com/yourusername/trendfox.git
+git clone https://github.com/XBastille/Trendfox.git
 ```
 
 ## Contact
