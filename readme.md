@@ -32,7 +32,7 @@ git clone https://github.com/XBastille/FoxTrendAI.git
 ```
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the LGPL-2.1 License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
