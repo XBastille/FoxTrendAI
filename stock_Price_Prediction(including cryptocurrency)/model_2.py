@@ -138,8 +138,8 @@ class StockPredictor:
         plt.show()
     
     def calculate_percentage_change(self, predictions):
-        initial_price = predictions.iloc[0]
-        final_price = predictions.iloc[-1]
+        initial_price=predictions.iloc[0]
+        final_price=predictions.iloc[-1]
         return ((final_price-initial_price)/initial_price)*100
 
     def run(self):
