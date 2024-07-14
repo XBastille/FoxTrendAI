@@ -137,6 +137,11 @@ class StockPredictor:
         plt.legend()
         plt.show()
     
+    def calculate_percentage_change(self, predictions):
+        initial_price = predictions.iloc[0]
+        final_price = predictions.iloc[-1]
+        return ((final_price-initial_price)/initial_price)*100
+
     def run(self):
         X_train, X_test, y_train, y_test=self.split_data()
         best_params=self.optimize_model(X_train, y_train, X_test, y_test)
@@ -145,9 +150,16 @@ class StockPredictor:
         print(f"ERROR PERCENT = {error}%")
         self.plot_results(X_test, y_test, y_pred)
         self.plot_feature_importance(best_model)
-        future_predictions = self.predict_future(best_model)
+        future_predictions=self.predict_future(best_model)
         print(future_predictions)
-
+        percentage_change=self.calculate_percentage_change(future_predictions["pred"])
+        print(f"Predicted Future Prices:\n{future_predictions}")
+        print(f"Predicted percentage change over the next {self.num_days_pred} days: {percentage_change:.2f}%")
+        if percentage_change>0:
+            print("The model predicts an upward trend. It might be a good time to buy.")
+        else:
+            print("The model predicts a downward trend. It might be better to wait.")
+            
 if __name__=="__main__":
     company_name=input("Enter the company ticker (e.g., TSLA): ")
     num_days_pred=int(input("Enter the number of days to predict into the future: "))
