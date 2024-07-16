@@ -8,26 +8,26 @@ from sklearn.model_selection import train_test_split
 
 class HousingPricePredictor:
     def __init__(self):
-        self.optional_features = [
-            'Resale', 'MaintenanceStaff', 'Gymnasium', 'SwimmingPool', 'LandscapedGardens',
-            'JoggingTrack', 'RainWaterHarvesting', 'IndoorGames', 'ShoppingMall',
-            'Intercom', 'SportsFacility', 'ATM', 'ClubHouse', 'School',
-            '24X7Security', 'PowerBackup', 'CarParking', 'StaffQuarter',
-            'Cafeteria', 'MultipurposeRoom', 'Hospital', 'WashingMachine',
-            'Gasconnection', 'AC', 'Wifi', 'ChildrenPlayArea', 'LiftAvailable',
-            'BED', 'VaastuCompliant', 'Microwave', 'GolfCourse', 'TV',
-            'DiningTable', 'Sofa', 'Wardrobe', 'Refrigerator'
+        self.optional_features=[
+            "Resale", "MaintenanceStaff", "Gymnasium", "SwimmingPool", "LandscapedGardens",
+            "JoggingTrack", "RainWaterHarvesting", "IndoorGames", "ShoppingMall",
+            "Intercom", "SportsFacility", "ATM", "ClubHouse", "School",
+            "24X7Security", "PowerBackup", "CarParking", "StaffQuarter",
+            "Cafeteria", "MultipurposeRoom", "Hospital", "WashingMachine",
+            "Gasconnection", "AC", "Wifi", "ChildrenPlayArea", "LiftAvailable",
+            "BED", "VaastuCompliant", "Microwave", "GolfCourse", "TV",
+            "DiningTable", "Sofa", "Wardrobe", "Refrigerator"
         ]
-        self.mandatory_features = ["Area", "No. of Bedrooms", "Latitude", "Longitude"]
-        #self.mandatory_features = ["Area", "No. of Bedrooms", "Resale", "Intercom", "Latitude", "Longitude"]
-        self.dfs = self.load_data()
-        self.merged_df = self.preprocess_data()
-        self.feature_names = self.mandatory_features.copy()
+        self.mandatory_features=["Area", "No. of Bedrooms", "Latitude", "Longitude"]
+        #self.mandatory_features=["Area", "No. of Bedrooms", "Resale", "Intercom", "Latitude", "Longitude"]
+        self.dfs=self.load_data()
+        self.merged_df=self.preprocess_data()
+        self.feature_names=self.mandatory_features.copy()
         self.select_optional_features()
-        self.X = self.merged_df[self.feature_names]
-        self.y = self.merged_df["Price"]
-        self.train_X, self.val_X, self.train_y, self.val_y = train_test_split(self.X, self.y, random_state=1)
-        self.model = None
+        self.X=self.merged_df[self.feature_names]
+        self.y=self.merged_df["Price"]
+        self.train_X, self.val_X, self.train_y, self.val_y=train_test_split(self.X, self.y, random_state=1)
+        self.model=None
 
     def load_data(self):
         file_paths=[
@@ -104,8 +104,8 @@ class HousingPricePredictor:
                 choice=int(input("Select an optional feature to add (1-36), or 0 to finish: "))
                 if choice==0:
                     break
-                elif 1 <= choice<=len(self.optional_features):
-                    selected_feature=self.optional_features[choice - 1]
+                elif 1<=choice<=len(self.optional_features):
+                    selected_feature=self.optional_features[choice-1]
                     if selected_feature not in self.feature_names:
                         self.feature_names.append(selected_feature)
                         print(f"Added feature: {selected_feature}")
@@ -126,7 +126,7 @@ if __name__=="__main__":
     predictor.optimize_model(n_trials=50)
     predictor.evaluate_model()
     while True:
-        input_features = {
+        input_features={
             "Area": float(input("Enter the Area (in sq ft): ")),
             "No. of Bedrooms": int(input("Enter the number of bedrooms: ")),
             "Latitude": float(input("Enter the Latitude: ")),
@@ -134,6 +134,6 @@ if __name__=="__main__":
         }
         for feature in predictor.feature_names:
             if feature not in predictor.mandatory_features:
-                input_features[feature] = int(input(f"Enter value for {feature} (1 for Yes, 0 for No): "))
+                input_features[feature]=int(input(f"Enter value for {feature} (1 for Yes, 0 for No): "))
         predicted_price=predictor.predict(input_features)
         print(f"The predicted housing price is: {predicted_price} lakhs")
