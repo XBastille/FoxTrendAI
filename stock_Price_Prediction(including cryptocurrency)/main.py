@@ -56,9 +56,9 @@ class StockDataVisualizer:
     def plot_technical_indicators_2(self, start_date, end_date):
         result=self.stock_data.copy()
         if start_date:
-            result=result[result.index >= pd.to_datetime(start_date)]
+            result=result[result.index>=pd.to_datetime(start_date)]
         if end_date:
-            result=result[result.index <= pd.to_datetime(end_date)]
+            result=result[result.index<=pd.to_datetime(end_date)]
         return result
 
     def plot_technical_indicators_28(self, arg0, arg1):
