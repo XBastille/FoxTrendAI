@@ -6,7 +6,6 @@ FoxTrendAI is a comprehensive platform currently under development, designed to 
 
 ## Features
 
-- **Sales Forecast Prediction**: Anticipate future sales to optimize inventory and strategy.
 - **Customer Segmentation**: Identify distinct customer groups to tailor marketing efforts.
 - **Used Car Price Analysis**: Determine the fair market value of used vehicles.
 - **Loan Approval Prediction**: Assess the likelihood of loan approval for applicants.
