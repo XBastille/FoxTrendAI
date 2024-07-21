@@ -13,7 +13,7 @@ FoxTrendAI is a comprehensive platform currently under development, designed to 
 - **Loan Eligibility Prediction**: Evaluate applicant eligibility for various loan products.
 - **House Price Prediction**: Predict the selling prices of residential properties.
 - **Credit Card Fraud Detection**: Identify and prevent fraudulent credit card transactions.
-- **Cryptocurrency Price Prediction**: Forecast prices for Dogecoin and Bitcoin.
+- **Cryptocurrency Price Prediction**: Forecast prices for any cryptocurrency.
 - **Online Payment Fraud Detection**: Safeguard against fraudulent online transactions.
 - **Stock Price Prediction**: Estimate future stock prices.
 - **Stock Price Direction Prediction**: Predict the upward or downward movement of stock prices.
