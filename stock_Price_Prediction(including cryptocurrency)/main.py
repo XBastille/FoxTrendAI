@@ -1,5 +1,4 @@
 # main.py
-import model_2
 import datetime
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -80,13 +79,8 @@ class StockDataVisualizer:
         end_date=end_date or None
         self.plot_historical_data(start_date, end_date)
         self.plot_technical_indicators(start_date, end_date)
-        predict=input("Would you like to run predictions? (yes/no): ")
-        if predict.lower()=="yes":
-            predictor=model_2.StockPredictor(self.company_name, num_days_pred, self.stock_data)
-            predictor.run()
 
 if __name__=="__main__":
     company_name=input("Enter the company ticker (e.g., TSLA): ")
-    num_days_pred=int(input("Enter the number of days to predict into the future: "))
     visualizer=StockDataVisualizer(company_name)
     visualizer.run()

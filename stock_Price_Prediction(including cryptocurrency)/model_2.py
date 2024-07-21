@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
+from main import StockDataVisualizer
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -115,7 +116,7 @@ class StockPredictor:
     def calculate_percentage_change(self, predictions):
         initial_price=predictions.iloc[0]
         final_price=predictions.iloc[-1]
-        return ((final_price - initial_price) / initial_price) * 100
+        return ((final_price-initial_price)/initial_price)*100
 
     def run(self):
         X_train, X_test, y_train, y_test=self.split_data()
@@ -133,3 +134,10 @@ class StockPredictor:
             print("The model predicts an upward trend. It might be a good time to buy.")
         else:
             print("The model predicts a downward trend. It might be better to wait.")
+
+if __name__=="__main__":
+    company_name=input("Enter the company ticker (e.g., TSLA): ")
+    num_days_pred=int(input("Enter the number of days to predict into the future: "))
+    data=StockDataVisualizer(company_name)
+    predictor=StockPredictor(company_name, num_days_pred, data.download_stock_data())
+    predictor.run()
