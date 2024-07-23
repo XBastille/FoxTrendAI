@@ -101,7 +101,7 @@ class UsedCarPricePredictor:
         return prediction[0]
 
 if __name__=="__main__":
-    predictor=UsedCarPricePredictor("train.csv")
+    predictor=UsedCarPricePredictor("vehicle_US.csv")
     predictor.optimize_model(n_trials=50)
     predictor.evaluate_model()
     while True:
