@@ -37,17 +37,12 @@ class FraudDetectionModel:
         non_fraud_fraction = len(XnonFraud.loc[(XnonFraud.oldBalanceDest == 0) & 
                                                (XnonFraud.newBalanceDest == 0) & 
                                                (XnonFraud.amount != 0)]) / (1.0 * len(XnonFraud))
-        print(f"\nThe fraction of fraudulent transactions with oldBalanceDest = newBalanceDest = 0 although the transacted amount is non-zero is: {fraud_fraction}")
-        print(f"\nThe fraction of genuine transactions with oldBalanceDest = newBalanceDest = 0 although the transacted amount is non-zero is: {non_fraud_fraction}")
-        self.X.loc[(self.X.oldBalanceDest == 0) & (self.X.newBalanceDest == 0) & (self.X.amount != 0), 
+       self.X.loc[(self.X.oldBalanceDest == 0) & (self.X.newBalanceDest == 0) & (self.X.amount != 0), 
                     ["oldBalanceDest", "newBalanceDest"]] = -1
         self.X.loc[(self.X.oldBalanceOrig == 0) & (self.X.newBalanceOrig == 0) & (self.X.amount != 0), 
                     ["oldBalanceOrig", "newBalanceOrig"]] = np.nan
         self.X["errorBalanceOrig"] = self.X.newBalanceOrig + self.X.amount - self.X.oldBalanceOrig
         self.X["errorBalanceDest"] = self.X.oldBalanceDest + self.X.amount - self.X.newBalanceDest
-        
-        skew = len(Xfraud) / float(len(self.X))
-        print(f"skew = {skew}")
         self.X.head().to_csv("model_trial.csv")
         self.trainX, self.testX, self.trainY, self.testY = train_test_split(self.X, self.Y, test_size=0.2, random_state=self.random_state)
         self.weights = (self.Y == 0).sum() / (1.0 * (self.Y == 1).sum())
