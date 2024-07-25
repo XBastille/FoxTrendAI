@@ -52,7 +52,7 @@ class FraudDetectionModel:
         return self.model.predict(input_df)
 
 def main():
-    data_path="PS_20174392719_1491204439457_log.csv"
+    data_path="fraud_Data.csv"
     model=FraudDetectionModel(data_path)
     model.train_model()
     while True:
