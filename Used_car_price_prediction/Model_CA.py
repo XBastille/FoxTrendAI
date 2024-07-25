@@ -143,7 +143,7 @@ class UsedCarPricePredictor:
         return prediction[0]
 
 if __name__=="__main__":
-    data_handler=DataCleaningAndFeatureEngineering("ca-dealers-used.csv")
+    data_handler=DataCleaningAndFeatureEngineering("vehicle_CA.csv")
     predictor=UsedCarPricePredictor(data_handler)
     predictor.optimize_model(n_trials=25)
     predictor.evaluate_model()
