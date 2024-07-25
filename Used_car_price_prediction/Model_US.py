@@ -28,9 +28,10 @@ class UsedCarPricePredictor:
         categorical_columns.extend(col for col in features if self.df[col].dtype not in numerics)
         for col in categorical_columns:
             if col in self.df.columns:
-                le=LabelEncoder()
-                le.fit(list(self.df[col].astype(str).values))
-                self.df[col]=le.transform(list(self.df[col].astype(str).values))
+                le = LabelEncoder()
+                self.df[col]=self.df[col].astype(str)  
+                le.fit(self.df[col])
+                self.df[col]=le.transform(self.df[col])
                 self.encoders[col]=le
         self.df["year"]=(self.df["year"]-1900).astype(int)
         self.df["odometer"]=self.df["odometer"].astype(int)
@@ -92,8 +93,9 @@ class UsedCarPricePredictor:
         categorical_columns.extend(col for col in features if input_df[col].dtype not in numerics)
         for col in categorical_columns:
             if col in input_df.columns and col in self.encoders:
-                le=self.encoders[col]
-                input_df[col]=le.transform(list(input_df[col].astype(str).values))
+                le = self.encoders[col]
+                input_df[col]=input_df[col].astype(str)  
+                input_df[col]=input_df[col].apply(lambda x: le.transform([x])[0] if x in le.classes_ else -1)
         input_df["year"]=(input_df["year"]-1900).astype(int)
         input_df["odometer"]=input_df["odometer"].astype(int)//5000
         input_scaled=self.scaler.transform(input_df)
