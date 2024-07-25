@@ -6,18 +6,11 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from xgboost import XGBRegressor
 
-class UsedCarPricePredictorCanada:
+class DataCleaningAndFeatureEngineering:
     def __init__(self, data_path):
         self.df=pd.read_csv(data_path)
         self.encoders={}
         self.preprocess_data()
-        self.X_train, self.X_test, self.y_train, self.y_test=self.prepare_data()
-        self.X_train=self.log_transform(self.X_train, ['miles', 'miles_per_year'])
-        self.X_test=self.log_transform(self.X_test, ['miles', 'miles_per_year'])
-        self.scaler=StandardScaler()
-        self.X_train_scaled=self.scaler.fit_transform(self.X_train)
-        self.X_test_scaled=self.scaler.transform(self.X_test)
-        self.model=None
 
     def preprocess_data(self):
         drop_columns=["id", "vin", "stock_no", "trim", "seller_name", "street", "city", "state", "zip", "engine_block", "vehicle_type"]
@@ -37,11 +30,37 @@ class UsedCarPricePredictorCanada:
         
         self.df=self.create_new_features(self.df)
 
+    @staticmethod
+    def create_new_features(data):
+        current_year=2024
+        data['miles_per_year']=(data['miles']/(current_year-data['year']).replace({0: 1})).round(0)
+        data['age']=current_year-data['year']
+        data.drop(columns=["year"], inplace=True)
+        return data
+
+    @staticmethod
+    def log_transform(df, features):
+        transformed_df=df.copy()
+        for feature in features:
+            transformed_df[feature]=np.log1p(transformed_df[feature].clip(lower=0))
+        df[features]=transformed_df[features]
+        return df
+
     def prepare_data(self):
         X=self.df.drop(columns=["price"])
         y=self.df["price"]
-        X_train, X_test, y_train, y_test=train_test_split(X, y, test_size=0.2, random_state=0)
-        return X_train, X_test, y_train, y_test
+        return train_test_split(X, y, test_size=0.2, random_state=0)
+
+class UsedCarPricePredictor:
+    def __init__(self, data_handler):
+        self.data_handler=data_handler
+        self.X_train, self.X_test, self.y_train, self.y_test=self.data_handler.prepare_data()
+        self.X_train=self.data_handler.log_transform(self.X_train, ['miles', 'miles_per_year'])
+        self.X_test=self.data_handler.log_transform(self.X_test, ['miles', 'miles_per_year'])
+        self.scaler=StandardScaler()
+        self.X_train_scaled=self.scaler.fit_transform(self.X_train)
+        self.X_test_scaled=self.scaler.transform(self.X_test)
+        self.model=None
 
     def objective(self, trial):
         param={
@@ -105,54 +124,40 @@ class UsedCarPricePredictorCanada:
         print(f"Test D: {acc_test_d[0]}")
         print(f"Test RMSE: {acc_test_rmse[0]}")
 
-    def create_new_features(self, data):
-        current_year=2024
-        data['miles_per_year']=(data['miles']/(current_year-data['year']).replace({0: 1})).round(0)
-        data['age']=(current_year-data['year'])
-        data.drop(columns=["year"], inplace=True)
-        return data
-
-    def log_transform(self, df, features):
-        transformed_df=df.copy()
-        for feature in features:
-            transformed_df[feature]=np.log1p(transformed_df[feature].clip(lower=0))
-        df[features]=transformed_df[features]
-        return df
-
     def predict(self, input_features):
         input_df=pd.DataFrame([input_features])
-        input_df=self.create_new_features(input_df)
-        input_df=self.log_transform(input_df, ['miles', 'miles_per_year'])
+        input_df=self.data_handler.create_new_features(input_df)
+        input_df=self.data_handler.log_transform(input_df, ['miles', 'miles_per_year'])
         numerics=["int8", "int16", "int32", "int64", "float16", "float32", "float64"]
         categorical_columns=[]
         features=input_df.columns.values.tolist()
         categorical_columns.extend(col for col in features if input_df[col].dtype not in numerics)
         for col in categorical_columns:
-            if col in input_df.columns and col in self.encoders:
-                le=self.encoders[col]
+            if col in input_df.columns and col in self.data_handler.encoders:
+                le=self.data_handler.encoders[col]
                 input_df[col]=input_df[col].astype(str)
                 input_df[col]=input_df[col].apply(lambda x: le.transform([x])[0] if x in le.classes_ else -1)
         input_df=input_df[self.X_train.columns]
-        input_df.to_csv("input_trial.csv")
         input_scaled=self.scaler.transform(input_df)
         prediction=self.model.predict(input_scaled)
         return prediction[0]
 
 if __name__=="__main__":
-    predictor=UsedCarPricePredictorCanada("ca-dealers-used.csv")
+    data_handler=DataCleaningAndFeatureEngineering("ca-dealers-used.csv")
+    predictor=UsedCarPricePredictor(data_handler)
     predictor.optimize_model(n_trials=25)
     predictor.evaluate_model()
     while True:
         input_features={
-            "year": int(input("Enter the Year: ")),
-            "make": input("Enter the Make: "),
-            "model": input("Enter the model: "),
-            "body_type": input("Enter the Body Type: "),
-            "drivetrain": input("Enter the Drivetrain: "),
-            "transmission": input("Enter the Transmission: "),
-            "fuel_type": input("Enter the Fuel Type: "),
-            "miles": float(input("Enter the Miles: ")),
-            "engine_size": input("Enter the Engine Size: "),
+            "year":int(input("Enter the Year: ")),
+            "make":input("Enter the Make: "),
+            "model":input("Enter the model: "),
+            "body_type":input("Enter the Body Type: "),
+            "drivetrain":input("Enter the Drivetrain: "),
+            "transmission":input("Enter the Transmission: "),
+            "fuel_type":input("Enter the Fuel Type: "),
+            "miles":float(input("Enter the Miles: ")),
+            "engine_size":input("Enter the Engine Size: "),
         }
         predicted_price=predictor.predict(input_features)
         print(f"The predicted used car price is: ${predicted_price:.2f}")
