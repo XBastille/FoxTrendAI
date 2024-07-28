@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from xgboost import XGBRegressor
 
-class DataCleaningAndFeatureEngineering:
+class DataTransformation:
     def __init__(self, data_path):
         self.df=pd.read_csv(data_path)
         self.encoders={}
@@ -143,7 +143,7 @@ class UsedCarPricePredictor:
         return prediction[0]
 
 if __name__=="__main__":
-    data_handler=DataCleaningAndFeatureEngineering("vehicle_CA.csv")
+    data_handler=DataTransformation("vehicle_CA.csv")
     predictor=UsedCarPricePredictor(data_handler)
     predictor.optimize_model(n_trials=25)
     predictor.evaluate_model()

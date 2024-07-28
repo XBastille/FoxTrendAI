@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import optuna
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
@@ -51,7 +50,6 @@ class HousingPricePredictor:
             df["Latitude"]=df["Latitude"].astype(float)
             df["Longitude"]=df["Longitude"].astype(float)
             return df
-
         map_dfs=[preprocess(df) for df in self.dfs]
         merged=pd.concat(map_dfs)
         merged=merged.rename(columns={"Children'splayarea": "ChildrenPlayArea"})
