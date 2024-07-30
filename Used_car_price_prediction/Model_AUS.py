@@ -153,27 +153,28 @@ class VehiclePricePredictor:
         input_scaled=self.scaler.transform(input_df)
         return self.model.predict(input_scaled)
 
-data_path='vehicle_AUS.csv'
-data_handler=DataTransformation(data_path)
-predictor=VehiclePricePredictor(data_handler)
-predictor.optimize_model()
-predictor.evaluate_model()
-while True:
-    user_input={
-        "Brand": input("Enter the Brand: "),
-        "Year": int(input("Enter the Year: ")),
-        "Engine": float(input("Enter the Engine size: ")),
-        "FuelConsumption": float(input("Enter the FuelConsumption: ")),
-        "Kilometres": float(input("Enter the Kilometres: ")),
-        "CylindersinEngine": int(input("Enter the number of Cylinders in Engine: ")),
-        "Doors": int(input("Enter the number of Doors: ")),
-        "Seats": int(input("Enter the number of Seats: ")),
-        "Transmission": input("Enter the Transmission type: "),
-        "DriveType": input("Enter the Drive type: "),
-        "FuelType": input("Enter the Fuel type: "),
-        "BodyType": input("Enter the Body type: "),
-        "UsedOrNew": "USED"
-    }
-    prediction=predictor.predict(user_input)
-    print(f"The predicted price of the vehicle is: {prediction}")
+if __name__=="__main__":
+    data_path='vehicle_AUS.csv'
+    data_handler=DataTransformation(data_path)
+    predictor=VehiclePricePredictor(data_handler)
+    predictor.optimize_model()
+    predictor.evaluate_model()
+    while True:
+        user_input={
+            "Brand": input("Enter the Brand: "),
+            "Year": int(input("Enter the Year: ")),
+            "Engine": float(input("Enter the Engine size: ")),
+            "FuelConsumption": float(input("Enter the FuelConsumption: ")),
+            "Kilometres": float(input("Enter the Kilometres: ")),
+            "CylindersinEngine": int(input("Enter the number of Cylinders in Engine: ")),
+            "Doors": int(input("Enter the number of Doors: ")),
+            "Seats": int(input("Enter the number of Seats: ")),
+            "Transmission": input("Enter the Transmission type: "),
+            "DriveType": input("Enter the Drive type: "),
+            "FuelType": input("Enter the Fuel type: "),
+            "BodyType": input("Enter the Body type: "),
+            "UsedOrNew": "USED"
+        }
+        prediction=predictor.predict(user_input)
+        print(f"The predicted price of the vehicle is: {prediction}")
 
