@@ -25,6 +25,7 @@ class HousingPricePredictor:
         self.select_optional_features()
         self.X=self.merged_df[self.feature_names]
         self.y=self.merged_df["Price"]
+        print(self.X.head())
         self.train_X, self.val_X, self.train_y, self.val_y=train_test_split(self.X, self.y, random_state=1)
         self.model=None
 
