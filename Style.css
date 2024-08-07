@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
    /* background-image: conic-gradient( 90deg ,  black , purple );   */
   /* background: rgb(113,25,156);*/
-   background: radial-gradient(circle, rgb(96, 0, 147) 0%, rgb(0, 0, 0) 100% );
+   background: radial-gradient(circle, rgb(96, 0, 147) 0%, rgb(0, 0, 0) 50% );
     margin: 0;
     display: flex;
     justify-content: center;
