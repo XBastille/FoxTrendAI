@@ -100,7 +100,7 @@ input[type="checkbox"] {
     color: #fff;
    /* height: 45px; */
     transform: scale(1.09);
-    transition-duration: 0.4s;
+    transition-duration: 0.3s;
 }
 
 
@@ -171,20 +171,23 @@ span{
 .fa-google:hover{
     color: rgb(3, 214, 24);
     transform: scale(1.2);
+    transition-duration: 0.3s;
 }
 
 .fa-windows:hover{
     color: rgb(53, 184, 255);
     transform: scale(1.2);
+    transition-duration: 0.3s;
 }
 
 .fa-linkedin:hover{
     color: rgb(23, 90, 166);
     transform: scale(1.2);
+    transition-duration: 0.3s;
 }
 
 .fa-github:hover{
     color: #b5b8bb;
     transform: scale(1.2);
+    transition-duration: 0.3s;
 }
-
