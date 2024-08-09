@@ -1,9 +1,9 @@
-# main.py
+import sys
 import datetime
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf
-import ta
+#import ta
 
 class StockDataVisualizer:
     def __init__(self, company_name):
@@ -14,7 +14,7 @@ class StockDataVisualizer:
         end_date=datetime.datetime.now()
         start_date=end_date-datetime.timedelta(days=25*365)
         stock_data=yf.download(self.company_name, start=start_date, end=end_date)
-        stock_data.drop(columns=["Open","High","Low","Adj Close","Volume"], inplace=True)
+        stock_data.drop(columns=["Open", "High", "Low", "Adj Close", "Volume"], inplace=True)
         return stock_data
 
     def plot_historical_data(self, start_date=None, end_date=None):
@@ -53,7 +53,7 @@ class StockDataVisualizer:
         plt.plot(df["MACD_signal"], label="MACD Signal", color="red")
         plt.bar(df.index, df["MACD_histogram"], label="MACD Histogram", color="green", alpha=0.3)
         self.plot_technical_indicators_28(' MACD', "MACD")
-        
+
     def plot_technical_indicators_2(self, start_date, end_date):
         result=self.stock_data.copy()
         if start_date:
@@ -73,15 +73,15 @@ class StockDataVisualizer:
         plt.grid()
         plt.show()
 
-    def run(self):
-        start_date=input("Enter the start date for the plots (YYYY-MM-DD) or press Enter to use the full date range: ")
-        end_date=input("Enter the end date for the plots (YYYY-MM-DD) or press Enter to use the full date range: ")
-        start_date=start_date or None
-        end_date=end_date or None
+    def run(self, start_date, end_date):
         self.plot_historical_data(start_date, end_date)
-        #self.plot_technical_indicators(start_date, end_date)
+        # self.plot_technical_indicators(start_date, end_date)
 
-if __name__=="__main__":
-    company_name=input("Enter the company ticker (e.g., TSLA): ")
+if __name__ == "__main__":
+    if len(sys.argv)<2:
+        sys.exit(1)
+    company_name=sys.argv[1]
+    start_date=sys.argv[2] if len(sys.argv)>2 else None
+    end_date=sys.argv[3] if len(sys.argv)>3 else None
     visualizer=StockDataVisualizer(company_name)
-    visualizer.run()
+    visualizer.run(start_date, end_date)
