@@ -75,7 +75,7 @@ class StockPredictor:
         study=optuna.create_study(direction="minimize")
         study.optimize(objective, n_trials=2)
         best_params=study.best_trial.params
-        print("Best parameters found by Optuna:")
+        #print("Best parameters found by Optuna:")
         #for key, value in best_params.items():
         #    print(f"{key}: {value}")
         return best_params
@@ -102,11 +102,10 @@ class StockPredictor:
         df_and_future=pd.concat([self.df_xgb, future_df])
         df_and_future=self.create_features(df_and_future)
         df_and_future=self.add_lags(df_and_future)
-        print(df_and_future.head())
         future_w_features=df_and_future.query("isFuture").copy()
         future_w_features["pred"]=model.predict(future_w_features.drop(columns=["Close", "isFuture"]))
         prediction_xgb=pd.DataFrame(future_w_features["pred"])
-        prediction_xgb.index.name="Date"
+        prediction_xgb.index.name = "Date"
         '''plt.figure(figsize=(10, 6))
         plt.plot(prediction_xgb.index, prediction_xgb["pred"], color="green", label="Predicted Future Values")
         plt.title(f"Predicted Future Values for {self.company_name} (Next {self.num_days_pred} days)")
@@ -143,7 +142,8 @@ class StockPredictor:
             print("The model predicts a downward trend. It might be better to wait.")'''
 
 if __name__=="__main__":
-    if len(sys.argv)<3:
+    if len(sys.argv) < 3:
+        print("Usage: python model_2.py <company_name> <num_days_pred>")
         sys.exit(1)
     company_name=sys.argv[1]
     num_days_pred=int(sys.argv[2])
