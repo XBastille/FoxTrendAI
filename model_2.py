@@ -142,8 +142,7 @@ class StockPredictor:
             print("The model predicts a downward trend. It might be better to wait.")'''
 
 if __name__=="__main__":
-    if len(sys.argv) < 3:
-        print("Usage: python model_2.py <company_name> <num_days_pred>")
+    if len(sys.argv)<3:
         sys.exit(1)
     company_name=sys.argv[1]
     num_days_pred=int(sys.argv[2])
