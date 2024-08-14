@@ -16,6 +16,7 @@ class StockPredictor:
     def __init__(self, company_name, num_days_pred, stock_data):
         self.company_name=company_name
         self.num_days_pred=num_days_pred
+        stock_data.drop(columns=["Open", "High", "Low", "Volume"], inplace=True)
         self.stock_data=stock_data
         self.df_xgb=self.prepare_data()
 
@@ -105,7 +106,7 @@ class StockPredictor:
         future_w_features=df_and_future.query("isFuture").copy()
         future_w_features["pred"]=model.predict(future_w_features.drop(columns=["Close", "isFuture"]))
         prediction_xgb=pd.DataFrame(future_w_features["pred"])
-        prediction_xgb.index.name = "Date"
+        prediction_xgb.index.name="Date"
         '''plt.figure(figsize=(10, 6))
         plt.plot(prediction_xgb.index, prediction_xgb["pred"], color="green", label="Predicted Future Values")
         plt.title(f"Predicted Future Values for {self.company_name} (Next {self.num_days_pred} days)")
@@ -129,10 +130,7 @@ class StockPredictor:
         #print(f"R² Score: {r2}")
         #print(f"Mean Absolute Percentage Error: {mape}%")
         future_predictions=self.predict_future(best_model)
-        X=future_predictions.index.strftime('%Y-%m-%d').tolist() 
-        Y=future_predictions["pred"].tolist()
-        print(X)
-        print(Y)
+        future_predictions.to_csv("stock_data.csv")
         percentage_change=self.calculate_percentage_change(future_predictions["pred"])
         '''print(f"Predicted Future Prices:\n{future_predictions}")
         print(f"Predicted percentage change over the next {self.num_days_pred} days: {percentage_change:.2f}%")
