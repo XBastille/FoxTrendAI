@@ -6,7 +6,7 @@ FoxTrendAI is a comprehensive platform currently under development, designed to 
 
 ## Features
 
-- **Used Car Price Analysis**: Determine the fair market value of used vehicles.
+- **Used Car Price Prediction**: Determine the fair market value of used vehicles.
 - **Loan Approval Prediction**: Assess the likelihood of loan approval for applicants.
 - **Loan Eligibility Prediction**: Evaluate applicant eligibility for various loan products.
 - **House Price Prediction**: Predict the selling prices of residential properties.
