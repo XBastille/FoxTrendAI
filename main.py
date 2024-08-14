@@ -14,11 +14,23 @@ class StockDataVisualizer:
         end_date=datetime.datetime.now()
         start_date=end_date-datetime.timedelta(days=25*365)
         stock_data=yf.download(self.company_name, start=start_date, end=end_date)
-        stock_data.drop(columns=["Open", "High", "Low", "Adj Close", "Volume"], inplace=True)
+        stock_data.drop(columns=["Adj Close"], inplace=True)
         return stock_data
+
+    def calculate_price_change(self):
+        close_price=self.stock_data["Close"].iloc[-1]
+        previous_close=self.stock_data["Close"].iloc[-2]
+        price_change=close_price-previous_close
+        percentage_change=(price_change/previous_close)*100
+        return price_change, percentage_change
 
     def plot_historical_data(self, start_date=None, end_date=None):
         df=self.plot_technical_indicators_2(start_date, end_date)
+        price_change, percentage_change=self.calculate_price_change()
+        if price_change>0:
+            print(f"+{price_change:.2f}  (+{percentage_change:.2f}%)")
+        else:
+            print(f"{price_change:.2f}  ({percentage_change:.2f}%)")
         df.to_csv("stock_data.csv")
         '''plt.figure(figsize=(14,7))
         plt.plot(df["Close"], label="Historical Close Prices")
