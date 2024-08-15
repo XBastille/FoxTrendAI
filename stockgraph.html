@@ -18,15 +18,23 @@
             complete: function(results) {
                 const xarray = [];
                 const yarray = [];
-                
+                const customdata=[];
+
                 results.data.forEach(row => {
                     xarray.push(row['Date']);
                     yarray.push(parseFloat(row['Close']));
+                    customdata.push({
+                        Open:parseFloat(row['Open']).toFixed(2),
+                        High:parseFloat(row['High']).toFixed(2),
+                        Low:parseFloat(row['Low']).toFixed(2),
+                        Volume:parseInt(row['Volume']),
+                    })
                 });
                 
                 const data=[{
                     x:xarray,
                     y:[],
+                    customdata:customdata,
                     mode:"lines",
                     type:"scatter",
                     fill:"tozeroy",
@@ -36,7 +44,15 @@
                     },
                     line:{
                         width:2
-                    }
+                    },
+                    hovertemplate: 
+                        'Date: %{x}<br>' +
+                        'Close: %{y}<br>' +
+                        `Open: %{customdata.Open}<br>` +
+                        `High: %{customdata.High}<br>` +
+                        `Low: %{customdata.Low}<br>` +
+                        `Volume: %{customdata.Volume}<br>` +
+                        '<extra></extra>', 
                 }];
                 const layout={
                     xaxis:{range:[xarray[0], xarray[xarray.length-1]],title:{
@@ -83,6 +99,7 @@
                     Plotly.react("myplot",[{
                       x:xarray,
                       y:yarray,
+                      customdata:customdata,
                      mode:"lines",
                     type:"scatter",
                     fill:"tozeroy",
@@ -92,7 +109,15 @@
                     },
                     line:{
                         width:2
-                    }
+                    },
+                    hovertemplate: 
+                        'Date: %{x}<br>' +
+                        'Close: %{y}<br>' +
+                        `Open: %{customdata.Open}<br>` +
+                        `High: %{customdata.High}<br>` +
+                        `Low: %{customdata.Low}<br>` +
+                        `Volume: %{customdata.Volume}<br>` +
+                        '<extra></extra>', 
                     }],layout)
                     cancelAnimationFrame(id);
                 }
