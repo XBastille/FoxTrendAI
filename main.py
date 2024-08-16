@@ -6,8 +6,9 @@ import yfinance as yf
 #import ta
 
 class StockDataVisualizer:
-    def __init__(self, company_name):
+    def __init__(self, company_name, index):
         self.company_name=company_name
+        self.index=index
         self.stock_data=self.download_stock_data()
 
     def download_stock_data(self):
@@ -22,16 +23,16 @@ class StockDataVisualizer:
         previous_close=self.stock_data["Close"].iloc[-2]
         price_change=close_price-previous_close
         percentage_change=(price_change/previous_close)*100
-        return price_change, percentage_change
+        return price_change,percentage_change
 
     def plot_historical_data(self, start_date=None, end_date=None):
         df=self.plot_technical_indicators_2(start_date, end_date)
-        price_change, percentage_change=self.calculate_price_change()
+        price_change,percentage_change=self.calculate_price_change()
         if price_change>0:
             print(f"+{price_change:.2f}  (+{percentage_change:.2f}%)")
         else:
             print(f"{price_change:.2f}  ({percentage_change:.2f}%)")
-        df.to_csv("stock_data.csv")
+        df.to_csv(f"stock_data_{self.index}.csv")
         '''plt.figure(figsize=(14,7))
         plt.plot(df["Close"], label="Historical Close Prices")
         plt.title(f"Historical Close Prices for {self.company_name}")
@@ -90,10 +91,12 @@ class StockDataVisualizer:
         # self.plot_technical_indicators(start_date, end_date)
 
 if __name__ == "__main__":
-    if len(sys.argv)<2:
+    if len(sys.argv)<3:
         sys.exit(1)
-    company_name=sys.argv[1]
-    start_date=sys.argv[2] if len(sys.argv)>2 else None
-    end_date=sys.argv[3] if len(sys.argv)>3 else None
-    visualizer=StockDataVisualizer(company_name)
-    visualizer.run(start_date, end_date)
+    num_companies=int(sys.argv[1])
+    companies=sys.argv[2:2+num_companies]
+    start_date=sys.argv[2+num_companies] if len(sys.argv)>2+num_companies else None
+    end_date=sys.argv[3+num_companies] if len(sys.argv)>3+num_companies else None
+    for i, company_name in enumerate(companies, start=1):
+        visualizer=StockDataVisualizer(company_name, i)
+        visualizer.run(start_date, end_date)
