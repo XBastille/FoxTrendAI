@@ -4,13 +4,13 @@ import optuna
 import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
-from sklearn.metrics import mean_squared_error, r2_score
-from xgboost import XGBRegressor
-from main import StockDataVisualizer
 import warnings
 import requests
-from bs4 import BeautifulSoup
 import nltk
+from xgboost import XGBRegressor
+from main import StockDataVisualizer
+from sklearn.metrics import mean_squared_error, r2_score
+from bs4 import BeautifulSoup
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 warnings.filterwarnings("ignore")
