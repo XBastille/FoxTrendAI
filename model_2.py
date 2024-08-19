@@ -44,12 +44,10 @@ class StockPredictor:
         df["dayofyear"]=df.index.dayofyear
         df["dayofmonth"]=df.index.day
         df["weekofyear"]=df.index.isocalendar().week
-        ma_windows=[self.num_days_pred, 2*self.num_days_pred]
-        for window in ma_windows:
-            df[f"MA{window}"]=df["Close"].rolling(window=window).mean()
-        df["volatility"]=df["Close"].rolling(window=self.num_days_pred).std()
-        df["EMA"]=df["Close"].ewm(span=self.num_days_pred, adjust=False).mean()
-        df["momentum"]=df["Close"]-df["Close"].shift(self.num_days_pred//2)
+        df[f"MA{self.num_days_pred}"]=df["Close"].rolling(window=self.num_days_pred).mean()
+        df[f"volatility_{self.num_days_pred}"]=df["Close"].rolling(window=self.num_days_pred).std()
+        df[f"EMA{self.num_days_pred}"]=df["Close"].ewm(span=self.num_days_pred, adjust=False).mean()
+        df[f"momentum_{self.num_days_pred}"]=df["Close"]-df["Close"].shift(self.num_days_pred)
         df["sentiment"]=self.get_sentiment_score()
         return df
 
