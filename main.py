@@ -1,9 +1,9 @@
 import sys
 import datetime
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf
-#import ta
+import ta
 
 class StockDataVisualizer:
     def __init__(self, company_name, index):
@@ -50,7 +50,8 @@ class StockDataVisualizer:
         bollinger=ta.volatility.BollingerBands(df["Close"], window=20, window_dev=2)
         df["Bollinger_hband"]=bollinger.bollinger_hband()
         df["Bollinger_lband"]=bollinger.bollinger_lband()
-        plt.figure(figsize=(14,7))
+        df[["SMA50", "SMA200", "RSI", "MACD", "MACD_signal", "MACD_histogram", "Bollinger_hband", "Bollinger_lband"]].to_csv(f"technical_indicators_{self.index}.csv")
+        '''plt.figure(figsize=(14,7))
         plt.plot(df["Close"], label="Close Price")
         plt.plot(df["SMA50"], label="50-Day SMA")
         plt.plot(df["SMA200"], label="200-Day SMA")
@@ -65,7 +66,7 @@ class StockDataVisualizer:
         plt.plot(df["MACD"], label="MACD", color="blue")
         plt.plot(df["MACD_signal"], label="MACD Signal", color="red")
         plt.bar(df.index, df["MACD_histogram"], label="MACD Histogram", color="green", alpha=0.3)
-        self.plot_technical_indicators_28(' MACD', "MACD")
+        self.plot_technical_indicators_28(' MACD', "MACD")'''
 
     def plot_technical_indicators_2(self, start_date, end_date):
         result=self.stock_data.copy()
@@ -88,7 +89,7 @@ class StockDataVisualizer:
 
     def run(self, start_date, end_date):
         self.plot_historical_data(start_date, end_date)
-        # self.plot_technical_indicators(start_date, end_date)
+        self.plot_technical_indicators(start_date, end_date)
 
 if __name__ == "__main__":
     if len(sys.argv)<3:
