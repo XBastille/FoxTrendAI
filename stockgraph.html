@@ -332,9 +332,37 @@
                     }
                 }];
                 Plotly.newPlot("rsigraph",rsitrace,rsilayout,)
+                const ys=new Array(xarray.length).fill(70)
+                const ysi=new Array(xarray.length).fill(30)
+                Plotly.addTraces("rsigraph",{
+                    x:xarray,
+                    y:ys,
+                    mode:"lines",
+                    type:"scatter",
+                    name:"overbought (70)",
+                    line:{
+                        color:"red",
+                        width:2
+                    }
+                })
+                Plotly.addTraces("rsigraph",{
+                    x:xarray,
+                    y:ysi,
+                    mode:"lines",
+                    type:"scatter",
+                    name:"oversold (30)",
+                    line:{
+                        color:"red",
+                        width:2
+                    }
+                })
+
                 })      
             }
         })
+                
+           
+          
 
         //MACD MARK
         const macd=document.getElementById('macd');
