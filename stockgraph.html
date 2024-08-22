@@ -11,7 +11,7 @@
 <body>
     <div id="myplot" style="width:100%; height:100%;"></div>
     <button id="stp">Show Full Graph</button>
-    <button id="second">add second graph</button>
+    <button id="second">add graph</button>
     <button id="boilenger">Boilenger Bands</button>
     <button id="macd">MACD</button>
     <button id="rsi">RSI</button>
@@ -144,9 +144,9 @@
 
         const second=document.getElementById("second")
         second.addEventListener("click",fus);
-
+         let i=2;
         function fus(){
-            Papa.parse("stock_data_2.csv", {
+            Papa.parse("stock_data_"+`${i}`+".csv", {
             download: true,
             header: true,
             complete: function(results) {
@@ -185,8 +185,12 @@
                 }];
                 
                 Plotly.addTraces("myplot",tarce2);
+                i++;
             }
-        });
+           
+         });
+         
+      }
 
         //BOILENGER BAND GRAPH
         Papa.parse("stock_data_1.csv", {
@@ -432,8 +436,6 @@
             }
           })
         })
-
-    }
     </script>
 </body>
 </html>
