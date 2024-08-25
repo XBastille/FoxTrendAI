@@ -71,8 +71,10 @@ class StockDataVisualizer:
     def plot_technical_indicators_2(self, start_date, end_date):
         result=self.stock_data.copy()
         if start_date:
+            start_date = pd.to_datetime(start_date, format="%d-%m-%Y")
             result=result[result.index>=pd.to_datetime(start_date)]
         if end_date:
+            end_date = pd.to_datetime(end_date, format="%d-%m-%Y")
             result=result[result.index<=pd.to_datetime(end_date)]
         return result
 
@@ -98,6 +100,10 @@ if __name__ == "__main__":
     companies=sys.argv[2:2+num_companies]
     start_date=sys.argv[2+num_companies] if len(sys.argv)>2+num_companies else None
     end_date=sys.argv[3+num_companies] if len(sys.argv)>3+num_companies else None
+    if start_date:
+        start_date = datetime.datetime.strptime(start_date, "%d-%m-%Y").strftime("%d-%m-%Y")
+    if end_date:
+        end_date = datetime.datetime.strptime(end_date, "%d-%m-%Y").strftime("%d-%m-%Y")
     for i, company_name in enumerate(companies, start=1):
         visualizer=StockDataVisualizer(company_name, i)
         visualizer.run(start_date, end_date)
