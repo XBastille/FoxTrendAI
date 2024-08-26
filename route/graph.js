@@ -22,7 +22,7 @@ router.post('/trials', (req, res) => {
 
     console.log("Arguments :"+args)
 
-    const pyone=spawn('python', ['main.py', ...args]);
+    const pyone=spawn('python', ['./main.py', ...args]);
     pyone.stdout.on('data', function (data) {
         data1+=data.toString();
     });
