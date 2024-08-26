@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <form action="/trials" method="POST">
+            <br><br><br>
+            <div>
+                <h3>Enter the number of companies</h3>
+                <input type="number" name="numCompanies" required>
+            </div>
+            <div>
+                <h3>Enter the names of comapnies</h3>
+                <input type="text" name="tickers" required>
+            </div>
+            <div>
+                <h3>Starting date</h3>
+                <input type="date" id="date" name="startDate" required>
+                <h3>Ending date</h3>
+                <input type="date" id="date" name="endDate" id="date" required>
+            </div>
+            <br><br>
+            <button id="submit">Submit</button>
+        </form>
+    </center>
+</body>
+
+</html>
