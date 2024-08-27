@@ -1,6 +1,6 @@
 import sys
 import datetime
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf
 import ta
