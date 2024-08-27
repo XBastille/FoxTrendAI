@@ -7,6 +7,8 @@ app.set('view engine', 'hbs');
 
 app.use(express.urlencoded({ extended: false }))
 
+app.use(express.static('public'))
+
 app.use("/",require("./route/graph"))
 
 app.listen(port, ()=>{
