@@ -32,7 +32,7 @@ class StockDataVisualizer:
             print(f"+{price_change:.2f}  (+{percentage_change:.2f}%)")
         else:
             print(f"{price_change:.2f}  ({percentage_change:.2f}%)")
-        df.to_csv(f"stock_data_{self.index}.csv")
+        df.to_csv(f"public/stock_data_{self.index}.csv")
         '''plt.figure(figsize=(14,7))
         plt.plot(df["Close"], label="Historical Close Prices")
         plt.title(f"Historical Close Prices for {self.company_name}")
@@ -50,7 +50,7 @@ class StockDataVisualizer:
         bollinger=ta.volatility.BollingerBands(df["Close"], window=20, window_dev=2)
         df["Bollinger_hband"]=bollinger.bollinger_hband()
         df["Bollinger_lband"]=bollinger.bollinger_lband()
-        df[["SMA50", "SMA200", "RSI", "MACD", "MACD_signal", "MACD_histogram", "Bollinger_hband", "Bollinger_lband"]].to_csv(f"technical_indicators_{self.index}.csv")
+        df[["SMA50", "SMA200", "RSI", "MACD", "MACD_signal", "MACD_histogram", "Bollinger_hband", "Bollinger_lband"]].to_csv(f"public/technical_indicators_{self.index}.csv")
         '''plt.figure(figsize=(14,7))
         plt.plot(df["Close"], label="Close Price")
         plt.plot(df["SMA50"], label="50-Day SMA")
