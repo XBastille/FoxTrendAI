@@ -1,5 +1,6 @@
 
 const express=require('express');
+const path=require("path")
 const router = express.Router();
 const { spawn }=require('child_process');
 
@@ -29,7 +30,8 @@ router.post('/trials', (req, res) => {
 
     pyone.on('close', (code)=>{
         console.log(`child process close all stdio with code ${code}`);
-        res.send(data1);
+        // res.sendFile(path.resolve(__dirname,"C:/Users/Abhinav Sharma/OneDrive/Desktop/deployment/views/graphss.html/"));
+        res.render("graph")
     });
 });
 
