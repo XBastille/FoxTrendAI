@@ -52,7 +52,7 @@ class StockPredictor:
         df["sentiment"]=self.get_sentiment_score()
         return df
 
-    def get_sentiment_score(self):
+def get_sentiment_score(self):
         headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
         url=f"https://finance.yahoo.com/quote/{self.company_name}/news?p={self.company_name}"
         r=requests.get(url, headers=headers)
@@ -64,10 +64,13 @@ class StockPredictor:
         ticker=yf.Ticker(self.company_name)
         company_info=ticker.info
         company_name=company_info.get('longName', 'Name not available')
+        print(company_name.split()[0].lower())
         for headline in headlines:
-            if self.company_name in headline or company_name[0].lower() in headline.lower():
+            if self.company_name in headline or company_name.split()[0].lower() in headline.lower():
+                print(headline)
                 sentiment=sid.polarity_scores(headline)
-                sentiment_scores.append(sentiment['compound'])
+                sentiment_scores.append(sentiment['compound'])  
+        print(sentiment_scores)
         return np.mean(sentiment_scores) if sentiment_scores else 0
 
     def prepare_data(self):
