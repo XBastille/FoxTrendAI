@@ -52,24 +52,25 @@ class StockPredictor:
         df["sentiment"]=self.get_sentiment_score()
         return df
 
-def get_sentiment_score(self):
+    def get_sentiment_score(self):
         headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
         url=f"https://finance.yahoo.com/quote/{self.company_name}/news?p={self.company_name}"
         r=requests.get(url, headers=headers)
         soup=BeautifulSoup(r.text, "lxml")
         headlines=[headline.text for headline in soup.find_all("h3", class_="clamp yf-1044anq")]
-        nltk.download('vader_lexicon')
-        sid=SentimentIntensityAnalyzer()
+        tokenizer=BertTokenizer.from_pretrained('yiyanghkust/finbert-tone')
+        model=BertForSequenceClassification.from_pretrained('yiyanghkust/finbert-tone')
+        sentiment_analyzer=pipeline('sentiment-analysis', model=model, tokenizer=tokenizer, return_all_scores=True)
         sentiment_scores=[]
         ticker=yf.Ticker(self.company_name)
         company_info=ticker.info
         company_name=company_info.get('longName', 'Name not available')
-        print(company_name.split()[0].lower())
         for headline in headlines:
             if self.company_name in headline or company_name.split()[0].lower() in headline.lower():
                 print(headline)
-                sentiment=sid.polarity_scores(headline)
-                sentiment_scores.append(sentiment['compound'])  
+                sentiment=sentiment_analyzer(headline)
+                compound_score=sentiment[0][1]['score']-sentiment[0][2]['score']  
+                sentiment_scores.append(compound_score)
         print(sentiment_scores)
         return np.mean(sentiment_scores) if sentiment_scores else 0
 
