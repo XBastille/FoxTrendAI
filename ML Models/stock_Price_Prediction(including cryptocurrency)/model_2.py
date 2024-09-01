@@ -6,12 +6,10 @@ import matplotlib.pyplot as plt
 import yfinance as yf
 import warnings
 import requests
-import nltk
 from xgboost import XGBRegressor
 from main import StockDataVisualizer
 from sklearn.metrics import mean_squared_error, r2_score
 from bs4 import BeautifulSoup
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 warnings.filterwarnings("ignore")
 
