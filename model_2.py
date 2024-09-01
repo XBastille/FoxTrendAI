@@ -4,15 +4,14 @@ import optuna
 import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
+import warnings
 import requests
 import nltk
-import sys
 from xgboost import XGBRegressor
 from main import StockDataVisualizer
 from sklearn.metrics import mean_squared_error, r2_score
 from bs4 import BeautifulSoup
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-import warnings
 
 warnings.filterwarnings("ignore")
 
@@ -57,16 +56,18 @@ class StockPredictor:
         r=requests.get(url, headers=headers)
         soup=BeautifulSoup(r.text, "lxml")
         headlines=[headline.text for headline in soup.find_all("h3", class_="clamp yf-1044anq")]
-        nltk.download('vader_lexicon')
-        sid=SentimentIntensityAnalyzer()
+        tokenizer=BertTokenizer.from_pretrained('yiyanghkust/finbert-tone')
+        model=BertForSequenceClassification.from_pretrained('yiyanghkust/finbert-tone')
+        sentiment_analyzer=pipeline('sentiment-analysis', model=model, tokenizer=tokenizer, return_all_scores=True)
         sentiment_scores=[]
         ticker=yf.Ticker(self.company_name)
         company_info=ticker.info
         company_name=company_info.get('longName', 'Name not available')
         for headline in headlines:
-            if self.company_name in headline or company_name[0].lower() in headline.lower():
-                sentiment=sid.polarity_scores(headline)
-                sentiment_scores.append(sentiment['compound'])
+            if self.company_name in headline or company_name.split()[0].lower() in headline.lower():
+                sentiment=sentiment_analyzer(headline)
+                compound_score=sentiment[0][1]['score']-sentiment[0][2]['score']  
+                sentiment_scores.append(compound_score)
         return np.mean(sentiment_scores) if sentiment_scores else 0
 
     def prepare_data(self):
