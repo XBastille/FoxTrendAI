@@ -14,7 +14,7 @@ class StockDataVisualizer:
         start_date=end_date - datetime.timedelta(days=25*365)
         stock_data=yf.download(self.company_name, start=start_date, end=end_date)
         print(yf.Ticker(self.company_name).info)
-        stock_data.drop(columns=["Open", "High", "Low", "Adj Close", "Volume"], inplace=True)
+        #stock_data.drop(columns=["Open", "High", "Low", "Adj Close", "Volume"], inplace=True)
         return stock_data
 
     def calculate_price_change(self):
