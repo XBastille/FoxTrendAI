@@ -3,44 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="signupPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 <body>
 
-    <form>
-        <center>
-            <h1>Sign Up</h1>
-            <h5>Hi! Welcome &#128075;</h5>
-            <div class="textBox">
-                <input type="text" id="name" placeholder="Enter your Name">
-            </div>
-            <br>
-            <div class="textBox">
-                <input type="text" id="Username" placeholder="Enter your Username">
-            </div>
-            <br>
-            <div class="email"></div>
-            <div class="textBox">
-                <input type="text" id = "email" placeholder="Enter your Email">
-            </div> 
-             <div class="Password"></div>
-             <br>
-             <div class="textBox">
-                <input type="password" id="password" placeholder="Enter your Password">
-            </div>
-            <br>
-            <div class="textBox">
-                <input type="password" id="Cpassword" placeholder="Confirm your Password">
-            </div>
-            <br>
-              <button type = "submit" class="signinbutton"> Sign Up </button>
-              <br>
-              <br>
-              <br>
-              <br>
-              
+    <div class="form-container">
+        <form id="signup-form">
+            <center>
+                <h1>Let's get started -></h1>
+                <h2 class="grand-signup-text">Sign Up</h2>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+
+                <div class="step" id="step-1">
+                    <div class="textBox">
+                        <input type="text" id="name" placeholder="Enter your Name">
+                    </div>
+                    <div class="textBox">
+                        <input type="text" id="username" placeholder="Enter your Username">
+                    </div>
+                </div>
+
+                <div class="step" id="step-2">
+                    <div class="textBox">
+                        <input type="text" id="email" placeholder="Enter your Email">
+                    </div>
+                </div>
+
+                <div class="step" id="step-3">
+                    <div class="textBox">
+                        <input type="password" id="password" placeholder="Enter your Password">
+                    </div>
+                    <div class="textBox">
+                        <input type="password" id="confirm-password" placeholder="Confirm your Password">
+                    </div>
+                </div>
+
+                <div class="step" id="step-4">
+                    <h2 class="summary-title">Summary</h2>
+                    <div class="summary-info">
+                        <p><span class="summary-label">Name:</span> <span id="summary-name" class="summary-data"></span></p>
+                        <p><span class="summary-label">Username:</span> <span id="summary-username" class="summary-data"></span></p>
+                        <p><span class="summary-label">Email:</span> <span id="summary-email" class="summary-data"></span></p>
+                    </div>
+                </div>
+
+                <button type="button" class="signinbutton" id="next-button">Next</button>
+
               <div class="logo">
                 <i class="fa-brands fa-google fa-2xl "></i>
                 <i class="fa-brands fa-github fa-2xl"></i>
@@ -49,10 +61,10 @@
               </div>
               
               
-        </center>
-         <script src="script.js"></script>
-
-    </form>
-     
+            </center>
+        </form>
+    </div>
+    <script src="signupPage.js"></script>
     
 </body>
+</html>
