@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoxTrendAI - Home</title>
     <link rel="stylesheet" href="introPage.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+
     <div class="bg-container">
-    <header>
-        <img src="#" alt="Company Logo" class="logo"> 
+    <header>  
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66d91eed&is=66d7cd6d&hm=c975478b685c5a28864b4348cdb8d709a9bdb10a97ccd3348837922aab8c31fc&" class="logo">
         <nav>
             <ul class="navbar">
                 <li>
                     <a href="#">Services</a>
                     <ul class="dropdown1">
-                        <li><a href="#">Housing Price</a> (coming soon)</li>
-                        <li><a href="#">Loan Approval</a> (coming soon)</li>
-                        <li><a href="#">Online Payment Fraud</a> (coming soon)</li>
-                        <li><a href="#">Used Car Price</a> (coming soon)</li>
-                        <li><a href="#">Stock Price Prediction</a></li>
+                        <li><a href="#">Housing Price (coming soon)</a> </li>
+                        <li><a href="#">Loan Approval (coming soon)</a> </li>
+                        <li><a href="#">Used Car Price (coming soon)</a></li>
+                        <li><a href="#">Stock Price Prediction (coming soon)</a></li>
                     </ul>
                 </li>
                 <li>
@@ -39,121 +43,156 @@
         </nav>
     </header>
 
-    <main>
         <section class="intro">
+            <div>
+                <video autoplay muted loop id="background-video">
+                    <source src="stock_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             <h1>Transforming Data into  </h1>
-            <h3>Decision-Making Power</h3>
-            <h2>Leverage AI-driven predictions to navigate financial markets </h2>
-            <h4>real estate, loans, and more with confidence</h4>
+            <h3><span class="purple-gradient">Decision-Making</span>&nbsp;power</h3>              
+            <h2>Leverage AI-driven predictions to navigate financial markets real estate</h2>
+            <h4> loans, and more with confidence</h4>
+            </div>
+            <div class="cta1">
             <div class="cta-buttons">
-                <button class="text1">Sign Up</span></button>
+                <button class="text1"><span>Sign Up</span></button>
             </div>
             <div class="cta-buttons 2">
-                <button class = "text2">Learn More</span></button>
+                <button class = "text2"><span>Learn More</span></button>
+            </div>
             </div>
         </section>
-        
-        <section class="industries">
-            <h2>Our Expertise</h2>
-            <ul>
-                <li>
-                    Housing Price Prediction
-                    <img src="#" alt="House">
-                </li>
-                <li>
-                    Loan Approval
-                    <img src="#" alt="Documents">
-                </li>
-                <li>
-                    Online Payment
-                    <img src="#" alt="Online Payment">
-                </li>
-                <li>
-                    Used Car Price Prediction
-                    <img src="#" alt="Car">
-                </li>
-                <li>
-                    Stock Price Prediction
-                    <img src="#" alt="Graphs">
-                </li>
-            </ul>
-        </section>
 
-        <section class="services">
+        <section class="industries">
             <h2>Our Services</h2>
             <ul>
-                <li>
-                    <img src="#" alt="House">
-                    <h4><a href="#">Housing Price Prediction</a></h4>
-                    <p>Utilize our location-specific models to ensure your property valuation is accurate, taking into account regional market trends, neighborhood characteristics, and local demand factors.</p>
-                    <button class="btn-secondary">Learn More</button>
+                <li class = "StockButton" >
+                    Stock Price 
                 </li>
-                <li>
-                    <img src="#" alt="Documents">
-                    <h4><a href="#">Loan Approval</a></h4>
-                    <p>Our platform analyzes your credit score, income, employment history, and other key factors to provide a personalized prediction of your loan approval chances.</p>
-                    <button class="btn-secondary">Learn More</button>
+                <li  class="loanButton">
+                    Loan Approval
                 </li>
-                <li>
-                    <img src="#" alt="Online Payment">
-                    <h4><a href="#">Online Payment fraud detection</a></h4>
-                    <p>Description of the service.</p>
-                    <button class="btn-secondary">Learn More</button>
+                <li  class="carButton">
+                    Used Car Price Prediction
                 </li>
-                <li>
-                    <img src="#" alt="Car">
-                    <h4><a href="#">Used Car Price Prediction</a></h4>
-                    <p>Get predictions backed by extensive market data, including recent sales, regional trends, and vehicle depreciation rates, ensuring you receive the most accurate and relevant price estimate.</p>
-                    <button class="btn-secondary">Learn More</button>
-                </li>
-                <li>
-                    <img src="#" alt="Graphs">
-                    <h4><a href="#">Stock Price Prediction</a></h4>
-                    <p>Access real-time data and insights for any company, including cryptocurrency. Our platform provides you with all the essential market information, from historical prices to current trends, ensuring you stay ahead of the curve.</p>
-                    <button class="btn-secondary">Learn More</button>
+                <li  class="HouseButton">
+                    Housing Price Prediction
                 </li>
             </ul>
+
+            <div  id="StockContent">
+                <img  src="https://cdn.discordapp.com/attachments/1210646327088906302/1274452642755772438/1eb7bba4-9a85-45de-9d6a-67f0f3ffb5a8.png?ex=66d96044&is=66d80ec4&hm=0298ca510683c092cf8a4fce081bc66d6ce51af8bc68b8d26a955b66c4d9e0ea&">
+                <p class="Sdesc1">Access real-time data and insights for any company, including cryptocurrency.</p>
+                <p class="Sdesc2">  Our platform provides you with all the essential market information, from </p>
+                <p class="Sdesc3">  historical prices to current trends, ensuring you stay ahead of the curve. </p>
+
+                <div class="cta2">
+                    <div class="cta-buttons 2">
+                        <button>Learn More</button>
+                    </div>
+                    </div>
+            </div>
+           
+            <div  id="LoanContent">
+                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1274692179385647156/163ade66-5a46-4fb8-bf75-858c29bae3d6.png?ex=66d9969a&is=66d8451a&hm=26b87e6d9b0033d638616b1ca09c2e58f4f7b69b3f127f260a977f1dd1bea2ed&">
+                <p class="Ldesc1">Our platform analyzes your credit score, income, employment history and other</p>
+                <p class="Ldesc2"> Key factors to provide a personalized prediction of your loan approval chances.</p>
+
+                <div class="cta2">
+                    <div class="cta-buttons 2">
+                        <button>Learn More</button>
+                    </div>
+                    </div>
+            </div>
+
+            <div id="CarContent">
+                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1274682570776379502/d5769398-682d-41d5-b4e1-ec0f88436b4c.png?ex=66d98da7&is=66d83c27&hm=014be24d9014864f400527db46837cba041b3b9e866ceb6b1d85f66bffccf6e9&">
+                <p class="Cdesc1">Get predictions backed by extensive market data, including recent sales, regional trends</p>
+                <p class="Cdesc2"> And vehicle depreciation ensuring you receive the most accurate and relevant price estimate.</p>
+
+                <div class="cta2">
+                    <div class="cta-buttons 2">
+                        <button>Learn More</button>
+                    </div>
+                    </div>
+
+            </div>
+
+            <div  id="HouseContent">
+                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1274676309510852618/f10c8c30-7564-423e-ab8b-12f3bfed98f9.png?ex=66d987d2&is=66d83652&hm=71410750f7a47afad69ff380b771666543e33c4118f797482b4dce7dcdf9e7da&">
+                <p class="Hdesc1">Utilize our location-specific models to ensure your property valuation is accurate taking</p>
+                <p class="Hdesc2"> Into account  regional market trends, neighborhood characteristics, and local demand factors.</p>
+
+                <div class="cta2">
+                    <div class="cta-buttons 2">
+                        <button>Learn More</button>
+                    </div>
+                    </div>
+                    
+            </div>
+            
+          
         </section>
 
-        <section class="about-us">
-            <h2>ABOUT</h2>
-            <p>We are a team of passionate computer science students, all set to begin our second year of studies. Our group is composed of two skilled frontend developers, a versatile fullstack developer with a strong focus on backend, and a dedicated machine learning engineer. What brought us together is our shared love for programming, development, and all things tech.
-
-                Our journey began in the classroom, where we quickly realized that we shared not just a timetable but a deep passion for coding. It wasn’t long before we decided to channel that enthusiasm into something tangible—a full-scale web application, which also marks our first collaborative project.
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+       <div class="about-us-cont">
+            <h2 class="quote1">Our Journey</h2>
+             
+            <div class="quote-text ">
                 
-                Our mission is simple: to gain hands-on experience in building and maintaining a fully functional web application, while also learning the nuances of teamwork and collaboration. Through this project, we aim to not only hone our technical skills but also understand the dynamics of working together as a cohesive unit.
-                
-                Looking ahead, our goal is to refine our skills, learn from the feedback we receive, and continuously improve our application. This project is just the beginning of our journey into the world of software development, and we’re excited to see where it takes us.</p>
-        </section>
-    </main>
+            <div class="quote2">About Us</div>
+            <div class="quote3">
+                We are four passionate computer science students, about to start our second year(at the time the project was deployed). Our team includes a frontend developer, two full-stack developers, and a machine learning engineer. We bonded over our shared love for coding and decided to collaborate on our first full-scale web application. Our mission is to gain practical experience in development and teamwork, while learning to maintain and improve our project through user feedback
+            </div>
 
-    <footer>
-        <ul class="footer-links">
-            <li>
-                <p>Company</p>
-                <ul>
-                    <li><a href="#">Mail us</a></li>
-                    <li><a href="#">Services</a></li>
-                </ul>
-            </li>
-            <li>
-                <p>More</p>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>  
-            </li>
-            <li>
-                <p>Social</p>
-                <ul>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">YouTube</a></li>
-                </ul>  
-            </li>
-        </ul>
-    </footer>
+       </div>
+
     </div>
+
+
+    <br>
+    <br>
+    <br>
+
+    
+    <footer>
+        <div class="footer-links">
+
+            <button class="footer-button" id="hidden" type="button" input type="text">Sign Up </button>
+
+                <div class="footer-block">
+                <div class="footer-title">Company</div>
+                    <a href="#" class="links">Mail us</a>
+                    <a href="#" class="links">Services</a>
+                </div>
+
+                <div class="footer-block">
+                <div class="footer-title">More</div>
+                    <a href="#" class="links">Blog</a>
+                    <a href="#" class="links">Terms & Conditions</a>
+                    <a href="#" class="links">Careers</a>
+                    <a href="#" class="links">Privacy Policy</a>
+                </div>
+            
+                <div class="footer-block">
+                <div class="footer-title">Social</div>
+                    <a href="#" class="links">LinkedIn</a>
+                    <a href="#" class="links">YouTube</a>
+                </div>
+            
+        </div>
+    </footer> 
+    </div>
+
+
+    <script src="Script.js"></script>
+   
+
 </body>
 </html>
