@@ -39,5 +39,3 @@ For questions or inquiries, please contact me at [eziopuhan825@gmail.com](mailto
 Thank you for your interest in FoxTrendAI!
 
 ---
-
-This version reflects the current focus of the project while maintaining the side features. Let me know if you'd like any additional adjustments!
