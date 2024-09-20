@@ -1,317 +1,339 @@
 
- body{
-  background-color: rgb(0, 0, 0);
- }
-
- .search-container{
-    display: flex;
-   justify-content: center; 
-   text-align: center;
-   margin-right: 80px;
+body{
+    background-color: rgb(0, 0, 0);
+   }
+  
+   .search-container{
+      display: flex;
+     justify-content: center; 
+     text-align: center;
+     margin-right: 80px;
+     
+    }
+    
+    .logo{
+       /* display: flex;
+        justify-content: flex-start;*/
+        height: 48px;
+        width: 48px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+  
+    .search-bar{
+      height: 30px;
+      width: 500px;
+      margin-top: 10px;
+      margin-left: 120px; 
+      border-radius: 5px;
+      padding-left: 20px;
+      background-color: black;
+      border: 1px solid rgb(160, 160, 160);
+    }
+  
+    .search-bar:hover{
+      background-color: rgb(158, 172, 180 , 1);
+    }
+  
+    .navigationBar{
+      color: white;
+      display: flex;
+      justify-content: space-evenly;
+      padding-inline-start: 40px;
+      font-family: 'Gilroy' , 'sans-serif';
+      margin-top: 20px;
+    }
+  
+    .serv{
+      margin-left: 110px;
+    }
+  
+    .serv:hover{
+      color: rgb(96, 0, 147);
+    }
+  
+    .comp{
+      margin-left: 60px;
+    }
+  
+    .comp:hover{
+      color: rgb(96, 0, 147);
+    }
+  
+    .blog{
+      margin-left: 60px;
+    }
+  
+    .blog:hover{
+      color: rgb(96, 0, 147);
+    }
+  
+    .cont{
+      margin-left: 60px ;
+    }
+  
+    .cont:hover{
+      color: rgb(96, 0, 147);
+    }
+  
+    .sideBar{
+      font-family: 'Gilroy' , 'sans-serif';
+      color: white;
+      font-weight: 400;
+      font-size: 18px;
+      margin-right: 200px;
+      display: flex;
+      justify-content: left;
+      
+    }
+  
+    .Icons{
+      width: 40px;
+      position: relative;
+     
+    }
    
+    .rightBox{
+     display: flex;
+     margin-right: 40px;
+     margin-top: 30px;
+     
+    }
+  
+    #stp{
+      margin-left: 70px;
+    }
+  
+  
+  
+    #aapl{
+       border-radius: 4px;
+       min-width: 160px;
+       min-height: 48px;
+       padding: 0 48px;
+       white-space: nowrap;
+       cursor: pointer;
+       border: 1px solid transparent;
+       background :  rgb(96, 0, 147);
+       color: white;
+       border: rgb(134, 2, 205);
+    }
+  
+    #aapl:hover{
+      background: rgb(134, 2, 205 , 1);
+    }
+  
+    #Add{
+      border-radius: 25px;
+      min-height: 48px;
+      min-width: 180px;
+      border: 3px solid transparent;
+      background: 
+      linear-gradient(#000000 , #000000) padding-box,
+      linear-gradient(60deg, rgb(96 , 0 , 147) , rgb(255, 255, 255)) border-box;
+      color: #fffefe;
+   }
+  
+  
+    .data{
+      color: white;
+      font-family: 'Gilroy' , 'sans-serif';
+      margin-top: 20px;
+      margin-bottom: 20px;
+      
+    }
+  
+    .data a{
+      margin-bottom: 10px;
+    }
+  
+    .sum{
+      background-color: purple;
+      border-radius: 6px;
   }
   
-  .logo{
-     /* display: flex;
-      justify-content: flex-start;*/
-      height: 48px;
-      width: 48px;
-      margin-left: 10px;
-      margin-top: 5px;
-  }
-
-  .search-bar{
-    height: 30px;
-    width: 500px;
-    margin-top: 10px;
-    margin-left: 120px; 
-    border-radius: 5px;
-    padding-left: 20px;
-    background-color: black;
-    border: 1px solid rgb(160, 160, 160);
-  }
-
-  .search-bar:hover{
-    background-color: rgb(158, 172, 180 , 1);
-  }
-
-  .navigationBar{
-    color: white;
+   img{
+    height:25px;
+    width: 25px;
+   }
+  
+  ul{
     display: flex;
-    justify-content: space-evenly;
-    padding-inline-start: 40px;
-    font-family: 'Gilroy' , 'sans-serif';
-    margin-top: 20px;
-  }
-
-  .serv{
-    margin-left: 110px;
-  }
-
-  .serv:hover{
-    color: rgb(96, 0, 147);
-  }
-
-  .comp{
-    margin-left: 60px;
-  }
-
-  .comp:hover{
-    color: rgb(96, 0, 147);
-  }
-
-  .blog{
-    margin-left: 60px;
-  }
-
-  .blog:hover{
-    color: rgb(96, 0, 147);
-  }
-
-  .cont{
-    margin-left: 60px ;
-  }
-
-  .cont:hover{
-    color: rgb(96, 0, 147);
-  }
-
-  .sideBar{
-    font-family: 'Gilroy' , 'sans-serif';
-    color: white;
-    font-weight: 400;
-    font-size: 18px;
-    margin-right: 200px;
-    display: flex;
-    justify-content: left;
-    
-  }
-
-  .Icons{
-    width: 40px;
-    position: relative;
-   
-  }
- 
-  .rightBox{
-   display: flex;
-   margin-right: 40px;
-   margin-top: 30px;
-   
-  }
-
-  #stp{
-    margin-left: 70px;
-  }
-
-
-
-  #aapl{
-     border-radius: 4px;
-     min-width: 160px;
-     min-height: 48px;
-     padding: 0 48px;
-     white-space: nowrap;
-     cursor: pointer;
-     border: 1px solid transparent;
-     background :  rgb(96, 0, 147);
-     color: white;
-     border: rgb(134, 2, 205);
-  }
-
-  #aapl:hover{
-    background: rgb(134, 2, 205 , 1);
-  }
-
-  #Add{
-    border-radius: 25px;
-    min-height: 48px;
-    min-width: 180px;
-    border: 3px solid transparent;
-    background: 
-    linear-gradient(#000000 , #000000) padding-box,
-    linear-gradient(60deg, rgb(96 , 0 , 147) , rgb(255, 255, 255)) border-box;
-    color: #fffefe;
- }
-
-
-  .data{
-    color: white;
-    font-family: 'Gilroy' , 'sans-serif';
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
-  }
-
-  .data a{
-    margin-bottom: 10px;
-  }
-
-  .sum{
-    background-color: purple;
-    border-radius: 6px;
-}
-
- img{
-  height:25px;
-  width: 25px;
- }
-
-ul{
-  display: flex;
-  flex-direction: column;
-  border-right: 2px solid transparent;
-  transition:  border-right 0.4s ease;;
-  cursor: pointer;
- }
-
- .Icon-items{
-  display: flex;
-  margin-bottom: 70px;
-  border-radius: 40%;
-  align-items: center;
-  margin-left: 15px;
- }
-
- /*.Icon-items:hover{
-  text-align: center;
-  background-color: blueviolet;
-  border: 4px solid blueviolet;
- }*/
- 
- .icon-name {
-  font-family: 'Gilroy' , 'sans-serif';
-  margin-left: 20px;
-  font-size: 16px;
-  color: #fffefe;
-}
-
-
- 
- .Arrow{
-  cursor: pointer;
- }
-
-  .desc{
-    color: white;
-    margin-top: 50px;
-    margin-left: 60px;
-    font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 15px;
-    margin-left: 160px;
-  }
-
-  .desc h4{
-    margin: 5px;
-  }
-
-  .calender{
-    margin-left: 120px;
-  }
-
-  .Key{
-    color: #fffefe;
-    font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
-    margin-left: 190px;
-    margin-top: 80px;
-    border-top: 1px solid white;
-    margin-right: 300px;
-    
-  }
-
-  .about{
-    color: #fffefe;
-    font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
-    border-top: 1px solid white;
-    margin-left: 190px;
-    margin-top: 80px;
-    margin-right: 240px;
-  }
-
-  .More-content {
-    display: none;
-  }
-  .show-more-btn {
-    color:rgb(153, 255, 0);
+    flex-direction: column;
+    border-right: 2px solid transparent;
+    transition:  border-right 0.4s ease;;
     cursor: pointer;
-  }
-
-  #people{
+   }
+  
+   .Icon-items{
+    display: flex;
+    margin-bottom: 70px;
+    border-radius: 40%;
+    align-items: center;
+    margin-left: 15px;
+   }
+  
+   /*.Icon-items:hover{
+    text-align: center;
+    background-color: blueviolet;
+    border: 4px solid blueviolet;
+   }*/
+   
+   .icon-name {
+    font-family: 'Gilroy' , 'sans-serif';
     margin-left: 20px;
-  }
-
-  .PeopleAlsoWatch{
+    font-size: 16px;
     color: #fffefe;
-    font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
-    margin-top: 80px;
-    border-top: 1px solid white;
-    margin-right:220px ;
-    margin-left: 190px;
   }
   
+  
+   
+   .Arrow{
+    cursor: pointer;
+   }
+  
+    .desc{
+      color: white;
+      margin-top: 50px;
+      margin-left: 60px;
+      font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 15px;
+      margin-left: 160px;
+    }
+  
+    .desc h4{
+      margin: 5px;
+    }
+  
+    .calender{
+      margin-left: 120px;
+    }
+  
+    .Key{
+      color: #fffefe;
+      font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin-left: 190px;
+      margin-top: 80px;
+      border-top: 1px solid white;
+      margin-right: 300px;
+      
+    }
+  
+    .about{
+      color: #fffefe;
+      font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
+      border-top: 1px solid white;
+      margin-left: 190px;
+      margin-top: 80px;
+      margin-right: 240px;
+    }
+  
+    .More-content {
+      display: none;
+    }
+    .show-more-btn {
+      color:green;
+      cursor: pointer;
+    }
+  
+    #people{
+      margin-left: 20px;
+    }
+  
+    .PeopleAlsoWatch{
+      color: #fffefe;
+      font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin-top: 80px;
+      border-top: 1px solid white;
+      margin-right:220px ;
+      margin-left: 190px;
+    }
+    
+  
+    .company-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      margin-top: 20px;
+      gap: 10px;
 
-  .company-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    margin-top: 20px;
-    gap: 20px;
+    }
+  
+  .company-box {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      width: 149px;
+      height: 180px;
+      border-radius: 8px;
+      background-color: #000000;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
   }
 
-.company-box {
-    border: 1px solid #ddd;
+  .company-box:hover{
+    border: none;
+    opacity: 0.8;
+    
+    background-color: rgb(167, 177, 189);
+  }
+  
+  .company-box b {
+      font-size: 18px;
+  }
+  .company-box b:hover{
+
+  }
+
+  #micro{
+    font-size: 11px;
+    margin-top: 18px;
+  }
+  .company-box p{
+    font-size: 14px;
+  }
+  
+  .company-price {
+      color: green;
+      font-weight: bold;
+      margin-top: 90px;
+      margin-bottom: 90px;
+  }
+  
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
     padding: 10px;
-    text-align: center;
-    width: 150px;
-    border-radius: 8px;
-    background-color: #000000;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
-}
-
-.company-box b {
     font-size: 18px;
-}
-
-.company-price {
-    color: green;
-    font-weight: bold;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 18px;
-}
-
-.slider-btn.prev {
-  left: 0;
-}
-
-.slider-btn.next {
-  right: 0;
-}
-
-#SliderBtns{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    margin-top: 20px;
-   
-}
-
-.slider-container {
-  width: 1300px;
-  margin: 0 auto;
-  overflow: hidden; 
-  position: relative;
-}
-
-.footer-links{
-  margin-top: 100px;
-}
+  }
+  
+  .slider-btn.prev {
+    left: 0;
+  }
+  
+  .slider-btn.next {
+    right: 0;
+  }
+  
+  #SliderBtns{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      margin-top: 20px;
+     
+  }
+  
+  .slider-container {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; 
+    position: relative;
+  }
+  
+  .footer-links{
+    margin-top: 100px;
+  }
