@@ -407,6 +407,99 @@ ul{
   position: relative;
 }
 
+.Foxtrend{
+  color: #fffefe;
+  margin-top: 80px;
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+  background: -webkit-linear-gradient(rgb(96, 0, 147), rgb(255, 255, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .footer-links{
   margin-top: 100px;
+  border-top: 1px solid white;
+  justify-content: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 180px;
+  margin-right: 200px;
+}
+
+.footer-title{
+  color: #fffefe;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.footer-block{
+  margin-top: 50px;
+}
+
+.links{
+  color: #fffefe;
+  line-height: 45px;
+}
+
+#Comp:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#mail:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#SERV:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#more:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#tandc:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#career:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#privacy:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#social:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#linkedin:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+#yt:hover{
+  color: rgb(81, 80, 80);
+  cursor: pointer;
+  transition: 0.9s;
 }
