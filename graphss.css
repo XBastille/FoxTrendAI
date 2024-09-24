@@ -1,5 +1,5 @@
 
-body{
+ body{
   background-color: rgb(0, 0, 0);
   font-family: 'Gilroy' , 'sans-serif';
  }
@@ -18,7 +18,9 @@ body{
       height: 48px;
       width: 48px;
       margin-left: 10px;
-      margin-top: 5px;
+      line-height: 10px;
+      margin-bottom: 80px;
+      top: -400px;
   }
 
   .search-bar{
@@ -88,11 +90,6 @@ body{
     
   }
 
-  .Icons{
-    width: 40px;
-    position: relative;
-   
-  }
  
   .rightBox{
    display: flex;
@@ -103,15 +100,8 @@ body{
 
   #stp{
     margin-left: 70px;
-    background-color: #000000;
-    border: 1px solid white;
-    
-    color: #fffefe;
   }
 
-  #stp:hover{
-    color: rgb(121, 2, 185);
-   }  
 
 
   #aapl{
@@ -179,14 +169,16 @@ body{
     color: grey;
   }
 
- img{
+  img{
   height:25px;
   width: 25px;
  }
 
- .Icons{
-  position: fixed;
+ 
 
+ .icons{
+  position: fixed;
+  border-right: 1px solid wheat;
  }
 
 ul{
@@ -202,6 +194,7 @@ ul{
   border-radius: 40%;
   align-items: center;
   margin-left: 15px;
+  
  }
 
  /*.Icon-items:hover{
@@ -221,21 +214,28 @@ ul{
  
  .Arrow{
   cursor: pointer;
-  margin-top: 80px;
+  margin-top: 195px;
   margin-left: 20px;
+  transition: transform 0.3s ease;
  }
 
- .Arrow2{
-  cursor: pointer;
-  margin-top: 80px;
+ .show .Arrow{
+  transform: rotate(180deg);
  }
 
- .Arrows{
-  display: flex;
-  justify-content: center;
+
+
+ #stp{
+  background-color: #000000;
+  border: 1px solid white;
   
+  color: #fffefe;
  }
 
+ #stp:hover{
+  color: rgb(121, 2, 185);
+ }
+  
  #from{
   background-color: #000000;
   color: #fffefe;
@@ -278,7 +278,16 @@ ul{
   .desc h4{
     margin: 5px;
   }
-   
+  
+  .calender{
+      border-bottom: 1px solid wheat;
+      padding-bottom: 40px;
+      margin-right: 70px;
+      margin-left: 30px;
+  }
+
+
+     
   .calendar-container {
     background-color: #000;
     color: white;
@@ -408,24 +417,32 @@ ul{
   }
  
 
-  
   .Key{
     color: #fffefe;
     font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
     margin-left: 190px;
     margin-top: 80px;
-    border-top: 1px solid white;
     margin-right: 300px;
     
+  }
+
+  #info{
+    border-top: 1px solid wheat;
+    margin-top: 30px;
+    padding-top: 40px;
   }
 
   .about{
     color: #fffefe;
     font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
-    border-top: 1px solid white;
     margin-left: 190px;
     margin-top: 80px;
     margin-right: 240px;
+  }
+
+  .content{
+    border-top: 1px solid wheat;
+    padding-top: 50px;
   }
 
   .More-content {
@@ -444,7 +461,6 @@ ul{
     color: #fffefe;
     font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
     margin-top: 80px;
-    border-top: 1px solid white;
     margin-right:220px ;
     margin-left: 180px;
   }
@@ -461,7 +477,7 @@ ul{
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    width: 147px;
+    width: 180px;
     border-radius: 8px;
     background-color: #000000;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -483,15 +499,23 @@ ul{
     color: green;
     font-weight: bold;
     margin-top: 120px;
-    
+    margin-right: 50px;
+}
+
+.company-percent{
+  color: green;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 70px;
+
 }
 
 #micro{
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .company-box p {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .slider-btn {
@@ -523,26 +547,24 @@ ul{
 }
 
 .slider-container {
-  width: 1050px;
+  width: 1110px;
   margin: 0 auto;
+  border-top: 1px solid wheat;
+  padding-top: 40px;
   overflow: hidden; 
   position: relative;
 }
 
-.Foxtrend{
-  color: #fffefe;
-  margin-top: 80px;
-  font-family: "Protest Guerrilla", sans-serif;
-  font-weight: 400;
-  font-size: 35px;
-  background: -webkit-linear-gradient(rgb(96, 0, 147), rgb(255, 255, 255));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.foot-logo{
+ height: 400px;
+ width: 400px;
+ border: none;
 }
 .footer-links{
   margin-top: 100px;
-  border-top: 1px solid white;
+  border-top: 1px solid wheat;
   justify-content: center;
+  font-family: 'Gilroy' , 'sans-serif' ;
   display: flex;
   justify-content: space-evenly;
   margin-left: 180px;
@@ -566,10 +588,11 @@ ul{
   line-height: 45px;
 }
 
-#Comp:hover{
+#Comp{
   color: rgb(81, 80, 80);
+  font-size: 32px;
   cursor: pointer;
-  transition: 0.9s;
+  
 }
 
 #mail:hover{
@@ -584,10 +607,10 @@ ul{
   transition: 0.9s;
 }
 
-#more:hover{
+#more{
   color: rgb(81, 80, 80);
   cursor: pointer;
-  transition: 0.9s;
+  font-size: 32px
 }
 
 #tandc:hover{
@@ -608,10 +631,10 @@ ul{
   transition: 0.9s;
 }
 
-#social:hover{
+#social{
   color: rgb(81, 80, 80);
   cursor: pointer;
-  transition: 0.9s;
+  font-size: 32px
 }
 
 #linkedin:hover{
