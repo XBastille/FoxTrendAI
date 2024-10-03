@@ -1,7 +1,7 @@
 
  body{
   background-color: rgb(0, 0, 0);
-  font-family: 'Gilroy' , 'sans-serif';
+  font-family: 'Gilroy', sans-serif;
  }
 
  .search-container{
@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-evenly;
     padding-inline-start: 40px;
-    font-family: 'Gilroy' , 'sans-serif';
+    font-family: 'Gilroy', sans-serif;
     margin-top: 20px;
   }
 
@@ -80,7 +80,7 @@
   }
 
   .sideBar{
-    font-family: 'Gilroy' , 'sans-serif';
+    font-family: 'Gilroy', sans-serif;
     color: white;
     font-weight: 400;
     font-size: 18px;
@@ -92,9 +92,11 @@
 
  
   .rightBox{
+    font-family:'Gilroy', sans-serif ;
    display: flex;
    margin-right: 40px;
    margin-top: 30px;
+   
    
   }
 
@@ -135,10 +137,9 @@
 
   .data{
     color: white;
-    font-family: 'Gilroy' , 'sans-serif';
+    font-family: 'Gilroy', sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
-    
   }
 
   .data a{
@@ -204,7 +205,7 @@ ul{
  }*/
  
  .icon-name {
-  font-family: 'Gilroy' , 'sans-serif';
+  font-family: 'Gilroy', sans-serif;
   margin-left: 20px;
   font-size: 16px;
   color: #fffefe;
@@ -496,17 +497,17 @@ ul{
 }
 
 .company-price {
-    color: green;
+    color: rgb(4, 184, 4);
     font-weight: bold;
     margin-top: 120px;
     margin-right: 50px;
 }
 
 .company-percent{
-  color: green;
+  color: rgb(4, 184, 4);
   font-weight: bold;
   font-size: 14px;
-  margin-right: 70px;
+  margin-right: 80px;
 
 }
 
@@ -515,7 +516,7 @@ ul{
 }
 
 .company-box p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .slider-btn {
@@ -564,7 +565,7 @@ ul{
   margin-top: 100px;
   border-top: 1px solid wheat;
   justify-content: center;
-  font-family: 'Gilroy' , 'sans-serif' ;
+  font-family: 'Gilroy', sans-serif ;
   display: flex;
   justify-content: space-evenly;
   margin-left: 180px;
