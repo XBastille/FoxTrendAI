@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="/public/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+<body>
+
+    <form action="/user/login" method="POST">
+        <center>
+            <h1>Login</h1>
+            <h5>Hi! Welcome back &#128075;</h5>  
+            <div class="email"></div>
+            <div class="textBox">
+                <input type="text" id = "email" name="email" placeholder="Enter your Email">
+            </div> 
+             <div class="Password"></div>
+             <br>
+            <div class="textBox">
+                <input type="password" id="password" name="password" placeholder="Enter your Password">
+            </div>
+            
+            <br>
+            <span class="forgot-password">
+                <a href="/user/forgot" title="Forgot Password" id="link-reset">Forgot Password?</a>
+              </span>
+              <br>
+              <br>
+              <button type = "submit" class="loginbutton"> Login </button>
+              <br>
+              <br>
+              <div class="Account">No account yet?
+              <a href="/user/register" title="No account" >Create your account now</a>
+              </div>
+
+              <div class="logo">
+                <i class="fa-brands fa-google fa-2xl "></i>
+                <i class="fa-brands fa-github fa-2xl"></i>
+                <i class="fa-brands fa-linkedin fa-2xl"></i>
+                <i class="fa-brands fa-windows fa-2xl"></i>
+              </div>
+              
+              
+        </center>
+         <script src="login.js"></script>
+
+    </form>
+     
+    
+</body>

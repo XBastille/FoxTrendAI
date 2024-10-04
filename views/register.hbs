@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/public/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="form-container">
+        <form id="signup-form" action="/user/register" method="POST">
+        
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1286335293603188848/arrow-24-xxl_1.png?ex=6700a658&is=66ff54d8&hm=93d7207788177809ece3d2bfb145517c7a8923d7b35689f26ebde91a45810af7&" name="img" class="back" id="back">
+            <center>
+                <h1>Let's get started -></h1>
+                <h2 class="grand-signup-text">Sign Up</h2>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+
+                <div class="step" id="step-1">
+                    <div class="textBox">
+                        <input type="text" name="name" id="name" placeholder="Enter your Name">
+                    </div>
+                    <div class="textBox">
+                        <input type="text" name="username" id="username" placeholder="Enter your Username">
+                    </div>
+                </div>
+
+                <div class="step" id="step-2">
+                    <div class="textBox">
+                        <input type="text" name="email" id="email" placeholder="Enter your Email">
+                    </div>
+                </div>
+
+                <div class="step" id="step-3">
+                    <div class="textBox">
+                        <input type="password" name="password" id="password" placeholder="Enter your Password">
+                    </div>
+                    <div class="textBox">
+                        <input type="password" name="password2" id="confirm-password"
+                            placeholder="Confirm your Password">
+                    </div>
+                </div>
+
+                <div class="step" id="step-4">
+                    <h2 class="summary-title">Summary</h2>
+                    <div class="summary-info">
+                        <p><span class="summary-label">Name:</span> <span id="summary-name" class="summary-data"></span>
+                        </p>
+                        <p><span class="summary-label">Username:</span> <span id="summary-username"
+                                class="summary-data"></span></p>
+                        <p><span class="summary-label">Email:</span> <span id="summary-email"
+                                class="summary-data"></span></p>
+                    </div>
+                </div>
+
+                <button type="button" class="signinbutton" id="next-button">Next</button>
+
+                <div class="logo">
+                    <i class="fa-brands fa-google fa-2xl "></i>
+                    <i class="fa-brands fa-github fa-2xl"></i>
+                    <i class="fa-brands fa-linkedin fa-2xl"></i>
+                    <i class="fa-brands fa-windows fa-2xl"></i>
+                </div>
+               
+
+            </center>
+        </form>
+    </div>
+    <script src="/public/register.js"></script>
+
+</body>
+
+</html>
