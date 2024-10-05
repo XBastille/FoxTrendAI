@@ -105,49 +105,54 @@ function submitdata() {
 nextButton.addEventListener("click", async () => {
     formdatas();
     
-    console.log(formdata)
+    console.log(formdata);
+    let result;
     if (currentStep === 1) {
-        const result = await handle();
+        result = await handle();
         if (result === 'User exists') {
             const usernamess = document.getElementById("username");
-            showErrors(usernamess, "Username already exits")
+            showErrors(usernamess, "Username already exists");
             currentStep = 1;
-            counts.img=0;
+            counts.img = 0;
             return;
         }
     }
     if (currentStep === 2) {
-        const result = await handle();
+        result = await handle();
         if (result === 'User exists') {
             const emailss = document.getElementById("email");
-            showErrors(emailss, "Email already exits")
+            showErrors(emailss, "Email already exists");
             currentStep = 2;
-            counts.img=1;
-            progressBar.style.background = "red"
+            counts.img = 1;
+            progressBar.style.background = "red";
             return;
         }
     }
+
     if (validateStep()) {
         if (currentStep < totalSteps) {
             steps[currentStep - 1].style.display = "none";
             steps[currentStep].style.display = "block";
             currentStep++;
             counts.img++;
-            progressBar.style.background = "white"
+            progressBar.style.background = "white";
+
             if (currentStep === totalSteps) {
-                counts.img=3;
+                counts.img = 3;
                 nextButton.textContent = "Sign Up";
                 updateSummary();
             }
+
             progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
             
-        } else {
-            counts.img=3
-            submitdata()
-            document.getElementById("signup-form").submit();
+        } else if (currentStep === totalSteps) {
+            counts.img = 3;
+            await submitdata();  
+            window.location.href = '/user/login';  
         }
     }
 });
+
 
 function validateStep() {
     let isValid = true;
