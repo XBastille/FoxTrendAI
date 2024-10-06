@@ -1,3 +1,80 @@
+const arrowButton = document.querySelector('.Arrow');
+const iconsList = document.querySelector('.icons');
+
+arrowButton.addEventListener('click', () => {
+    iconsList.classList.toggle('open');
+    iconsList.classList.toggle('closed');
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const primarySection = document.querySelector('.primary-section');
+  const secondarySection = document.querySelector('.secondary-section');
+  const primaryElements = document.querySelector('.primary-elements');
+  const secondaryElements = document.querySelector('.secondary-elements');
+  
+  const servicesDropdown = document.querySelector('.services-dropdown');
+  const companyDropdown = document.querySelector('.company-dropdown');
+  const servicesLink = document.querySelector('.serv');
+  const companyLink = document.querySelector('.comp');
+
+  primaryElements.style.display = 'block';
+  secondaryElements.style.display = 'none';
+
+  primarySection.addEventListener('mouseenter', function() {
+      primaryElements.style.display = 'block';
+      secondaryElements.style.display = 'none';
+  });
+
+  secondarySection.addEventListener('mouseenter', function() {
+      secondaryElements.style.display = 'block';
+      primaryElements.style.display = 'none';
+  });
+
+  servicesDropdown.addEventListener('mouseleave', function() {
+      primaryElements.style.display = 'block';
+      secondaryElements.style.display = 'none';
+  });
+
+  function toggleDropdown(showDropdown, hideDropdown) {
+      if (hideDropdown.classList.contains('show')) {
+          hideDropdown.classList.remove('show');
+          hideDropdown.style.opacity = 0;
+          hideDropdown.style.transform = 'translateY(-20px)';
+      }
+      
+      if (!showDropdown.classList.contains('show')) {
+          showDropdown.classList.add('show');
+          showDropdown.style.opacity = 1;
+          showDropdown.style.transform = 'translateY(0)';
+      } else {
+          showDropdown.classList.remove('show');
+          showDropdown.style.opacity = 0;
+          showDropdown.style.transform = 'translateY(-20px)';
+      }
+  }
+
+  servicesLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      toggleDropdown(servicesDropdown, companyDropdown);
+  });
+
+  companyLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      toggleDropdown(companyDropdown, servicesDropdown);
+  });
+
+  document.addEventListener('click', function(event) {
+      if (!event.target.closest('.services-dropdown') && !event.target.closest('.company-dropdown') &&
+          !event.target.closest('.serv') && !event.target.closest('.comp')) {
+          servicesDropdown.classList.remove('show');
+          companyDropdown.classList.remove('show');
+          servicesDropdown.style.opacity = 0;
+          servicesDropdown.style.transform = 'translateY(-20px)';
+          companyDropdown.style.opacity = 0;
+          companyDropdown.style.transform = 'translateY(-20px)';
+      }
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
