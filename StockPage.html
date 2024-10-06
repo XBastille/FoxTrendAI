@@ -13,66 +13,120 @@
     <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
 </head>
 
-<body>
-
-
-            
-    <ul class="icons">
-
-        <li> <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66e2596d&is=66e107ed&hm=10bf4ef4a3e5b258b9497a5f27512abf9d95d9fa105f1afc0853b9c5b97cfe9e&" class="logo"></li>
-
-         <li class="Icon-items" data-name="Home">
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284843773888561303/home.png?ex=66e96d02&is=66e81b82&hm=be109d58c7dc3763e2d1dfc0e37c15d2d2b202c5d8b0bc94733c08253acf7e3c&" id="item1" > 
-             <span class="icon-name">Home</span>
-         </li>
-     
-         <li  class="Icon-items" data-name="Watch">
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284845024856772619/recent-icon-256x233-qol068gf.png?ex=66f005ad&is=66eeb42d&hm=b1f4fd2df1d6539960e2af26a94be7f80821c7fd61bcfa1ad38f864eb9a917b4&" id="item2"> 
-             <span class="icon-name">Watch</span>
-         </li>
-     
-         <li  class="Icon-items" data-name="Lists">
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284845942092070932/add-list-xxl.png?ex=66e96f07&is=66e81d87&hm=d189e3e08c02c3f10f4f99799b13c476b305b53a6c7fcf933992cae792e8db02&" id="item3">
-             <span class="icon-name">Lists</span>
-          </li>
-         <li  class="Icon-items" data-name="Donate">
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284846969910464655/Donate-icon-white-300x248.png?ex=66e96ffc&is=66e81e7c&hm=8984095f750ef254b0244345dfa193c4cb4929578a1ac281d3cf22e68f638b2f&" id="item4">
-             <span class="icon-name">Donate</span>
-          </li>
-         <li  class="Icon-items" data-name="Profile">
-             <img src="https://icons.veryicon.com/png/o/application/live-broadcast/switch-account-white.png" id="item5">  
-             <span class="icon-name">Profile</span>
-         </li>
-     
-         
-         <li class="Arrow">
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1285614424794857543/arrow-24-xxl.png?ex=66eae93c&is=66e997bc&hm=d4ab1837129a58bdce87f4d4a1259f9d06e33d5978fbc8ab68f2db4d82062535&">
-         </li>  
-     </ul>   
+<body>    
+      
+    <ul class="icons open"> <!-- Initially closed, reverse the logic -->
+        <li> <img src="media/fox.jpg" class="logo"></li>
+        <li class="Icon-items" data-name="Home">
+            <img src="media/home.jpg" id="item1"> 
+            <span class="icon-name">Home</span>
+        </li>
+        <li class="Icon-items" data-name="Watch">
+            <img src="media/recent_watch.jpg" id="item2"> 
+            <span class="icon-name">Watch</span>
+        </li>
+        <li class="Icon-items" data-name="Lists">
+            <img src="media/list.jpg" id="item3">
+            <span class="icon-name">Lists</span>
+        </li>
+        <li class="Icon-items" data-name="Donate">
+            <img src="media/donate.jpg" id="item4">
+            <span class="icon-name">Donate</span>
+        </li>
+        <li class="Icon-items" data-name="Profile">
+            <img src="media/account.jpg" id="item5">
+            <span class="icon-name">Profile</span>
+        </li>
+        <li class="Arrow">
+            <img src="media/arrow-right.jpg">
+        </li>
+    </ul>
    
            
             
+            <!-- Search Container -->
             <div class="search-container">
-                
-                
-               
                 <input type="text" class="search-bar" placeholder="Search">
                 <i class="search-icon fas fa-search"></i>
-              
-              <div class="magnifying-glass">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-            
-              <div class="navigationBar">
+                <div class="magnifying-glass">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
                 
-                    <a class="serv">Services</a>
-                    <a class="comp">Company</a>
-                    <a class="blog">Blog</a>
-                    <a class="cont">Contact Us</a>
-                
-              </div>
-           
+                <!-- Navigation Bar -->
+                <div class="navigationBar">
+                    <a href="#" class="serv">
+                        Services
+                        <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="comp">
+                        Company
+                        <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="blog">Blog</a>  
+                    <a href="#" class="port">Contact Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="services-dropdown">
+                        <div class="services-dropdown-content">
+                            <div class="services-label">
+                                <h1>Services</h1>
+                            </div>
+                            <div class="services-dropdown-column">
+                                <div class="primary-section">
+                                <h2>Primary <span class="arrow">→</span></h2>
+                                <div class="primary-elements">
+                                    <a href="#">Stock Market Prediction</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="services-dropdown-column">
+                                <h3>Secondary <span class="arrow">→</span></h3>
+                                <div class="secondary-section">
+                                <div class="secondary-elements">
+                                    <a href="#">Used Car Prediction</a>
+                                    <a href="#">Housing Prediction</a>
+                                    <a href="#">Loan Approval Prediction</a>
+                                </div>
+                            </div>
+                            </div>
+                            <img src="media/services.jpg" alt="Your Alt Text" class="service-image">
+                        </div>
+                    </div>
+                    
+                    <!-- Company Dropdown -->
+                    <div class="company-dropdown">
+                        <div class="company-dropdown-content">
+                            <div class="company-label">
+                                <h1>Company</h1>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>MORE ABOUT US</h2>
+                                <a href="#">About Us</a>
+                                <a href="#">Blog</a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">License</a>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>SOCIAL</h2>
+                                <a href="#">LinkedIn</a>
+                                <a href="#">YouTube</a>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>CONTACTS</h2>
+                                <a href="#">Book a Call</a>
+                                <a href="#">Mail Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            
+  
 
             
 
@@ -366,12 +420,12 @@
         <div id="SliderBtns">
 
         <span class="slider-btn next" onclick="slide(1)">
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1285614424794857543/arrow-24-xxl.png?ex=66ee34fc&is=66ece37c&hm=88aa11f5ebef65eb65ea85fe1837d2e5930233d5fc7f55b27592b9be6333aac2&">
+             <img src="media/arrow-right.jpg">
         </span>
 
         
         <span class="slider-btn prev" onclick="slide(-1)">
-            <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1286335293603188848/arrow-24-xxl_1.png?ex=66ee3158&is=66ecdfd8&hm=272ae5d521e2297f32041dc54365a078de1e6a85f2e130cd751f93dea9d4b266&">
+            <img src="media/arrow-left.jpg">
         </span>
         
     </div>
@@ -384,7 +438,7 @@
         
     
                 
-             <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1287804511909576809/download_2_1.png?ex=66f2e0e9&is=66f18f69&hm=a550aa79066afe7955e116292372328da8659c855e142d3c65ab5d44a0e9a320&" class="foot-logo">
+             <img src="media/website_logo.jpg" class="foot-logo">
                     
         
 
@@ -396,8 +450,8 @@
 
                 <div class="footer-block">
                 <div class="footer-title" id="more">More</div>
-                    <li><a class="links" id="tandc">Terms & Conditions</a></li>
-                    <li><a class="links" id="career">Careers</a></li>
+                    <li><a class="links" id="tandc">Blog</a></li>
+                    <li><a class="links" id="career">License</a></li>
                     <li><a class="links" id="privacy">Privacy Policy</a></li>
                 </div>
             
@@ -405,6 +459,7 @@
                 <div class="footer-title" id="social">Social</div>
                 <li><a class="links" id="linkedin">LinkedIn</a></li>
                 <li> <a  class="links" id="yt">Instagram</a></li>
+                <li> <a  class="links" id="tw">X</a></li>
                 </div>
             
         </div>
