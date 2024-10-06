@@ -99,6 +99,23 @@ document.querySelector(".Arrow").addEventListener('click' , function(){
 
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+
+  const dateRangeButtons = document.querySelectorAll('.date-range-button');
+  const showFullGraphBtn = document.getElementById('show-full-graph');
+
+  dateRangeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      dateRangeButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+
+  showFullGraphBtn.addEventListener('click', () => {
+  });
+
+});
+
 
   
   document.querySelector(".sum").addEventListener('click' , function(){
