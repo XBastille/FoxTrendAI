@@ -883,17 +883,18 @@ ul{
     padding: 10px;
     text-align: center;
     width: 180px;
+    height: 255px;
     border-radius: 8px;
     background-color: #000000;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
-.company-box:hover{
-  border: none;
-  opacity: 0.8;
-  color: white;
-  background-color: rgb(167, 177, 189);
+.company-box:hover {
+  background-color: rgb(88, 88, 88); 
+  color: inherit; 
+  opacity: 1; 
 }
 
 .company-box b {
@@ -902,21 +903,22 @@ ul{
 
 .company-price {
     color: rgb(4, 184, 4);
-    font-weight: bold;
     margin-top: 120px;
-    margin-right: 50px;
+    margin-right: 4px;
+    transform: scale(1.5);
 }
 
 .company-percent{
   color: rgb(4, 184, 4);
-  font-weight: bold;
-  font-size: 14px;
-  margin-right: 80px;
-
+  font-size: 20px;
+  margin-right: 4px;
 }
 
-#micro{
-  font-size: 17px;
+#micro {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; 
 }
 
 .company-box p {
