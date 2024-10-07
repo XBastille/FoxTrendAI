@@ -1,3 +1,12 @@
+.fox-icon-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.fox-icon-link:hover {
+  opacity: 0.8;
+}
+
 .navigationBar {
   display: flex;
   justify-content: space-between;
@@ -463,31 +472,15 @@ body {
   .sum{
     background-color: rgb(96, 0, 147);
 }
-
-  .sum:hover{
-    color: grey;
-    transition: 0.5s;
-  }
-
-  .cha:hover{
-    color: grey;
-    transition: 0.5s;
-  }
-
-  .histo:hover{
-    color: grey;
-    transition: 0.5s;
-  }
-
-  .stat:hover{
-    color: grey;
-    transition: 0.5s;
-  }
-
-  .cha:hover{
-    color: grey;
-    transition: 0.5s;
-  }
+ 
+.sum:hover,
+.cha:hover,
+.histo:hover,
+.stat:hover,
+.pro:hover { 
+  color: grey;
+  transition: 0.5s;
+}
 
   img{
   height:25px;
@@ -499,8 +492,18 @@ body {
  .icons {
   position: fixed;
   border-right: 1px solid wheat;
-  top: 0; 
+  top: 25px; 
   height: 100vh; 
+}
+
+.icons::before {
+  content: '';
+  position: absolute;
+  top: -25px;  
+  left: 0;
+  width: 100%;
+  height: 30px;  
+  border-right: 1px solid wheat;
 }
 
 .icons.closed {
@@ -617,7 +620,7 @@ ul{
  
  .Arrow{
   cursor: pointer;
-  margin-top: 130px;
+  margin-top: 110px;
   margin-left: 10px;
   transition: transform 0.3s ease;
 }
@@ -669,6 +672,30 @@ ul{
  input [type="date"]{
   color: white;
  }
+ #advanced-btn {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  position: absolute;
+  top: 235px;
+  right: 340px;
+  align-items: center;
+  display: flex;
+  gap: 5px;
+}
+
+#advanced-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.zoom-out-icon {
+  font-size: 18px;
+  line-height: 1;
+}
 
   .desc{
     color: white;
