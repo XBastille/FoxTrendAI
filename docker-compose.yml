@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: Abhinab@2004
+      MYSQL_ROOT_PASSWORD: your_password_here
     ports:
       - "3307:3306"
     healthcheck:
@@ -35,7 +35,7 @@ services:
       - 4000:3000
     environment:
       PORT: 3000
-      MONGODB_URI: mongodb+srv://login:Login@cluster0.nxy8ujt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      MONGODB_URI: your_docker_url here
       DB_NAME: sample-db
     depends_on: 
       - mongo_db
