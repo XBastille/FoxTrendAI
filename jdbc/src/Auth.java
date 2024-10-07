@@ -8,7 +8,7 @@ public class Auth {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/UserAuthentication", "root", "Abhinab@2004");
+        Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/UserAuthentication", "root", "Abhinab@2004");
 
         //  String username = sc.nextLine();
            String username = args[0];

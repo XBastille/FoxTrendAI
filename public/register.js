@@ -13,6 +13,7 @@ back.addEventListener('click', () => {
         backss();
         handleback();
         submitdataback()
+        progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
     }
 })
 
@@ -147,7 +148,7 @@ nextButton.addEventListener("click", async () => {
             
         } else if (currentStep === totalSteps) {
             counts.img = 3;
-            await submitdata();  
+            submitdata();  
             window.location.href = '/user/login';  
         }
     }

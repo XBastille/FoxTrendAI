@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Abhinab@2004
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 20s
+      retries: 10
+
+  # Mongodb service
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+  java-app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://db:3306/
+
+  # Node api service
+  api:
+    build: .
+    ports:
+      # local->container
+      - 4000:3000
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb+srv://login:Login@cluster0.nxy8ujt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      DB_NAME: sample-db
+    depends_on: 
+      - mongo_db
+
+volumes:
+  mongo_data: {}

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class login {
     public static void main(String[] args) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/UserAuthentication", "root",
+        Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/UserAuthentication", "root",
                 "Abhinab@2004");
         Scanner sc = new Scanner(System.in);
 

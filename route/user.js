@@ -24,7 +24,7 @@ require('../config/passport')(passport)
 
 const runjava = (className, args) => {
   return new Promise((resolve, reject) => {
-    const javaprocess = spawn("java", ["-cp", "C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar;jdbc/bin", className, ...args]);
+    const javaprocess = spawn("java", ["-cp", "Connector J 8.0/mysql-connector-java-8.0.25.jar;jdbc/bin", className, ...args]);
     let data1 = "";
     javaprocess.stdout.on('data', (data) => {
       data1 += data.toString();
@@ -43,12 +43,11 @@ const runjava = (className, args) => {
 
 let c = 0;
 router.post('/register', async (req, res) => {
-  const name = req.body.name;
+  const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
   const formdata = req.body;
   const counts = req.body.img;
-  console.log(counts);
   const args1 = [formdata.username];
   const args2 = [formdata.email];
   let args3 = [];
@@ -78,7 +77,7 @@ router.post('/register', async (req, res) => {
     if (counts === 3) {
       const existuser = await User.findOne({ email: email });
       if (!existuser) {
-        const newUser = new User({ name, email, password });
+        const newUser = new User({ username, email, password });
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(newUser.password, salt);
         newUser.password = hash;
@@ -96,6 +95,20 @@ router.post('/register', async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
+router.post('/forgot', async (req, res) => {
+  const email = req.body.forgotusername
+  const Password = req.body.Password
+  const existemail = await User.findOne({ email: email });
+  const existusername = await User.findOne({ username: email });
+  if (existemail !== null || existusername !== null) {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(Password, salt);
+    const deleteuser = await User.findOneAndUpdate({ email: email }, { $set: { password: hash } })
+    const deleteusername = await User.findOneAndUpdate({ username: email }, { $set: { password: hash } })
+  }
+  res.redirect('/user/login')
+})
 
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
