@@ -9,7 +9,7 @@ public class login {
     public static void main(String[] args) throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/UserAuthentication", "root",
-                "Abhinab@2004");
+                "your_sql_password");
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter  email");
