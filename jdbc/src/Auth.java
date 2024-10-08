@@ -9,16 +9,19 @@ public class Auth {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://db:3308/", "root", "your_sql_password");
+        Connection con = getConnection();
         String createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS UserAuthentication";
         Statement createDbStatement = con.createStatement();
         createDbStatement.executeUpdate(createDatabaseQuery);
         createDbStatement.close();
         con.close();
-        con = DriverManager.getConnection("jdbc:mysql://db:3308/UserAuthentication", "root", "your_sql_password");
+        con = DriverManager.getConnection("jdbc:mysql://db:3306/UserAuthentication", "root", "letitfeel36");
         String createTableQuery = "CREATE TABLE IF NOT EXISTS user_database ("
                 + "id INT AUTO_INCREMENT PRIMARY KEY, "
-                + "username VARCHAR(255) UNIQUE NOT NULL)";
+                + "name VARCHAR(255) UNIQUE NOT NULL, "
+                + "username VARCHAR(255) UNIQUE NOT NULL, "
+                + "email VARCHAR(255) UNIQUE NOT NULL, "
+                + "password VARCHAR(255) NOT NULL)";
         Statement createTableStatement = con.createStatement();
         createTableStatement.executeUpdate(createTableQuery);
         createTableStatement.close();
@@ -37,5 +40,21 @@ public class Auth {
         statement.close();
         con.close();
         sc.close();
+    }
+
+    public static Connection getConnection() throws InterruptedException {
+        int retries = 5;
+        while (retries > 0) {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/", "root", "yourpassword");
+                System.out.println("Connected to the database!");
+                return con;
+            } catch (Exception e) {
+                System.out.println("Failed to connect, retrying in 5 seconds...");
+                Thread.sleep(5000);
+                retries--;
+            }
+        }
+        throw new RuntimeException("Could not connect to the database");
     }
 }

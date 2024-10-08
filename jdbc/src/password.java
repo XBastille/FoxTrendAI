@@ -10,9 +10,7 @@ public class password {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/UserAuthentication", "root",
-                "your_sql_password");
-
+        Connection con = getConnection();
         String pass = args[0];
         // String pass = sc.nextLine();
         // String cpass = sc.nextLine();
@@ -39,6 +37,22 @@ public class password {
         } else
             System.out.println("No users found in the database.");
 
+    }
+
+    public static Connection getConnection() throws InterruptedException {
+        int retries = 5;
+        while (retries > 0) {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/UserAuthentication", "root", "your_password");
+                System.out.println("Connected to the database!");
+                return con;
+            } catch (Exception e) {
+                System.out.println("Failed to connect, retrying in 5 seconds...");
+                Thread.sleep(5000);
+                retries--;
+            }
+        }
+        throw new RuntimeException("Could not connect to the database");
     }
 
 }
