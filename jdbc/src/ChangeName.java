@@ -1,0 +1,34 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+public class ChangeName {
+
+	public static void main(String[] args) throws Exception {
+		 Scanner sc = new Scanner(System.in);
+	     Class.forName("com.mysql.cj.jdbc.Driver");
+	     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/UserAuthentication", "root", "your-password");
+	     
+	     System.out.println("Enter new name: ");
+	     String name = sc.nextLine();
+//	     String name = args[0];
+	     System.out.println("Enter username: ");
+	     String username = sc.nextLine();
+//	     String username = args[1];
+	     
+	    	 PreparedStatement ps1 = con.prepareStatement("UPDATE user_database SET name = ? WHERE username = ?");
+		     ps1.setString(1,name);
+		     ps1.setString(2,username);
+		     
+		     int rows1 = ps1.executeUpdate();
+		     
+		     if(rows1 > 0) 
+		    	 System.out.println("Name Updated!");
+		    	
+		     else 
+			    	 System.out.println("Error");
+	}
+
+}
