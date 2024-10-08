@@ -1,0 +1,262 @@
+body {
+    font-family: 'Gilroy', sans-serif;
+   /* background-image: conic-gradient( 90deg ,  black , purple );   */
+  /* background: rgb(113,25,156);*/
+   background: radial-gradient(circle, rgb(96, 0, 147) 0%, rgb(0, 0, 0) 45% );
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    height: 100vh;
+    
+}
+
+.form-container {
+    background: radial-gradient(circle, rgb(42, 41, 43) 0%, rgba(0, 0, 0, 1) 100%);
+    padding: 20px;
+    border-radius: 30px;
+    width: 400px;
+    height: 500px;
+    text-align: left;
+    border: 1px solid black;
+    position: relative;
+}
+
+h1 {
+    font-size: 24px;
+    color: #24292e;
+    margin-bottom: 60px;
+    margin-left: -190px;
+    margin-top: 5px;
+}
+
+.grand-signup-text {
+    font-size: 50px; 
+    color: #fff; 
+    margin-top: -45px; 
+    margin-bottom: 50px; 
+    font-weight: bold; 
+    text-align: center;
+    margin-right: 210px;
+    background: -webkit-linear-gradient(rgb(96, 0, 147), rgb(255, 255, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textBox input {
+    width: 80%;
+    padding: 8px 12px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #e1e4e8;
+    border-radius: 9px;
+    /*box-sizing: border-box;*/
+    font-size: 19px;
+    margin-top: 20px;
+    background-color: rgb(35, 35, 35);
+    color: #24292e;
+    /*cursor: pointer;
+    font-weight: bold;*/
+    
+}
+
+input[type="password"]{
+    color: #fff;
+
+}
+
+input[type="text"]{
+    color: #fff;
+}
+
+.summary-title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.summary-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.summary-label {
+    font-weight: bold;
+    color: #d1d1d1;
+    font-size: 18px;
+}
+
+.summary-data {
+    color: #ffffff;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.step p {
+    margin: 10px 0;
+}
+
+/* input[type="checkbox"] {
+    margin-right: 8px;
+} */
+
+/* .forgot-password {
+    margin: 16px 0;
+}
+
+.forgot-password a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+} */
+
+.signinbutton {
+    background-color: #fff;
+    color: black;
+    padding: 10px 16px;
+    /*border: 1px solid rgba(27, 31, 35, 0.15);*/
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    width: 80%;
+    margin-top: 20px;
+    /*box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
+    vertical-align: middle;
+    white-space: nowrap;*/
+    transition: transform 0.3s ease;
+}
+
+.signinbutton:hover {
+    background-color: rgb(210, 1, 210);
+    /*letter-spacing: 0.05em;
+    background: var(rgb(210, 1, 210));*/
+    color: #fff;
+   /* height: 45px; */
+    transform: scale(1.09);
+    /*transition-duration: 0.3s;*/
+}
+
+.step {
+    display: none;
+}
+
+#step-1 {
+    display: block;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1{
+    color: #fff;
+}
+
+.Google{
+    color: #fff;
+}
+
+.Account{
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+span{
+    color: #fff;
+}
+
+.email{
+    color: #fff;
+}
+
+.Password{
+    color: #fff;
+}
+
+.fa-google {
+    color: #fff;
+}
+
+.fa-github{
+    color: #fff;
+}
+
+.fa-linkedin{
+    color : #fff;
+    
+}
+
+.fa-windows {
+    color: #fff;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    position: absolute; 
+    bottom: 70px; 
+    width: 100%; 
+    cursor: pointer;
+    right: 0.5%;
+}
+
+.fa-google:hover{
+    color: rgb(3, 214, 24);
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+}
+
+.fa-windows:hover{
+    color: rgb(53, 184, 255);
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+}
+
+.fa-linkedin:hover{
+    color: rgb(23, 90, 166);
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+}
+
+.fa-github:hover{
+    color: #b5b8bb;
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+}
+
+.progress-bar {
+    height: 3px; 
+    width: 100%; 
+    background: #56595f; 
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 150px;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: #fff; 
+    transition: width 0.3s ease-in-out; 
+    position: absolute;
+    left: 0;
+    top: 0;
+}
