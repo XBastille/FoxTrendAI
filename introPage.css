@@ -145,7 +145,6 @@ nav ul {
     display: none;
 }
 
-/* Intro Section */
 .intro {
     border-bottom: 0.1px solid rgb(69, 69, 69);
     box-shadow: white;
@@ -310,9 +309,6 @@ nav ul {
     font-size: 22px
 }
 
-
-
-/* Industries Section */
 .industries {
     padding: 50px 20px;
     text-align: center;
