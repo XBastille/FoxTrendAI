@@ -9,7 +9,7 @@ public class ChangeEmail {
 	public static void main(String[] args) throws Exception {
 		 Scanner sc = new Scanner(System.in);
 	     Class.forName("com.mysql.cj.jdbc.Driver");
-	     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/UserAuthentication", "root", "your-password");
+	     Connection con = getConnection();
 	     
 	     System.out.println("Enter new email: ");
 	     String email = sc.nextLine();
@@ -40,5 +40,21 @@ public class ChangeEmail {
 		
 
 	}
+	
+	public static Connection getConnection() throws InterruptedException {
+        int retries = 5;
+        while (retries > 0) {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/UserAuthentication", "root", "your_password");
+                System.out.println("Connected to the database!");
+                return con;
+            } catch (Exception e) {
+                System.out.println("Failed to connect, retrying in 5 seconds...");
+                Thread.sleep(5000);
+                retries--;
+            }
+        }
+        throw new RuntimeException("Could not connect to the database");
+    }
 
 }
