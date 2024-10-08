@@ -24,7 +24,7 @@ require('../config/passport')(passport)
 
 const runjava = (className, args) => {
   return new Promise((resolve, reject) => {
-    const javaprocess = spawn("java", ["-cp", "Connector J 8.0/mysql-connector-java-8.0.25.jar;jdbc/bin", className, ...args]);
+    const javaprocess = spawn("java", ["-cp", "mysql-connector-j-9.0.0.jar;jdbc/bin", className, ...args]);
     let data1 = "";
     javaprocess.stdout.on('data', (data) => {
       data1 += data.toString();
