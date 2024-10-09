@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></script>
+    <link rel="stylesheet" href="graphss.css">
+</head>
+
+<body>
+   
+           
+            
+            <div class="search-container">
+                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66e2596d&is=66e107ed&hm=10bf4ef4a3e5b258b9497a5f27512abf9d95d9fa105f1afc0853b9c5b97cfe9e&" class="logo">
+                <input type="text" class="search-bar" placeholder="Search">
+                <i class="search-icon fas fa-search"></i>
+              
+              <div class="magnifying-glass">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            
+              <div class="navigationBar">
+                
+                    <a class="serv">Services</a>
+                    <a class="comp">Company</a>
+                    <a class="blog">Blog</a>
+                    <a class="cont">Contact Us</a>
+                
+              </div>
+           
+            </div>
+
+            
+
+       
+            <div class="rightBox" style = "float: right;">
+                <ul> 
+                    <button id="aapl">Predict AAPL</button><br>
+                    <div class="data">
+                    <a class="sum">Summary</a><br><br>
+                    <a class="cha"> Chart</a><br><br>
+                    <a class="histo"> Historical Data</a><br><br>
+                    <a class="stat" >Statistics</a><br><br>
+                    <a class="pro">Profile</a><br><br>
+                </div>
+                    <button id="Add"> Add To Lists</button>
+                </ul>
+            </div>
+
+        
+               
+            
+          
+          
+          <div class="desc">
+            <h1>Apple</h1>
+            <h1>$220.30</h1>
+            <h5>-$2.51(-1.13%) Pre-market</h5>
+            <h4>24 Hour Market</h4>
+          </div>
+          <div class="Advance" style=" padding: 20px; width: 50px;">
+            <button style="transform: translateX(1800%); border: none; background: transparent; ;">Advance</button>
+            </div>
+            <div class="Valuation_Measures">
+                <h2>Valuation Measures</h2>
+                <table>
+                    <th>    </th>
+                    <th>Current</th>
+                    <th>6/30/2024</th>
+                    <th>3/31/2024</th>
+                    <th>12/31/2023</th>
+                    <th>9/30/2023</th>
+                    <th>6/30/2023</th>
+
+                    <tr>
+                        <td>Market Cap</td>
+                        <td>3.47T</td>
+                        <td>3.23T</td>
+                        <td>2.65T</td>
+                        <td>2.99T</td>
+                        <td>2.68T</td>
+                        <td>3.05T</td>
+                      </tr>
+                      <tr>
+                        <td>Enterprise Value</td>
+                        <td>3.51T</td>
+                        <td>3.27T</td>
+                        <td>2.68T</td>
+                        <td>3.06T</td>
+                        <td>2.72T</td>
+                        <td>3.10T</td>
+                      </tr>
+                      <tr>
+                        <td>Trailing P/E</td>
+                        <td>34.73</td>
+                        <td>32.76</td>
+                        <td>26.67</td>
+                        <td>31.41</td>
+                        <td>28.73</td>
+                        <td>32,88</td>
+                      </tr>
+                      <tr>
+                        <td>Forward P/E</td>
+                        <td>30.03</td>
+                        <td>28.65</td>
+                        <td>26.32</td>
+                        <td>29.15</td>
+                        <td>25.77</td>
+                        <td>29.41</td>
+                      </tr>
+                      <tr>
+                        <td>PEG Ratio (5yr expected)</td>
+                        <td>2.19</td>
+                        <td>2.23</td>
+                        <td>2.11</td>
+                        <td>2.31</td>
+                        <td>2.18</td>
+                        <td>2.66</td>
+                      </tr>
+                      <tr>
+                        <td>Price/Sales</td>
+                        <td>9.18</td>
+                        <td>8.62</td>
+                        <td>6.99</td>
+                        <td>7.94</td>
+                        <td>7.10</td>
+                        <td>8.08</td>
+                      </tr>
+                      <tr>
+                        <td>Price/Book</td>
+                        <td>52.01</td>
+                        <td>43.21</td>
+                        <td>35.49</td>
+                        <td>47.90</td>
+                        <td>44.17</td>
+                        <td>49.08</td>
+                      </tr>
+                      <tr>
+                        <td>Enterprise Value/Revenue</td>
+                        <td>9.10</td>
+                        <td>8.56</td>
+                        <td>6.96</td>
+                        <td>7.98</td>
+                        <td>7.09</td>
+                        <td>8.06</td>
+                      </tr>
+                      <tr>
+                        <td>Enterprise Value/EBITDA</td>
+                        <td>25.96</td>
+                        <td>24.57</td>
+                        <td>20.10</td>
+                        <td>23.66</td>
+                        <td>21.46</td>
+                        <td>24.51</td>
+                      </tr>
+                </table>
+
+            </div>
+
+            <div class = "FinancialHighlights">
+                <h2>Financial Highlights</h2>
+                <h3>Profitability</h3>
+                <table>
+                    <tr>
+                        <td>Profit Margin</td>
+                        <td><b>26.44%</b></td>
+                    </tr>
+                    <tr>
+                        <td>Operating Margin (ttm)</td>
+                        <td><b>29.56%</b></td>
+                    </tr>
+                </table>
+
+                <h3>Management Effectiveness</h3>
+                <table>
+                    <tr>
+                        <td>Return on Assets (ttm)</td>
+                        <td><b>22.61%</b></td>
+                    </tr>
+                    <tr>
+                        <td>Return on Wquity (ttm)</td>
+                        <td><b>160.58%</b></td>
+                    </tr>
+                </table>
+
+                <h3>Income Statement</h3>
+                <table>
+                    <tr>
+                        <td>Revenue (ttm)</td>
+                        <td><b>385.6B</b></td>
+                    </tr>
+                    <tr>
+                        <td>Revenue Per Share (ttm)</td>
+                        <td><b>24.96</b></td>
+                    </tr>
+                    <tr>
+                        <td>EBITDA</td>
+                        <td><b>131.78B</b></td>
+                    </tr>
+                    <tr>
+                        <td>Net Income to Common (ttm)</td>
+                        <td><b>101.96B</b></td>
+                    </tr>
+                </table>
+
+                <h3>Balance Sheet</h3>
+                <table>
+                    <tr>
+                        <td>Total Cash (mrq)</td>
+                        <td><b>61.8B</b></td>
+                    </tr>
+                    <tr>
+                        <td>Total Cash Per Share (ttm)</td>
+                        <td><b>4.07</b></td>
+                    </tr>
+                    <tr>
+                        <td>Total Debt (mrq)</td>
+                        <td><b>101.3B</b></td>
+                    </tr>
+                    <tr>
+                        <td>Current Ratio (mrq)</td>
+                        <td><b>0.95</b></td>
+                    </tr>
+                </table>
+
+                <h3>Cash Flow Statement</h3>
+                <table>
+                    <tr>
+                        <td>Operating Cash Flow (ttm)</td>
+                        <td><b>113.04B</b></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class = "TradingInformation">
+                <h2>Trading Information</h2>
+                <h3>Stock Price History</h3>
+                <table>
+                    <tr>
+                        <td>Beta (5Y Monthly)</td>
+                        <td><b>1.24</b></td>
+                    </tr>
+                    <tr>
+                        <td>S&P 500 52-Week Change</td>
+                        <td><b>31.47%</b></td>
+                    </tr>
+                    <tr>
+                        <td>52 Week High</td>
+                        <td><b>237.23</b></td>
+                    </tr>
+                    <tr>
+                        <td>52 Week Low</td>
+                        <td><b>164.08</b></td>
+                    </tr>
+                    <tr>
+                        <td>50-Day Average</td>
+                        <td><b>222.44</b></td>
+                    </tr>
+                    <tr>
+                        <td>200-Day Moving Average</td>
+                        <td><b>196.35</b></td>
+                    </tr>
+                </table>
+
+                <h3>Share Statistics</h3>
+                <table>
+                    <tr>
+                        <td>Avg Vol (10 day)</td>
+                        <td><b>78.78M</b></td>
+                    </tr>
+                    <tr>
+                        <td>Shares Outstanding</td>
+                        <td><b>15.2B</b></td>
+                    </tr>
+                    <tr>
+                        <td>Implied Shares Outstanding</td>
+                        <td><b>15.25B</b></td>
+                    </tr>
+                    <tr>
+                        <td>Float Shares</td>
+                        <td><b>15.18B</b></td>
+                    </tr>
+                    <tr>
+                        <td>% Held by Insiders</td>
+                        <td><b>2.70%</b></td>
+                    </tr>
+                    <tr>
+                        <td>% Held by Institutions</td>
+                        <td><b>60.88%</b></td>
+                    </tr>
+                    <tr>
+                        <td>Shares Short(8/30/2024)</td>
+                        <td><b>135.04M</b></td>
+                    </tr>
+                    <tr>
+                        <td>Shares Ratio(8/30/2024)</td>
+                        <td><b>2.67</b></td>
+                    </tr>
+                    <tr>
+                        <td>Short % of Shares Outstanding (8/30/2024)</td>
+                        <td><b>0.89%</b></td>
+                    </tr>
+                    <tr>
+                        <td>Shares Short(prior month 7/31/2024)</td>
+                        <td><b>117.7M</b></td>
+                    </tr>
+                </table>
+
+                <h3>Dividents & Splits</h3>
+                <table>
+                    <tr>
+                        <td>Trailing Annual Dividend Rate</td>
+                        <td><b>0.97</b></td>
+                    </tr>
+                    <tr>
+                        <td>Trailing Annual Dividend Yeild</td>
+                        <td><b>0.42%</b></td>
+                    </tr>
+                    <tr>
+                        <td>5 Year Average Divedend Yeild</td>
+                        <td><b>0.66</b></td>
+                    </tr>
+                    <tr>
+                        <td>Payout Ratio</td>
+                        <td><b>14.76%</b></td>
+                    </tr>
+                    <tr>
+                        <td>Dividend Date</td>
+                        <td><b>8/15/2024</b></td>
+                    </tr>
+                    <tr>
+                        <tr>
+                            <td>Ex-Dividend Date</td>
+                            <td><b>8/12/2024</b></td>
+                        </tr>
+                        <tr>
+                            <td>Last Split Factor</td>
+                            <td><b>4:1</b></td>
+                        </tr>
+                    </tr>
+                        <td>Last Split Date</td>
+                        <td><b>8/31/2020</b></td>
+                    </tr>
+                    
+                </table>
+
+            </div>
+
+            <div class = "AbbreviationGuide">
+                <h2>Abbreviation Guide</h2>
+                <p>
+                    mrq = Most Recent Quarter<br>
+                    ttm = Trailing Twelve Months<br>
+                    yoy = Year Over Year<br>
+                    lfy = Last Fiscal Year<br>
+                    fye = Fiscal Year Ending
+                </p>
+            </div>
+                
+            
+        
+        <div class="PeopleAlsoWatch">
+            <h2 id="people">People Also Watch</h2>
+    
+            <div class="slider-container">
+    
+            <div class="company-container" id="slider">
+                <div class="company-box">
+                    <b>AMZN</b>
+                    <p>Amazon.com, Inc.</p>
+                    <p class="company-price">519.38 +1.29%</p>
+                </div>
+                <div class="company-box">
+                    <b>TSLA</b>
+                    <p>Tesla, Inc.</p>
+                    <p class="company-price">412.62 +0.91%</p>
+                </div>
+                <div class="company-box">
+                    <b>GOOG</b>
+                    <p>Alphabet Inc.</p>
+                    <p class="company-price">685.09 +0.80%</p>
+                </div>
+                <div class="company-box">
+                    <b>META</b>
+                    <p>Meta Platforms, Inc.</p>
+                    <p class="company-price">179.44 +3.53%</p>
+                </div>
+                <div class="company-box">
+                    <b>MSFT</b>
+                    <p>Microsoft Corporation</p>
+                    <p class="company-price">160.28 +1.56%</p>
+                </div>
+                <div class="company-box">
+                    <b>NTFLX</b>
+                    <p>Netflix, Inc.</p>
+                    <p class="company-price">233.29 +6.33%</p>
+                </div>
+                <div class="company-box">
+                    <b>NVDA</b>
+                    <p>NVIDIA Corporation</p>
+                    <p class="company-price">108.75 +2.39%</p>
+                </div>
+                <div class="company-box">
+                    <b>AMD</b>
+                    <p>Advanced Micro Devices, Inc. </p>
+                    <p class="company-price">155.99 +7.70</p>
+                </div>
+                <div class="company-box">
+                    <b>INTL</b>
+                    <p>Intel Corporation</p>
+                    <p class="company-price">21.37 +0.60</p>
+                </div>
+            </div>
+             
+            <div id="SliderBtns">
+    
+            <span class="slider-btn next" onclick="slide(1)">
+                 <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1286335293603188848/arrow-24-xxl_1.png?ex=66ed8898&is=66ec3718&hm=d08c5cc232394c4681f5e7fc1e8508056604e39666ce71e883158823425275b7&">
+            </span>
+    
+            
+            <span class="slider-btn prev" onclick="slide(-1)">
+                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1285614424794857543/arrow-24-xxl.png?ex=66ece37c&is=66eb91fc&hm=8ff1bd8da5b062562fa1077c20ce3abe0c1fc7a58315bfc6769b722ed32ea88b&">
+            </span>
+            
+        </div>
+    
+        </div>
+        </div>
+          <style>
+            ul {
+              list-style-type: none;
+              padding-inline-start: 0;
+            }
+          </style>
+
+<ul class="Icons">
+    <li class="Icon-items" data-name="Home">
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284843773888561303/home.png?ex=66e96d02&is=66e81b82&hm=be109d58c7dc3763e2d1dfc0e37c15d2d2b202c5d8b0bc94733c08253acf7e3c&" > 
+        <span class="icon-name">Home</span>
+    </li>
+
+    <li  class="Icon-items" data-name="Watch">
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284845024856772619/recent-icon-256x233-qol068gf.png?ex=66ec112d&is=66eabfad&hm=e02ea0afce8021b8a2b81c30374368b7d891e382af82d4ff27c053b8ec7b2477&"> 
+        <span class="icon-name">Watch</span>
+    </li>
+
+    <li  class="Icon-items" data-name="Lists">
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284845942092070932/add-list-xxl.png?ex=66e96f07&is=66e81d87&hm=d189e3e08c02c3f10f4f99799b13c476b305b53a6c7fcf933992cae792e8db02&">
+        <span class="icon-name">Lists</span>
+     </li>
+    <li  class="Icon-items" data-name="Donate">
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284846969910464655/Donate-icon-white-300x248.png?ex=66e96ffc&is=66e81e7c&hm=8984095f750ef254b0244345dfa193c4cb4929578a1ac281d3cf22e68f638b2f&">
+        <span class="icon-name">Donate</span>
+     </li>
+    <li  class="Icon-items" data-name="Profile">
+        <img src="https://icons.veryicon.com/png/o/application/live-broadcast/switch-account-white.png">  
+        <span class="icon-name">Profile</span>
+    </li>
+    <li class="Arrow">
+        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1285614424794857543/arrow-24-xxl.png?ex=66eae93c&is=66e997bc&hm=d4ab1837129a58bdce87f4d4a1259f9d06e33d5978fbc8ab68f2db4d82062535&">
+    </li>
+
+    
+</ul>
+   
+   <br>
+    <br>
+    <br>
+
+    <footer>
+        <div class="footer-links">
+
+            <button class="footer-button" id="hidden" type="button" input type="text">Sign Up </button>
+
+                <div class="footer-block">
+                <div class="footer-title">Company</div>
+                    <a href="#" class="links">Mail us</a>
+                    <a href="#" class="links">Services</a>
+                </div>
+
+                <div class="footer-block">
+                <div class="footer-title">More</div>
+                    <a href="#" class="links">Blog</a>
+                    <a href="#" class="links">Terms & Conditions</a>
+                    <a href="#" class="links">Careers</a>
+                    <a href="#" class="links">Privacy Policy</a>
+                </div>
+            
+                <div class="footer-block">
+                <div class="footer-title">Social</div>
+                    <a href="#" class="links">LinkedIn</a>
+                    <a href="#" class="links">YouTube</a>
+                </div>
+            
+        </div>
+    </footer> 
+
+
+
+
+    <script>
+        Papa.parse("stock_data_1.csv", {
+            download: true,
+            header: true,
+            complete: function(results) {
+                const xarray = [];
+                const yarray = [];
+                
+                results.data.forEach(row => {
+                    xarray.push(row['Date']);
+                    yarray.push(parseFloat(row['Close']));
+                });
+                
+                const data=[{
+                    x:xarray,
+                    y:[],
+                    mode:"lines",
+                    type:"scatter",
+                    fill:"tozeroy",
+                    fillgradient:{
+                        type: 'vertical',
+                        colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
+                    },
+                    line:{
+                        width:2
+                    }
+                }];
+                const layout={
+                    xaxis:{range:[xarray[0], xarray[xarray.length-1]],title:{
+                        text:"Date",
+                        font:{
+                            color:"white"
+                        }
+                       },
+                        tickfont:{
+                            color:"white"
+                        }
+                    },
+                    yaxis:{range:[0, Math.max(...yarray)+20],title:{text:"Prices",
+                        font:{
+                            color:"white"
+                        }
+                    },
+                        tickfont:{
+                            color:"white"
+                        }
+                    },
+                    colorway:['#7834a8'],
+                    plot_bgcolor:"black",
+                    paper_bgcolor:"black",
+                };
+                
+                Plotly.newPlot("myplot",data,layout);
+                let i = 0; let id;
+                function animate() {
+                    if (i < xarray.length) {
+                        Plotly.extendTraces("myplot", {
+                            x: [[xarray[i]]],
+                            y: [[yarray[i]]]
+                        }, [0])
+                        i++;
+                        id = requestAnimationFrame(animate);
+                    }
+                }
+                animate();
+
+
+                const stp=document.getElementById('stp')
+                stp.addEventListener('click',()=>{
+                   Plotly.react("myplot",[{
+                    x:xarray,
+                    y:yarray,
+                    mode:"lines",
+                    type:"scatter",
+                    fill:"tozeroy",
+                    fillgradient:{
+                        type: 'vertical',
+                        colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
+                    },
+                    line:{
+                        width:2
+                    }
+                   }],layout)
+                   cancelAnimationFrame(id)
+                })
+            }
+        });
+    </script>
+
+    <script src="Stockspage.js"></script>
+</body>
+</html>
