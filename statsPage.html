@@ -7,32 +7,115 @@
     <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></script>
-    <link rel="stylesheet" href="graphss.css">
+    <link rel="stylesheet" href="graphstatss.css">
 </head>
 
 <body>
+    <ul class="icons open"> 
+        <a href="#" class="fox-icon-link">
+            <img src="media/fox.jpg" alt="Fox Icon" class="logo">
+          </a>
+        <li class="Icon-items" data-name="Home">
+            <img src="media/home.jpg" id="item1"> 
+            <span class="icon-name">Home</span>
+        </li>
+        <li class="Icon-items" data-name="Watch">
+            <img src="media/recent_watch.jpg" id="item2"> 
+            <span class="icon-name">Watch</span>
+        </li>
+        <li class="Icon-items" data-name="Lists">
+            <img src="media/list.jpg" id="item3">
+            <span class="icon-name">Lists</span>
+        </li>
+        <li class="Icon-items" data-name="Donate">
+            <img src="media/donate.jpg" id="item4">
+            <span class="icon-name">Donate</span>
+        </li>
+        <li class="Icon-items" data-name="Profile">
+            <img src="media/account.jpg" id="item5">
+            <span class="icon-name">Profile</span>
+        </li>
+        <li class="Arrow">
+            <img src="media/arrow-right.jpg">
+        </li>
+    </ul>  
    
            
-            
-            <div class="search-container">
-                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66e2596d&is=66e107ed&hm=10bf4ef4a3e5b258b9497a5f27512abf9d95d9fa105f1afc0853b9c5b97cfe9e&" class="logo">
-                <input type="text" class="search-bar" placeholder="Search">
-                <i class="search-icon fas fa-search"></i>
               
-              <div class="magnifying-glass">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-            
-              <div class="navigationBar">
-                
-                    <a class="serv">Services</a>
-                    <a class="comp">Company</a>
-                    <a class="blog">Blog</a>
-                    <a class="cont">Contact Us</a>
-                
-              </div>
-           
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search">
+        <i class="search-icon fas fa-search"></i>
+        <div class="magnifying-glass">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="navigationBar">
+            <a href="#" class="serv">
+                Services
+                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" class="comp">
+                Company
+                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" class="blog">Blog</a>  
+            <a href="#" class="port">Contact Us</a>
+            <div class="services-dropdown">
+                <div class="services-dropdown-content">
+                    <div class="services-label">
+                        <h1>Services</h1>
+                    </div>
+                    <div class="services-dropdown-column">
+                        <div class="primary-section">
+                        <h2>Primary <span class="arrow">→</span></h2>
+                        <div class="primary-elements">
+                            <a href="#">Stock Market Prediction</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="services-dropdown-column">
+                        <h3>Secondary <span class="arrow">→</span></h3>
+                        <div class="secondary-section">
+                        <div class="secondary-elements">
+                            <a href="#">Used Car Prediction</a>
+                            <a href="#">Housing Prediction</a>
+                            <a href="#">Loan Approval Prediction</a>
+                        </div>
+                    </div>
+                    </div>
+                    <img src="media/services.jpg" alt="Your Alt Text" class="service-image">
+                </div>
             </div>
+                <div class="company-dropdown">
+                <div class="company-dropdown-content">
+                    <div class="company-label">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>MORE ABOUT US</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License</a>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>SOCIAL</h2>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">X</a>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>CONTACTS</h2>
+                        <a href="#">Book a Call</a>
+                        <a href="#">Mail Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
             
 
@@ -360,237 +443,115 @@
                     fye = Fiscal Year Ending
                 </p>
             </div>
-                
-            
+            <div class="PeopleAlsoWatch">
+                <h2 id="people">People Also Watch</h2>
         
-        <div class="PeopleAlsoWatch">
-            <h2 id="people">People Also Watch</h2>
-    
-            <div class="slider-container">
-    
-            <div class="company-container" id="slider">
-                <div class="company-box">
-                    <b>AMZN</b>
-                    <p>Amazon.com, Inc.</p>
-                    <p class="company-price">519.38 +1.29%</p>
+                <div class="slider-container">
+        
+                <div class="company-container" id="slider">
+                    <div class="company-box">
+                        <b>AMZN</b>
+                        <p>Amazon</p>
+                        <p class="company-price">$519.38</p>
+                        <a class="company-percent">1.29%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>TSLA</b>
+                        <p>Tesla</p>
+                        <p class="company-price">$412.62 </p>
+                        <a class="company-percent">0.91%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>GOOG</b>
+                        <p>Alphabet</p>
+                        <p class="company-price">$685.09</p>
+                        <a class="company-percent">0.80%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>META</b>
+                        <p>Meta Platforms.</p>
+                        <p class="company-price">$179.44</p>
+                        <a class="company-percent">3.53%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>MSFT</b>
+                        <p>Microsoft</p>
+                        <p class="company-price">$160.28 </p>
+                        <a class="company-percent">1.56%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>NTFLX</b>
+                        <p>Netflix</p>
+                        <p class="company-price">$233.29</p>
+                        <a class="company-percent">6.33%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>NVDA</b>
+                        <p>NVIDIA</p>
+                        <p class="company-price">$108.75</p>
+                        <a class="company-percent">2.39%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>AMD</b>
+                        <p id="micro">Advanced Micro Devices </p>
+                        <p class="company-price">$155.99</p>
+                        <a class="company-percent">7.70%</a>
+                    </div>
+                    <div class="company-box">
+                        <b>INTL</b>
+                        <p>Intel</p>
+                        <p class="company-price">$21.37</p>
+                        <a class="company-percent">0.60%</a>
+                    </div>
                 </div>
-                <div class="company-box">
-                    <b>TSLA</b>
-                    <p>Tesla, Inc.</p>
-                    <p class="company-price">412.62 +0.91%</p>
-                </div>
-                <div class="company-box">
-                    <b>GOOG</b>
-                    <p>Alphabet Inc.</p>
-                    <p class="company-price">685.09 +0.80%</p>
-                </div>
-                <div class="company-box">
-                    <b>META</b>
-                    <p>Meta Platforms, Inc.</p>
-                    <p class="company-price">179.44 +3.53%</p>
-                </div>
-                <div class="company-box">
-                    <b>MSFT</b>
-                    <p>Microsoft Corporation</p>
-                    <p class="company-price">160.28 +1.56%</p>
-                </div>
-                <div class="company-box">
-                    <b>NTFLX</b>
-                    <p>Netflix, Inc.</p>
-                    <p class="company-price">233.29 +6.33%</p>
-                </div>
-                <div class="company-box">
-                    <b>NVDA</b>
-                    <p>NVIDIA Corporation</p>
-                    <p class="company-price">108.75 +2.39%</p>
-                </div>
-                <div class="company-box">
-                    <b>AMD</b>
-                    <p>Advanced Micro Devices, Inc. </p>
-                    <p class="company-price">155.99 +7.70</p>
-                </div>
-                <div class="company-box">
-                    <b>INTL</b>
-                    <p>Intel Corporation</p>
-                    <p class="company-price">21.37 +0.60</p>
-                </div>
+                 
+                <div id="SliderBtns">
+        
+                <span class="slider-btn next" onclick="slide(1)">
+                     <img src="media/arrow-right.jpg">
+                </span>
+        
+                
+                <span class="slider-btn prev" onclick="slide(-1)">
+                    <img src="media/arrow-left.jpg">
+                </span>
+                
             </div>
-             
-            <div id="SliderBtns">
-    
-            <span class="slider-btn next" onclick="slide(1)">
-                 <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1286335293603188848/arrow-24-xxl_1.png?ex=66ed8898&is=66ec3718&hm=d08c5cc232394c4681f5e7fc1e8508056604e39666ce71e883158823425275b7&">
-            </span>
-    
-            
-            <span class="slider-btn prev" onclick="slide(-1)">
-                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1285614424794857543/arrow-24-xxl.png?ex=66ece37c&is=66eb91fc&hm=8ff1bd8da5b062562fa1077c20ce3abe0c1fc7a58315bfc6769b722ed32ea88b&">
-            </span>
-            
-        </div>
-    
-        </div>
-        </div>
+        
+            </div>
+            </div>
           <style>
             ul {
               list-style-type: none;
               padding-inline-start: 0;
             }
           </style>
-
-<ul class="Icons">
-    <li class="Icon-items" data-name="Home">
-        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284843773888561303/home.png?ex=66e96d02&is=66e81b82&hm=be109d58c7dc3763e2d1dfc0e37c15d2d2b202c5d8b0bc94733c08253acf7e3c&" > 
-        <span class="icon-name">Home</span>
-    </li>
-
-    <li  class="Icon-items" data-name="Watch">
-        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284845024856772619/recent-icon-256x233-qol068gf.png?ex=66ec112d&is=66eabfad&hm=e02ea0afce8021b8a2b81c30374368b7d891e382af82d4ff27c053b8ec7b2477&"> 
-        <span class="icon-name">Watch</span>
-    </li>
-
-    <li  class="Icon-items" data-name="Lists">
-        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284845942092070932/add-list-xxl.png?ex=66e96f07&is=66e81d87&hm=d189e3e08c02c3f10f4f99799b13c476b305b53a6c7fcf933992cae792e8db02&">
-        <span class="icon-name">Lists</span>
-     </li>
-    <li  class="Icon-items" data-name="Donate">
-        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1284846969910464655/Donate-icon-white-300x248.png?ex=66e96ffc&is=66e81e7c&hm=8984095f750ef254b0244345dfa193c4cb4929578a1ac281d3cf22e68f638b2f&">
-        <span class="icon-name">Donate</span>
-     </li>
-    <li  class="Icon-items" data-name="Profile">
-        <img src="https://icons.veryicon.com/png/o/application/live-broadcast/switch-account-white.png">  
-        <span class="icon-name">Profile</span>
-    </li>
-    <li class="Arrow">
-        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1285614424794857543/arrow-24-xxl.png?ex=66eae93c&is=66e997bc&hm=d4ab1837129a58bdce87f4d4a1259f9d06e33d5978fbc8ab68f2db4d82062535&">
-    </li>
-
-    
-</ul>
-   
-   <br>
-    <br>
-    <br>
-
     <footer>
         <div class="footer-links">
-
-            <button class="footer-button" id="hidden" type="button" input type="text">Sign Up </button>
-
+             <img src="media/website_logo.jpg" class="foot-logo">
                 <div class="footer-block">
-                <div class="footer-title">Company</div>
-                    <a href="#" class="links">Mail us</a>
-                    <a href="#" class="links">Services</a>
+                <div class="footer-title" id="Comp">Company</div>
+                   <li><a class="links" id="mail">Mail us</a></li>
+                    <li><a class="links" id="SERV">Services</a></li>
                 </div>
 
                 <div class="footer-block">
-                <div class="footer-title">More</div>
-                    <a href="#" class="links">Blog</a>
-                    <a href="#" class="links">Terms & Conditions</a>
-                    <a href="#" class="links">Careers</a>
-                    <a href="#" class="links">Privacy Policy</a>
+                <div class="footer-title" id="more">More</div>
+                    <li><a class="links" id="tandc">Blog</a></li>
+                    <li><a class="links" id="career">License</a></li>
+                    <li><a class="links" id="privacy">Privacy Policy</a></li>
                 </div>
             
                 <div class="footer-block">
-                <div class="footer-title">Social</div>
-                    <a href="#" class="links">LinkedIn</a>
-                    <a href="#" class="links">YouTube</a>
+                <div class="footer-title" id="social">Social</div>
+                <li><a class="links" id="linkedin">LinkedIn</a></li>
+                <li> <a  class="links" id="yt">Instagram</a></li>
+                <li> <a  class="links" id="tw">X</a></li>
                 </div>
             
         </div>
     </footer> 
 
-
-
-
-    <script>
-        Papa.parse("stock_data_1.csv", {
-            download: true,
-            header: true,
-            complete: function(results) {
-                const xarray = [];
-                const yarray = [];
-                
-                results.data.forEach(row => {
-                    xarray.push(row['Date']);
-                    yarray.push(parseFloat(row['Close']));
-                });
-                
-                const data=[{
-                    x:xarray,
-                    y:[],
-                    mode:"lines",
-                    type:"scatter",
-                    fill:"tozeroy",
-                    fillgradient:{
-                        type: 'vertical',
-                        colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
-                    },
-                    line:{
-                        width:2
-                    }
-                }];
-                const layout={
-                    xaxis:{range:[xarray[0], xarray[xarray.length-1]],title:{
-                        text:"Date",
-                        font:{
-                            color:"white"
-                        }
-                       },
-                        tickfont:{
-                            color:"white"
-                        }
-                    },
-                    yaxis:{range:[0, Math.max(...yarray)+20],title:{text:"Prices",
-                        font:{
-                            color:"white"
-                        }
-                    },
-                        tickfont:{
-                            color:"white"
-                        }
-                    },
-                    colorway:['#7834a8'],
-                    plot_bgcolor:"black",
-                    paper_bgcolor:"black",
-                };
-                
-                Plotly.newPlot("myplot",data,layout);
-                let i = 0; let id;
-                function animate() {
-                    if (i < xarray.length) {
-                        Plotly.extendTraces("myplot", {
-                            x: [[xarray[i]]],
-                            y: [[yarray[i]]]
-                        }, [0])
-                        i++;
-                        id = requestAnimationFrame(animate);
-                    }
-                }
-                animate();
-
-
-                const stp=document.getElementById('stp')
-                stp.addEventListener('click',()=>{
-                   Plotly.react("myplot",[{
-                    x:xarray,
-                    y:yarray,
-                    mode:"lines",
-                    type:"scatter",
-                    fill:"tozeroy",
-                    fillgradient:{
-                        type: 'vertical',
-                        colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
-                    },
-                    line:{
-                        width:2
-                    }
-                   }],layout)
-                   cancelAnimationFrame(id)
-                })
-            }
-        });
-    </script>
 
     <script src="Stockspage.js"></script>
 </body>
