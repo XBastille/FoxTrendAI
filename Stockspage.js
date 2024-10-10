@@ -1,3 +1,203 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const avatarEdit = document.querySelector('.avatar-edit');
+  const avatarPopup = document.querySelector('.avatar-popup');
+
+  avatarEdit.addEventListener('click', function() {
+    console.log('Avatar edit clicked');
+    if (avatarPopup) {
+      avatarPopup.classList.toggle('show');
+      if (avatarPopup.classList.contains('show')) {
+        avatarPopup.style.display = 'flex';
+        setTimeout(() => avatarPopup.style.opacity = '1', 10); 
+        console.log('Avatar popup displayed');
+      } else {
+        avatarPopup.style.opacity = '0';
+        setTimeout(() => avatarPopup.style.display = 'none', 500); 
+        console.log('Avatar popup hidden');
+      }
+    } else {
+      console.log('Avatar popup not found');
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const avatarOptions = document.querySelectorAll('.avatar-option');
+    const selectButton = document.querySelector('.select-button');
+    const profileAvatar = document.querySelector('.avatar');
+    const avatarPopup = document.querySelector('.avatar-popup');
+
+    const initialSelectedAvatar = document.querySelector('.avatar-option.selected');
+    if (initialSelectedAvatar) {
+        profileAvatar.src = initialSelectedAvatar.src;
+    }
+
+    avatarOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            avatarOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    avatarOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            avatarOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    selectButton.addEventListener('click', function() {
+        const selectedAvatar = document.querySelector('.avatar-option.selected');
+        if (selectedAvatar) {
+            profileAvatar.src = selectedAvatar.src;
+            avatarPopup.style.display = 'none';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const accountItems = document.querySelectorAll('.account-item');
+
+  accountItems.forEach(item => {
+      item.addEventListener('click', function() {
+          this.classList.toggle('connected');
+          const status = this.querySelector('.connection-status');
+          if (this.classList.contains('connected')) {
+              status.textContent = 'Connected';
+          } else {
+              status.textContent = 'Not Connected';
+          }
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const connectButtons = document.querySelectorAll('.connect-button');
+
+    connectButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (this.classList.contains('loading')) return;
+
+            this.classList.add('loading');
+            this.textContent = '';
+
+            setTimeout(() => {
+                this.classList.remove('loading');
+                if (this.classList.contains('connected')) {
+                    this.classList.remove('connected');
+                    this.textContent = 'Connect';
+                } else {
+                    this.classList.add('connected');
+                    this.textContent = 'Connected';
+                }
+            }, 2000);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const editButton = document.querySelector('.edit-button');
+  const profileFields = document.querySelectorAll('.profile-field');
+  const avatarUsername = document.querySelector('.profile-header h1'); 
+  const confirmPasswordField = document.querySelector('.confirm-password'); 
+
+  function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+  }
+
+  function clearError(field) {
+      const errorMessage = field.querySelector('.error-message');
+      if (errorMessage) errorMessage.remove();
+      field.querySelectorAll('input').forEach(input => input.classList.remove('error'));
+  }
+
+  editButton.addEventListener('click', function() {
+      if (this.textContent.trim() === 'Edit Info') {
+          profileFields.forEach(field => {
+              const span = field.querySelector('span');
+              const input = field.querySelector('input');
+              if (span && input) {
+                  span.style.display = 'none'; 
+                  input.style.display = 'inline-block'; 
+              }
+          });
+
+          confirmPasswordField.style.display = 'flex'; 
+          this.textContent = 'Save Info'; 
+      } else {
+          let isValid = true;
+          let updatedUsername = '';
+
+          profileFields.forEach(field => {
+              clearError(field); 
+              const span = field.querySelector('span');
+              const input = field.querySelector('input');
+              const errorMessage = document.createElement('div');
+              errorMessage.className = 'error-message';
+              errorMessage.style.color = 'red';
+              errorMessage.style.fontSize = '12px';
+
+              if (input) {
+                  if (input.value.trim() === '') {
+                      isValid = false;
+                      input.classList.add('error');
+                      errorMessage.textContent = 'This field cannot be empty';
+                      field.appendChild(errorMessage);
+                  } else if (input.type === 'email' && !validateEmail(input.value)) {
+                      isValid = false;
+                      input.classList.add('error');
+                      errorMessage.textContent = 'Please enter a valid email address';
+                      field.appendChild(errorMessage);
+                  } else if (span) {
+                      span.textContent = input.type === 'password' ? '••••••••' : input.value; 
+                      if (input.type === 'text' && field.querySelector('label').textContent === 'Username:') {
+                          updatedUsername = input.value;
+                      }
+                  }
+              }
+          });
+          const passwordField = document.querySelector('.profile-field input[type="password"]');
+          const confirmPasswordInput = document.querySelector('.confirm-password input');
+          if (passwordField.value !== confirmPasswordInput.value) {
+              isValid = false;
+              confirmPasswordInput.classList.add('error');
+              const errorMessage = document.createElement('div');
+              errorMessage.className = 'error-message';
+              errorMessage.textContent = 'Passwords do not match';
+              errorMessage.style.color = 'red';
+              confirmPasswordInput.parentElement.appendChild(errorMessage);
+          }
+          if (isValid) {
+              profileFields.forEach(field => {
+                  const span = field.querySelector('span');
+                  const input = field.querySelector('input');
+                  if (span && input) {
+                      input.style.display = 'none'; 
+                      span.style.display = 'inline-block'; 
+                  }
+              });
+
+              if (updatedUsername) {
+                  avatarUsername.textContent = updatedUsername;
+              }
+
+              confirmPasswordField.style.display = 'none'; 
+
+              this.textContent = 'Edit Info'; 
+          }
+      }
+  });
+
+  profileFields.forEach(field => {
+      const inputs = field.querySelectorAll('input');
+      inputs.forEach(input => {
+          input.addEventListener('input', () => clearError(field));
+      });
+  });
+});
+
+
 const arrowButton = document.querySelector('.Arrow');
 const iconsList = document.querySelector('.icons');
 
@@ -344,5 +544,9 @@ function changeReadMore(){
   });
   
   updateCalendar();
+
+  
+
+
 
     
