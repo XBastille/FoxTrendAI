@@ -1239,7 +1239,6 @@ table tr {
   margin-right: 57px;
 }
 
-.Valuation_Measures h2,
 .FinancialHighlights h2,
 .TradingInformation h2,
 .AbbreviationGuide h2,
@@ -1247,6 +1246,22 @@ table tr {
 .TradingInformation h3 {
     color: #fff; 
     margin-bottom: 20px; 
+}
+
+.Valuation_Measures h2 {
+  color: #fff; 
+  margin-bottom: 20px; 
+  border-bottom: 2px solid #fff; 
+  padding-bottom: 10px; 
+  width: fit-content; 
+  width: 70%;
+}
+
+.Valuation_Measures h2, 
+.FinancialHighlights h2,
+.TradingInformation h2 {
+  border-bottom: 2px solid #fff; 
+  padding-bottom: 10px;
 }
 
 .FinancialHighlights h3, 
