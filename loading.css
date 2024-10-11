@@ -1,0 +1,317 @@
+:root {
+    --bg-color: #000000;
+    --grid-color: rgb(76, 74, 74);
+    --accent-color: #9f1c7e;
+    --snake-color: rgba(255, 255, 255, 0.5);
+    --grid-size: 50px;
+    --cube-edge-color: #FFFFFF;
+    --cube-dotted-color: rgba(255, 255, 255, 0.5);
+    --wave-color: rgba(255, 255, 255);
+}
+
+.loading-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 220%;
+    height: 230%;
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    transform: rotate(45deg);
+    transform-style: preserve-3d;
+}
+
+@keyframes gridWave {
+    0%, 100% {
+        filter: drop-shadow(0 0 0 var(--wave-color));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px var(--wave-color));
+    }
+}
+
+.wave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 0 var(--wave-color);
+    animation: waveExpand 8s ease-in-out 4s infinite;
+  }
+
+  @keyframes waveExpand {
+    0%, 100% {
+      width: 6px;
+      height: 6px;
+      box-shadow: 0 0 0 0 var(--wave-color);
+    }
+    50% {
+      width: 300%;
+      height: 300%;
+      box-shadow: 0 0 0 3px var(--wave-color);
+    }
+  }
+
+  .wave-cell {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: cellWave 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes cellWave {
+    0% {
+        transform: translateZ(0);
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: translateZ(60px);
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        transform: translateZ(0);
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.snake {
+    position: absolute;
+    background-color: var(--snake-color);
+}
+
+.snake-horizontal {
+    height: 2px;
+    width: 141.4%;
+    transform-origin: left center;
+    transform: rotate(45deg);
+}
+
+.snake-vertical {
+    width: 2px;
+    height: 141.4%;
+    transform-origin: center top;
+    transform: rotate(45deg);
+}
+
+.snake:nth-child(2) { top: -20%; left: -20%; animation: snakeMoveTopLeft 10s linear infinite;}
+.snake:nth-child(3) { bottom: -20%; right: -20%; animation: snakeMoveBottomRight 10s linear infinite;}
+.snake:nth-child(4) { bottom: -20%; right: -20%; animation: snakeMoveBottomRightUp 10s linear infinite;}
+.snake:nth-child(5) { bottom: -20%; left: -20%; animation: snakeMoveBottomLeft 10s linear infinite;}
+
+.snake:nth-child(7) {
+    top: -20%;
+    left: -20%;
+    animation: snakeMoveTopLeftDownGrid 10s linear infinite;
+}
+
+.snake-top {
+    width: 2px;
+    height: 141.4%;
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform-origin: center top;
+    transform: rotate(45deg);
+    background-color: var(--snake-color);
+    animation: snakeMoveFromTop 10s linear infinite;
+}
+
+.snake-diagonal-right {
+    width: 2px;
+    height: 181.4%;
+    position: absolute;
+    bottom: -30%;
+    right: -18%;
+    transform-origin: bottom right;
+    transform: rotate(-45deg);
+    background-color: var(--snake-color);
+    animation: snakeMoveFromBottomRight 8s linear infinite;
+}
+
+@keyframes snakeMoveFromBottomRight {
+    0% { transform: rotate(-45deg) translateY(100%); }
+    100% { transform: rotate(-45deg) translateY(-100%); }
+}
+
+@keyframes snakeMoveFromTop {
+    0% { transform: rotate(44deg) translateY(-100%); }
+    100% { transform: rotate(46deg) translateY(100%); }
+}
+
+
+
+.center-image {
+    width: 80%; 
+    height: 80%; 
+    object-fit: cover; 
+    position: relative;
+}
+
+.center-element {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #600093, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.cube {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateY(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right { transform: rotateY(90deg) translateZ(150px); }
+.left { transform: rotateY(-180deg) translateZ(150px); }
+.top { transform: rotateX(90deg) translateZ(150px); }
+
+.cube-edge {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    
+}
+
+@keyframes drawDottedLine {
+    0% {
+        opacity: 0;
+        clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+    }
+    100% {
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes drawSolidLine {
+    0% {
+        opacity: 0;
+        border: 2px solid var(--cube-edge-color);
+        clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+    }
+    100% {
+        opacity: 1;
+        border: 2px solid var(--cube-edge-color);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes disappearSolidLine {
+    0% {
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    100% {
+        opacity: 0;
+        clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    }
+}
+
+@keyframes disappearDottedLine {
+    0% {
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    100% {
+        opacity: 0;
+        clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    }
+}
+
+.cube-edge::before,
+.cube-edge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.cube-edge::before {
+    border: 2px dotted var(--cube-dotted-color);
+    opacity: 0;
+    animation: 
+        drawDottedLine 2s ease-in-out forwards,
+        disappearDottedLine 2s 8s ease-in-out forwards;
+        
+}
+
+.cube-edge::after {
+    border: 2px solid var(--cube-edge-color);
+    opacity: 0;
+    animation: 
+        drawSolidLine 2s 2s ease-in-out forwards,
+        disappearSolidLine 2s 6s ease-in-out forwards;
+}
+
+@keyframes fadeOutDottedLine {
+    to { opacity: 0; }
+}
+
+@keyframes fadeInDottedLine {
+    to { opacity: 1; }
+}
+
+@keyframes snakeMoveTopLeft {
+    0% { transform: rotate(45deg) translate(-100%, -100%); }
+    100% { transform: rotate(45deg) translate(100%, 100%); }
+}
+
+@keyframes snakeMoveBottomRightUp {
+    0% { transform: rotate(45deg) translate(100%, 100%); }
+    100% { transform: rotate(45deg) translate(100%, -100%); }
+}
+
+@keyframes snakeMoveTopRight {
+    0% { transform: rotate(45deg) translate(100%, -100%); }
+    100% { transform: rotate(45deg) translate(-100%, 100%); }
+}
+
+@keyframes snakeMoveBottomLeft {
+    0% { transform: rotate(45deg) translate(-100%, 100%); }
+    100% { transform: rotate(45deg) translate(100%, -100%); }
+}
+
+@keyframes snakeMoveBottomRightUpGrid {
+    0% { transform: rotate(45deg) translate(100%, 100%); }
+    100% { transform: rotate(45deg) translate(100%, -100%); }
+}
+
+@keyframes snakeMoveTopLeftDownGrid {
+    0% { transform: rotate(45deg) translate(-100%, -100%); }
+    100% { transform: rotate(45deg) translate(-100%, 100%); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
