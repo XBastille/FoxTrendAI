@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylized Sun and Clouds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black h-screen flex items-center justify-center overflow-hidden">
+    <div id="scene" class="w-96 h-96 relative">
+        <div id="sun" class="absolute w-64 h-64 bg-yellow-300 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="sun-texture"></div>
+        </div>
+        <div id="rays" class="absolute w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="ray absolute w-2 h-20 bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom"></div>
+        </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes sunGlow {
+        0%, 100% { box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 50px rgba(255, 255, 0, 0.3); 
+        }
+        50% { box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 100px rgba(255, 255, 0, 0.9); 
+        }
+    }
+        #sun {
+            animation: sunGlow 4s ease-in-out infinite;
+            background: radial-gradient(circle at 30% 30%, 
+            #ff8c00 0%, 
+            #ffea00 50%, 
+            #ff8c00 100%
+        );
+        box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 50px rgba(255, 255, 0, 0.5);
+        }
+        .ray {
+            transform-origin: bottom center;
+            border-radius: 70px;
+        }
+
+        .sun-texture {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="none" /><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none" /></svg>');
+        background-size: 10px 10px;
+        opacity: 0.3;
+        }
+
+        #rays {
+            --ray-distance: 8px;
+            --ray-width: 2px;
+            --ray-height: 20px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rays = document.getElementById('rays');
+            const raysContainer = document.getElementById('rays');
+
+            // Create 12 rays
+            function createRays() {
+                rays.innerHTML = ''; // Clear existing rays
+                for (let i = 0; i < 12; i++) {
+                    const ray = document.createElement('div');
+                    ray.className = 'ray absolute bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom';
+                    ray.style.width = 'var(--ray-width)';
+                    ray.style.height = 'var(--ray-height)';
+                    ray.style.transform = `rotate(${i * 30}deg) translateY(calc(-100% - var(--ray-distance)))`;
+                    rays.appendChild(ray);
+                }
+            }
+
+            function updateRays(distance, scale, width, height, offsetX = 0, offsetY = 0) {
+                raysContainer.style.setProperty('--ray-distance', `${distance}px`);
+                raysContainer.style.setProperty('--ray-width', `${width}px`);
+                raysContainer.style.setProperty('--ray-height', `${height}px`);
+                raysContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${scale})`;
+                createRays(); // Recreate rays with new dimensions
+            }
+
+            // Position clouds
+
+            createRays();
+            updateRays(70, 1.6, 3, 25, -2, 267);
+        });
+    </script>
+</body>
+</html>

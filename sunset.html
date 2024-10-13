@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black h-screen flex items-center justify-center overflow-hidden">
+    <div id="scene" class="w-96 h-96 relative">
+        <div id="sun" class="absolute w-64 h-64 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="sun-texture"></div>
+        </div>
+        <div id="rays" class="absolute w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="ray absolute w-2 h-20 bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom"></div>
+        </div>
+        <div id="clouds" class="absolute inset-0">
+            <svg width="0" height="0">
+                <filter id="cloud-filter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+                </filter>
+            </svg>
+            <div class="cloud absolute w-64 h-32 rounded-full">
+                <div class="cloud-highlight"></div>
+                <div class="cloud-shadow"></div>
+            </div>
+            <div class="cloud absolute w-72 h-36 rounded-full">
+                <div class="cloud-highlight"></div>
+                <div class="cloud-shadow"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+            filter: url(#cloud-filter);
+        }
+        .cloud::before {
+            width: 50%;
+            height: 100%;
+            top: -50%;
+            left: 5%;
+        }
+        .cloud::after {
+            width: 30%;
+            height: 60%;
+            top: -30%;
+            right: 15%;
+        }
+
+        .cloud-highlight {
+        position: absolute;
+        width: 30%;
+        height: 20%;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        top: 10%;
+        left: 10%;
+        }
+
+        @keyframes floatCloud {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+        }
+
+        .cloud {
+            animation: floatCloud 2s ease-in-out infinite;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            filter: url(#cloud-filter);
+        }
+
+        @keyframes sunGlow {
+        0%, 100% { box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 50px rgba(255, 69, 0, 0.3); 
+        }
+        50% { box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 100px rgba(255, 69, 0, 0.9); 
+        }
+        
+        }
+        #sun {
+            animation: sunGlow 4s ease-in-out infinite;
+            background: radial-gradient(circle at 30% 30%, 
+            #ff8c00 0%, 
+            #ff6600 50%, 
+            #ff4500 100%
+        );
+
+        box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 50px rgba(255, 69, 0, 0.5);
+            animation: sunGlow 4s ease-in-out infinite;
+        }
+        .ray {
+            transform-origin: bottom center;
+            border-radius: 70px;
+        }
+
+        .sun-texture {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="none" /><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none" /></svg>');
+        background-size: 10px 10px;
+        opacity: 0.3;
+        }
+
+        .cloud-shadow {
+        position: absolute;
+        width: 60%;
+        height: 10%;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        bottom: -5%;
+        left: 20%;
+        filter: blur(5px);
+        }
+
+        #rays {
+            --ray-distance: 8px;
+            --ray-width: 2px;
+            --ray-height: 20px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rays = document.getElementById('rays');
+            const clouds = document.querySelectorAll('.cloud');
+            const raysContainer = document.getElementById('rays');
+
+            function updateClouds(scales, positions) {
+                clouds.forEach((cloud, index) => {
+                    if (index < scales.length && index < positions.length) {
+                        const [scaleX, scaleY] = scales[index];
+                        const [x, y] = positions[index];
+                        cloud.style.transform = `scale(${scaleX}, ${scaleY})`;
+                        cloud.style.left = `${x}%`;
+                        cloud.style.top = `${y}%`;
+                    }
+                    cloud.style.animation = 'floatCloud 4s ease-in-out infinite';
+                });
+            }
+            function createRays() {
+                rays.innerHTML = ''; 
+                for (let i = 9; i < 16; i++) {
+                    const ray = document.createElement('div');
+                    ray.className = 'ray absolute bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom';
+                    ray.style.width = 'var(--ray-width)';
+                    ray.style.height = 'var(--ray-height)';
+                    ray.style.transform = `rotate(${i * 30}deg) translateY(calc(-100% - var(--ray-distance)))`;
+                    rays.appendChild(ray);
+                }
+            }
+
+            function updateRays(distance, scale, width, height, offsetX = 0, offsetY = 0) {
+                raysContainer.style.setProperty('--ray-distance', `${distance}px`);
+                raysContainer.style.setProperty('--ray-width', `${width}px`);
+                raysContainer.style.setProperty('--ray-height', `${height}px`);
+                raysContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${scale})`;
+                createRays(); 
+            }
+
+            clouds[1].style.right = '10%';
+            clouds[1].style.bottom = '10%';
+            createRays();
+            updateRays(70, 1.6, 3, 25, -2, 267);
+            updateClouds(
+                [[0.8, 0.8], [1, 1], [0.9, 0.9]],
+                [[-10, 55], [40, 60], [30, 40]]
+        )});
+    </script>
+</body>
+</html>
