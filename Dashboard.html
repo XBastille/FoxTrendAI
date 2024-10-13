@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="stylesheet" href="graphss.css">
+    <style>
+        table {
+            width: 30%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        .logo{
+            width: 50px;
+            height: 50px;
+        }
+        img{
+           width: 30px; 
+           height: 30px;
+        }
+        
+    </style>
+
+
+</head>
+
+<body>    
+    
+    <header>
+        <nav>
+            <ul class="icons open"> 
+                <a href="#" class="fox-icon-link">
+                    <img src="fox.jpg" alt="Fox Icon" class="logo">
+                  </a>
+                <li class="Icon-items" data-name="Home">
+                    <img src="home.jpg" id="item1"> 
+                    <span class="icon-name">Home</span>
+                </li>
+                <li class="Icon-items" data-name="Watch">
+                    <img src="recent_watch.jpg" id="item2"> 
+                    <span class="icon-name">Watch</span>
+                </li>
+                <li class="Icon-items" data-name="Lists">
+                    <img src="list.jpg" id="item3">
+                    <span class="icon-name">Lists</span>
+                </li>
+                <li class="Icon-items" data-name="Donate">
+                    <img src="donate.jpg" id="item4">
+                    <span class="icon-name">Donate</span>
+                </li>
+                <li class="Icon-items" data-name="Profile">
+                    <img src="account.jpg" id="item5">
+                    <span class="icon-name">Profile</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+   
+        <section class="dropdown">
+            <a href="#" class="serv">
+                Services
+                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" class="comp">
+                Company
+                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" class="blog">Blog</a>  
+            <a href="#" class="port">Contact Us</a>
+        </section>
+            
+        
+            
+        
+
+        <div class="Greeting-Message">
+            <h2>Good Morning, [User's Name]! Time to seize the market</h2>
+            <!-- <h2>Good afternoon, [User's Name]! Check the latest market pulse</h2>
+            <h2>Good evening, [User's Name]! Review today’s market wrap-up.</h2> -->
+        </div>
+
+    
+        
+            <section class="trending">
+                <section class="slider-container">
+    
+                    <div class="company-container" id="slider">
+                        <div class="company-box">
+                            <b>AMZN</b>
+                            <p>Amazon</p>
+                            <p class="company-price">$519.38</p>
+                            <a class="company-percent">1.29%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>TSLA</b>
+                            <p>Tesla</p>
+                            <p class="company-price">$412.62 </p>
+                            <a class="company-percent">0.91%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>GOOG</b>
+                            <p>Alphabet</p>
+                            <p class="company-price">$685.09</p>
+                            <a class="company-percent">0.80%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>META</b>
+                            <p>Meta Platforms.</p>
+                            <p class="company-price">$179.44</p>
+                            <a class="company-percent">3.53%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>MSFT</b>
+                            <p>Microsoft</p>
+                            <p class="company-price">$160.28 </p>
+                            <a class="company-percent">1.56%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>NTFLX</b>
+                            <p>Netflix</p>
+                            <p class="company-price">$233.29</p>
+                            <a class="company-percent">6.33%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>NVDA</b>
+                            <p>NVIDIA</p>
+                            <p class="company-price">$108.75</p>
+                            <a class="company-percent">2.39%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>AMD</b>
+                            <p id="micro">Advanced Micro Devices </p>
+                            <p class="company-price">$155.99</p>
+                            <a class="company-percent">7.70%</a>
+                        </div>
+                        <div class="company-box">
+                            <b>INTL</b>
+                            <p>Intel</p>
+                            <p class="company-price">$21.37</p>
+                            <a class="company-percent">0.60%</a>
+                        </div>
+                    </div>
+                </section>
+                
+             
+                <div id="SliderBtns">
+    
+                    <span class="slider-btn next" onclick="slide(1)">
+                        <img src="arrow-right.jpg">
+                    </span>
+    
+            
+                    <span class="slider-btn prev" onclick="slide(-1)">
+                        <img src="arrow-left.jpg">
+                    </span>
+            
+                </div>
+    
+            </section>
+       
+
+        
+
+            <div class="company-dropdown">
+                <div class="company-dropdown-content">
+                    <div class="company-label">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>MORE ABOUT US</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License</a>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>SOCIAL</h2>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">X</a>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>CONTACTS</h2>
+                        <a href="#">Book a Call</a>
+                        <a href="#">Mail Us</a>
+                    </div>
+                </div>
+            </div>
+         
+            
+
+            <br><br><br>
+
+            <!--Graph Box-->
+            <section class="graph-section">
+                <div id="myplot" style="width:30%; height:30%;"></div>
+                <button id="stp">Show Full Graph</button>
+                <table>
+                    <tr>
+                            <td>Total Trade</td>
+                            <td>6,148.77</td>
+                            <td>1,12,731</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Volume</td>
+                        <td>16,02,74,857</td>
+                        <td>-32.13</td>
+                </tr>
+
+                <tr>
+                    <td>Total Volume(mn)</td>
+                    <td>5837.698</td>
+                    <td>-0.52%</td>
+                </tr>
+                </table>
+            </section>
+
+            <section class="graph-section">
+                <div id="myplot" style="width:100%; height:100%;"></div>
+                <button id="stp">Show Full Graph</button>
+                <table>
+                    <tr>
+                            <td>Total Trade</td>
+                            <td>6,148.77</td>
+                            <td>1,12,731</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Volume</td>
+                        <td>16,02,74,857</td>
+                        <td>-32.13</td>
+                </tr>
+
+                <tr>
+                    <td>Total Volume(mn)</td>
+                    <td>5837.698</td>
+                    <td>-0.52%</td>
+                </tr>
+                </table>
+            </section>
+
+            <section class="graph-section">
+                <div id="myplot" style="width:100%; height:100%;"></div>
+                <button id="stp">Show Full Graph</button>
+                <table>
+                    <tr>
+                            <td>Total Trade</td>
+                            <td>6,148.77</td>
+                            <td>1,12,731</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Volume</td>
+                        <td>16,02,74,857</td>
+                        <td>-32.13</td>
+                </tr>
+
+                <tr>
+                    <td>Total Volume(mn)</td>
+                    <td>5837.698</td>
+                    <td>-0.52%</td>
+                </tr>
+                </table>
+            </section>
+
+            <br><br><br>
+
+
+
+            <section class="Top-Value-List">
+                <h4>Top value list</h4>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Search">
+                    <i class="search-icon fas fa-search"></i>
+                    <div class="magnifying-glass">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <img src="filter.jpg" alt="Filter-Icon">
+                <div class="filter-section">
+                    <label>Price Range:</label>
+                    <input type="range" id="minPrice" min="0" max="1000" value="0">
+                    <input type="range" id="maxPrice" min="0" max="1000" value="1000">
+                    <span id="priceRange">$0 - $1000</span>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Percentage Change:</label>
+                    <select id="percentageChange">
+                        <option value="">All</option>
+                        <option value="positive1">> 1%</option>
+                        <option value="positive5">> 5%</option>
+                        <option value="negative1">< -1%</option>
+                        <option value="negative5">< -5%</option>
+                        <option value="neutral">0% to 1%</option>
+                    </select>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Custom Range:</label>
+                    <input type="number" id="customMin" placeholder="Min %">
+                    <input type="number" id="customMax" placeholder="Max %">
+                    <span id="customRangeError" class="error-message"></span>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Sort by:</label>
+                    <select id="sortBy">
+                        <option value="priceAsc">Price (Low to High)</option>
+                        <option value="priceDesc">Price (High to Low)</option>
+                        <option value="changeAsc">% Change (Low to High)</option>
+                        <option value="changeDesc">% Change (High to Low)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Quick Filters:</label>
+                    <button class="quick-filter" data-filter="gainers">Gainers</button>
+                    <button class="quick-filter" data-filter="losers">Losers</button>
+                    <button class="quick-filter" data-filter="stable">Stable</button>
+
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="clearFilters">Clear Filters</button>
+                    <button id="applyFilters">Apply Filters</button>
+                </div>
+            
+
+                <table>
+                    <th>COMPANY</th>
+                    <th>OPEN</th>
+                    <th>HIGH</th>
+                    <th>LOW</th>
+                    <th>CLOSE</th>
+                    <th>VOLUME</th>
+
+                    <tr>
+                        <td>BEXIMCO</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>FORTUNE</td>
+                        <td>79.5</td>
+                        <td>0%</td>
+                        <td>551.28</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>LHBL</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>MALEXSPIN</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>IPDC</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>BSC</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>KDSAL TD</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>BATBC</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+
+                    <tr>
+                        <td>INTRACO</td>
+                        <td>120.7</td>
+                        <td>1.26%</td>
+                        <td>819.35</td>
+                        <td> Data </td>
+                        <td> Data </td> 
+                    </tr>
+                </table>
+            
+
+            </section>
+</body>
+
+<footer>
+    <div class="footer-links">
+    
+
+            
+         <img src="website_logo.jpg" class="foot-logo">
+                
+    
+
+            <div class="footer-block">
+            <div class="footer-title" id="Comp">Company</div>
+               <li><a class="links" id="mail">Mail us</a></li>
+                <li><a class="links" id="SERV">Services</a></li>
+            </div>
+
+            <div class="footer-block">
+            <div class="footer-title" id="more">More</div>
+                <li><a class="links" id="tandc">Blog</a></li>
+                <li><a class="links" id="career">License</a></li>
+                <li><a class="links" id="privacy">Privacy Policy</a></li>
+            </div>
+        
+            <div class="footer-block">
+            <div class="footer-title" id="social">Social</div>
+            <li><a class="links" id="linkedin">LinkedIn</a></li>
+            <li> <a  class="links" id="yt">Instagram</a></li>
+            <li> <a  class="links" id="tw">X</a></li>
+            </div>
+        
+    </div>
+</footer> 
+
+<script>
+    Papa.parse("stock_data_1.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const xarray = [];
+            const yarray = [];
+            
+            results.data.forEach(row => {
+                xarray.push(row['Date']);
+                yarray.push(parseFloat(row['Close']));
+            });
+            
+            const data=[{
+                x:xarray,
+                y:[],
+                mode:"lines",
+                type:"scatter",
+                fill:"tozeroy",
+                fillgradient:{
+                    type: 'vertical',
+                    colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
+                },
+                line:{
+                    width:2
+                }
+            }];
+            const layout={
+                xaxis:{range:[xarray[0], xarray[xarray.length-1]],title:{
+                    text:"Date",
+                    font:{
+                        color:"white"
+                    }
+                   },
+                    tickfont:{
+                        color:"white"
+                    }
+                },
+                yaxis:{range:[0, Math.max(...yarray)+20],title:{text:"Prices",
+                    font:{
+                        color:"white"
+                    }
+                },
+                    tickfont:{
+                        color:"white"
+                    }
+                },
+                colorway:['#7834a8'],
+                plot_bgcolor:"black",
+                paper_bgcolor:"black",
+            };
+            
+            Plotly.newPlot("myplot",data,layout);
+            let i = 0; let id;
+            function animate() {
+                if (i < xarray.length) {
+                    Plotly.extendTraces("myplot", {
+                        x: [[xarray[i]]],
+                        y: [[yarray[i]]]
+                    }, [0])
+                    i++;
+                    id = requestAnimationFrame(animate);
+                }
+            }
+            animate();
+
+
+            const stp=document.getElementById('stp')
+            stp.addEventListener('click',()=>{
+               Plotly.react("myplot",[{
+                x:xarray,
+                y:yarray,
+                mode:"lines",
+                type:"scatter",
+                fill:"tozeroy",
+                fillgradient:{
+                    type: 'vertical',
+                    colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
+                },
+                line:{
+                    width:2
+                }
+               }],layout)
+               cancelAnimationFrame(id)
+            })
+        }
+    });
+</script>
+
+
+
+</html>
