@@ -6,41 +6,86 @@
     <title>FoxTrendAI - Home</title>
     <link rel="stylesheet" href="introPage.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
-
     <div class="bg-container">
     <header>  
         <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66d91eed&is=66d7cd6d&hm=c975478b685c5a28864b4348cdb8d709a9bdb10a97ccd3348837922aab8c31fc&" class="logo">
-        <nav>
-            <ul class="navbar">
-                <li>
-                    <a href="#">Services</a>
-                    <ul class="dropdown1">
-                        <li><a href="#">Housing Price (coming soon)</a> </li>
-                        <li><a href="#">Loan Approval (coming soon)</a> </li>
-                        <li><a href="#">Used Car Price (coming soon)</a></li>
-                        <li><a href="#">Stock Price Prediction (coming soon)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Company</a>
-                    <ul class="dropdown2">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">YouTube</a></li>
-                        <li><a href="#">Mail Us</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
+            <div class="navigationBar">
+                    <a href="#" class="serv">
+                        Services
+                    </a>
+                    <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <a href="#" class="comp">
+                        Company
+                        <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="blog">Blog</a>  
+                    <a href="#" class="port">Contact Us</a>
+
+                    <div class="services-dropdown">
+                        <div class="services-dropdown-content">
+                            <div class="services-label">
+                                <h1>Services</h1>
+                            </div>
+                            <div class="services-dropdown-column">
+                                <div class="primary-section">
+                                <h2>Primary <span class="arrow">→</span></h2>
+                                <div class="primary-elements">
+                                    <a href="#">Stock Market Prediction</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="services-dropdown-column">
+                                <h3>Secondary <span class="arrow">→</span></h3>
+                                <div class="secondary-section">
+                                <div class="secondary-elements">
+                                    <a href="#">Used Car Prediction</a>
+                                    <a href="#">Housing Prediction</a>
+                                    <a href="#">Loan Approval Prediction</a>
+                                </div>
+                            </div>
+                            </div>
+                            <img src="media/services.jpg" alt="Your Alt Text" class="service-image">
+                        </div>
+                    </div>
+                        <div class="company-dropdown">
+                        <div class="company-dropdown-content">
+                            <div class="company-label">
+                                <h1>Company</h1>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>MORE ABOUT US</h2>
+                                <a href="#">About Us</a>
+                                <a href="#">Blog</a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">License</a>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>SOCIAL</h2>
+                                <a href="#">LinkedIn</a>
+                                <a href="#">Instagram</a>
+                                <a href="#">X</a>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>CONTACTS</h2>
+                                <a href="#">Book a Call</a>
+                                <a href="#">Mail Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </header>
 
         <section class="intro">
