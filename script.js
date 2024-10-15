@@ -251,3 +251,44 @@ document.addEventListener('scroll' , function(){
    });
     
 });
+
+const contents = document.querySelectorAll(".content");
+
+let currentContent = document.querySelector(".content.active");
+
+function switchContent(newContentId) {
+    const newContent  = document.getElementById(newContentId);
+
+    if(newContent == currentContent) return;
+
+    currentContent.classList.add(".exit-left");
+
+    newContent.classList.add(".enter-right" , "active");
+    
+
+    setTimeout(() =>{
+        currentContent.classList.remove("active" , "exit-left");
+        newContent.classList.remove("enter-right");
+        currentContent = newContent;
+    } , 1000) 
+
+    document.getElementById('StockContentButton').addEventListener('click', () => {
+        switchContent('StockContent');
+    });
+    
+    document.getElementById('LoanContentButton').addEventListener('click', () => {
+        switchContent('LoanContent');
+    });
+    
+    document.getElementById('CarContentButton').addEventListener('click', () => {
+        switchContent('CarContent');
+    });
+    
+    document.getElementById('HouseContentButton').addEventListener('click', () => {
+        switchContent('HouseContent');
+    });
+
+}
+
+
+
