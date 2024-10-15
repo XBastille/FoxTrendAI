@@ -15,7 +15,7 @@ body{
     background-color: #000000;
     color: white;
     font-weight: bolder;
-    height: 3800px;
+    height: 3850px;
     width: 1510px;
     animation: bganimated 15s infinite linear;
 }
@@ -381,6 +381,32 @@ img{
 }
 
 
+.content {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    width: 100%;
+}
+
+.active {
+    opacity: 1;
+    transform: translateX(0); 
+}
+
+
+.exit-left {
+    opacity: 0;
+    transform: translateX(-100%); 
+}
+
+
+.enter-right {
+    opacity: 1;
+    transform: translateX(0); 
+}
+
+
 .Sdesc1{
     text-align: center;
    font-size: 34px;
@@ -430,29 +456,6 @@ img{
     text-align: center;
     animation: SlideFromRight 1.2s ease forwards;
     animation: SlideFromLeft 1s ease forward;;
-}
-
-@keyframes SlideFromRight{
-    from{
-        opacity: 0;
-        transform: translatex(100%);
-    }
-
-    to{
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes SlideFromLeft {
-    from{
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to{
-        opacity: 0;
-        transform: translateX(-100%);
-    }
 }
 
 #CarContent{
