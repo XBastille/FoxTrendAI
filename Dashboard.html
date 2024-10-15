@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <title>document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <link rel="stylesheet" href="graphss.css">
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <style>
         table {
             width: 30%;
@@ -28,14 +28,47 @@
            width: 30px; 
            height: 30px;
         }
+
+        .myplot{
+            z-index: -999;
+        }
         
     </style>
 
-
-</head>
-
-<body>    
     
+</head>
+<body class="bg-black h-screen flex items-center justify-center overflow-hidden" style="background-color: white;">
+
+    <div class="Greeting-Message">
+        <h2>Good Morning, [User's Name]! Time to seize the market</h2>
+        <!-- <h2>Good afternoon, [User's Name]! Check the latest market pulse</h2>
+        <h2>Good evening, [User's Name]! Review today’s market wrap-up.</h2> -->
+    </div>
+
+    <div id="scene" class="w-96 h-96 relative">
+        <div id="sun" class="absolute w-64 h-64 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="sun-texture"></div>
+        </div>
+        <div id="rays" class="absolute w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="ray absolute w-2 h-20 bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom"></div>
+        </div>
+        <div id="clouds" class="absolute inset-0">
+            <svg width="0" height="0">
+                <filter id="cloud-filter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+                </filter>
+            </svg>
+            <div class="cloud absolute w-64 h-32 rounded-full">
+                <div class="cloud-highlight"></div>
+                <div class="cloud-shadow"></div>
+            </div>
+            <div class="cloud absolute w-72 h-36 rounded-full">
+                <div class="cloud-highlight"></div>
+                <div class="cloud-shadow"></div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <nav>
             <ul class="icons open"> 
@@ -65,151 +98,141 @@
             </ul>
         </nav>
     </header>
-    
 
-   
-        <section class="dropdown">
-            <a href="#" class="serv">
-                Services
-                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </a>
-            <a href="#" class="comp">
-                Company
-                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </a>
-            <a href="#" class="blog">Blog</a>  
-            <a href="#" class="port">Contact Us</a>
-        </section>
-            
-        
-            
-        
+    <section class="dropdown">
+        <a href="#" class="serv">
+            Services
+            <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </a>
+        <a href="#" class="comp">
+            Company
+            <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </a>
+        <a href="#" class="blog">Blog</a>  
+        <a href="#" class="port">Contact Us</a>
+    </section>
 
-        <div class="Greeting-Message">
-            <h2>Good Morning, [User's Name]! Time to seize the market</h2>
-            <!-- <h2>Good afternoon, [User's Name]! Check the latest market pulse</h2>
-            <h2>Good evening, [User's Name]! Review today’s market wrap-up.</h2> -->
-        </div>
+    <div class="Greeting-Message">
+        <h2>Good Morning, [User's Name]! Time to seize the market</h2>
+        <!-- <h2>Good afternoon, [User's Name]! Check the latest market pulse</h2>
+        <h2>Good evening, [User's Name]! Review today’s market wrap-up.</h2> -->
+    </div>
 
-    
-        
-            <section class="trending">
-                <section class="slider-container">
-    
-                    <div class="company-container" id="slider">
-                        <div class="company-box">
-                            <b>AMZN</b>
-                            <p>Amazon</p>
-                            <p class="company-price">$519.38</p>
-                            <a class="company-percent">1.29%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>TSLA</b>
-                            <p>Tesla</p>
-                            <p class="company-price">$412.62 </p>
-                            <a class="company-percent">0.91%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>GOOG</b>
-                            <p>Alphabet</p>
-                            <p class="company-price">$685.09</p>
-                            <a class="company-percent">0.80%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>META</b>
-                            <p>Meta Platforms.</p>
-                            <p class="company-price">$179.44</p>
-                            <a class="company-percent">3.53%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>MSFT</b>
-                            <p>Microsoft</p>
-                            <p class="company-price">$160.28 </p>
-                            <a class="company-percent">1.56%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>NTFLX</b>
-                            <p>Netflix</p>
-                            <p class="company-price">$233.29</p>
-                            <a class="company-percent">6.33%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>NVDA</b>
-                            <p>NVIDIA</p>
-                            <p class="company-price">$108.75</p>
-                            <a class="company-percent">2.39%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>AMD</b>
-                            <p id="micro">Advanced Micro Devices </p>
-                            <p class="company-price">$155.99</p>
-                            <a class="company-percent">7.70%</a>
-                        </div>
-                        <div class="company-box">
-                            <b>INTL</b>
-                            <p>Intel</p>
-                            <p class="company-price">$21.37</p>
-                            <a class="company-percent">0.60%</a>
-                        </div>
-                    </div>
-                </section>
-                
-             
-                <div id="SliderBtns">
-    
-                    <span class="slider-btn next" onclick="slide(1)">
-                        <img src="arrow-right.jpg">
-                    </span>
-    
-            
-                    <span class="slider-btn prev" onclick="slide(-1)">
-                        <img src="arrow-left.jpg">
-                    </span>
-            
+    <section class="trending">
+        <section class="slider-container">
+
+            <div class="company-container" id="slider">
+                <div class="company-box">
+                    <b>AMZN</b>
+                    <p>Amazon</p>
+                    <p class="company-price">$519.38</p>
+                    <a class="company-percent">1.29%</a>
                 </div>
-    
-            </section>
-       
-
-        
-
-            <div class="company-dropdown">
-                <div class="company-dropdown-content">
-                    <div class="company-label">
-                        <h1>Company</h1>
-                    </div>
-                    <div class="company-dropdown-column">
-                        <h2>MORE ABOUT US</h2>
-                        <a href="#">About Us</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">License</a>
-                    </div>
-                    <div class="company-dropdown-column">
-                        <h2>SOCIAL</h2>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">X</a>
-                    </div>
-                    <div class="company-dropdown-column">
-                        <h2>CONTACTS</h2>
-                        <a href="#">Book a Call</a>
-                        <a href="#">Mail Us</a>
-                    </div>
+                <div class="company-box">
+                    <b>TSLA</b>
+                    <p>Tesla</p>
+                    <p class="company-price">$412.62 </p>
+                    <a class="company-percent">0.91%</a>
+                </div>
+                <div class="company-box">
+                    <b>GOOG</b>
+                    <p>Alphabet</p>
+                    <p class="company-price">$685.09</p>
+                    <a class="company-percent">0.80%</a>
+                </div>
+                <div class="company-box">
+                    <b>META</b>
+                    <p>Meta Platforms.</p>
+                    <p class="company-price">$179.44</p>
+                    <a class="company-percent">3.53%</a>
+                </div>
+                <div class="company-box">
+                    <b>MSFT</b>
+                    <p>Microsoft</p>
+                    <p class="company-price">$160.28 </p>
+                    <a class="company-percent">1.56%</a>
+                </div>
+                <div class="company-box">
+                    <b>NTFLX</b>
+                    <p>Netflix</p>
+                    <p class="company-price">$233.29</p>
+                    <a class="company-percent">6.33%</a>
+                </div>
+                <div class="company-box">
+                    <b>NVDA</b>
+                    <p>NVIDIA</p>
+                    <p class="company-price">$108.75</p>
+                    <a class="company-percent">2.39%</a>
+                </div>
+                <div class="company-box">
+                    <b>AMD</b>
+                    <p id="micro">Advanced Micro Devices </p>
+                    <p class="company-price">$155.99</p>
+                    <a class="company-percent">7.70%</a>
+                </div>
+                <div class="company-box">
+                    <b>INTL</b>
+                    <p>Intel</p>
+                    <p class="company-price">$21.37</p>
+                    <a class="company-percent">0.60%</a>
                 </div>
             </div>
-         
-            
+        </section>
+        
+     
+        <div id="SliderBtns">
 
-            <br><br><br>
+            <span class="slider-btn next" onclick="slide(1)">
+                <img src="arrow-right.jpg">
+            </span>
+
+    
+            <span class="slider-btn prev" onclick="slide(-1)">
+                <img src="arrow-left.jpg">
+            </span>
+    
+        </div>
+
+    </section>
+
+    <div class="company-dropdown">
+        <div class="company-dropdown-content">
+            <div class="company-label">
+                <h1>Company</h1>
+            </div>
+            <div class="company-dropdown-column">
+                <h2>MORE ABOUT US</h2>
+                <a href="#">About Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">License</a>
+            </div>
+            <div class="company-dropdown-column">
+                <h2>SOCIAL</h2>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">X</a>
+            </div>
+            <div class="company-dropdown-column">
+                <h2>CONTACTS</h2>
+                <a href="#">Book a Call</a>
+                <a href="#">Mail Us</a>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
 
             <!--Graph Box-->
-            <section class="graph-section">
+            <section>
                 <div class="myplot" style="width:30%; height:40%;"></div>
+            </section>
+
+            <section class="graph-section">
                 <table>
                     <tr>
                             <td>Total Trade</td>
@@ -231,8 +254,13 @@
                 </table>
             </section>
 
-            <section class="graph-section">
+
+
+            <section>
                 <div class="myplot" style="width:30%; height:40%;"></div>
+            </section>
+
+            <section class="graph-section">
                 <table>
                     <tr>
                             <td>Total Trade</td>
@@ -254,8 +282,13 @@
                 </table>
             </section>
 
-            <section class="graph-section">
+
+
+            <section>
                 <div class="myplot" style="width:30%; height:40%;"></div>
+            </section>
+               
+            <section class="graph-section">
                 <table>
                     <tr>
                             <td>Total Trade</td>
@@ -469,70 +502,219 @@
 </footer> 
 
 
+    <style>
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+            filter: url(#cloud-filter);
+        }
+        .cloud::before {
+            width: 50%;
+            height: 100%;
+            top: -50%;
+            left: 5%;
+        }
+        .cloud::after {
+            width: 30%;
+            height: 60%;
+            top: -30%;
+            right: 15%;
+        }
+
+        .cloud-highlight {
+        position: absolute;
+        width: 30%;
+        height: 20%;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        top: 10%;
+        left: 10%;
+        }
+
+        @keyframes floatCloud {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+        }
+
+        .cloud {
+            animation: floatCloud 2s ease-in-out infinite;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            filter: url(#cloud-filter);
+        }
+
+        @keyframes sunGlow {
+        0%, 100% { box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 50px rgba(255, 255, 0, 0.3); 
+        }
+        50% { box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 100px rgba(255, 255, 0, 0.9); 
+        }
+        
+        }
+        #sun {
+            animation: sunGlow 4s ease-in-out infinite;
+            background: radial-gradient(circle at 30% 30%, 
+            #ffff00 0%, 
+            #ffea00 50%, 
+            #ff8c00 100%
+        );
+
+        box-shadow: 
+            inset -15px -15px 40px rgba(0, 0, 0, 0.2),
+            0 0 50px rgba(255, 255, 0, 0.5);
+            animation: sunGlow 4s ease-in-out infinite;
+        }
+        .ray {
+            transform-origin: bottom center;
+            border-radius: 70px;
+        }
+
+        .sun-texture {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="none" /><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none" /></svg>');
+        background-size: 10px 10px;
+        opacity: 0.3;
+        }
+
+        .cloud-shadow {
+        position: absolute;
+        width: 60%;
+        height: 10%;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        bottom: -5%;
+        left: 20%;
+        filter: blur(5px);
+        }
+
+        #rays {
+            --ray-distance: 8px;
+            --ray-width: 2px;
+            --ray-height: 20px;
+        }
+    </style>
+
     <script>
-        Papa.parse("stock_data_1.csv", {
-            download: true,
-            header: true,
-            complete: function(results) {
-                const xarray = [];
-                const yarray = [];
-                
-                results.data.forEach(row => {
-                    xarray.push(row['Date']);
-                    yarray.push(parseFloat(row['Close']));
-                });
-                
-                const data = [{
-                    x: xarray,
-                    y: yarray,
-                    mode: "lines",
-                    type: "scatter",
-                    fill: "tozeroy",
-                    fillgradient: {
-                        type: 'vertical',
-                        colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
-                    },
-                    line: {
-                        width: 2
+        document.addEventListener('DOMContentLoaded', () => {
+            const rays = document.getElementById('rays');
+            const clouds = document.querySelectorAll('.cloud');
+            const raysContainer = document.getElementById('rays');
+
+            function updateClouds(scales, positions) {
+                clouds.forEach((cloud, index) => {
+                    if (index < scales.length && index < positions.length) {
+                        const [scaleX, scaleY] = scales[index];
+                        const [x, y] = positions[index];
+                        cloud.style.transform = `scale(${scaleX}, ${scaleY})`;
+                        cloud.style.left = `${x}%`;
+                        cloud.style.top = `${y}%`;
                     }
-                }];
-                
-                const layout = {
-                    xaxis: {
-                        range: [xarray[0], xarray[xarray.length-1]],
-                        title: {
-                            text: "Date",
-                            font: {
-                                color: "white"
-                            }
-                        },
-                        tickfont: {
-                            color: "white"
-                        }
-                    },
-                    yaxis: {
-                        range: [0, Math.max(...yarray)+20],
-                        title: {
-                            text: "Prices",
-                            font: {
-                                color: "white"
-                            }
-                        },
-                        tickfont: {
-                            color: "white"
-                        }
-                    },
-                    colorway: ['#7834a8'],
-                    plot_bgcolor: "black",
-                    paper_bgcolor: "black",
-                };
-                
-                document.querySelectorAll('.myplot').forEach((plot) => {
-                    Plotly.newPlot(plot, data, layout);
+                    cloud.style.animation = 'floatCloud 4s ease-in-out infinite';
                 });
             }
-        });
-    </script>      
+            function createRays() {
+                rays.innerHTML = ''; 
+                for (let i = 9; i < 16; i++) {
+                    const ray = document.createElement('div');
+                    ray.className = 'ray absolute bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom';
+                    ray.style.width = 'var(--ray-width)';
+                    ray.style.height = 'var(--ray-height)';
+                    ray.style.transform = `rotate(${i * 30}deg) translateY(calc(-100% - var(--ray-distance)))`;
+                    rays.appendChild(ray);
+                }
+            }
+
+            function updateRays(distance, scale, width, height, offsetX = 0, offsetY = 0) {
+                raysContainer.style.setProperty('--ray-distance', `${distance}px`);
+                raysContainer.style.setProperty('--ray-width', `${width}px`);
+                raysContainer.style.setProperty('--ray-height', `${height}px`);
+                raysContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${scale})`;
+                createRays(); 
+            }
+
+            clouds[1].style.right = '10%';
+            clouds[1].style.bottom = '10%';
+            createRays();
+            updateRays(70, 1.6, 3, 25, -2, 267);
+            updateClouds(
+                [[0.8, 0.8], [1, 1], [0.9, 0.9]],
+                [[-10, 55], [40, 60], [30, 40]]
+        
+        )});
+    </script>
 
 
+<script>
+    Papa.parse("stock_data_1.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const xarray = [];
+            const yarray = [];
+            
+            results.data.forEach(row => {
+                xarray.push(row['Date']);
+                yarray.push(parseFloat(row['Close']));
+            });
+            
+            const data = [{
+                x: xarray,
+                y: yarray,
+                mode: "lines",
+                type: "scatter",
+                fill: "tozeroy",
+                fillgradient: {
+                    type: 'vertical',
+                    colorscale: [[0,'rgba(0,0,0,0)'], [1,'rgba(96,0,147,1)']],
+                },
+                line: {
+                    width: 2
+                }
+            }];
+            
+            const layout = {
+                xaxis: {
+                    range: [xarray[0], xarray[xarray.length-1]],
+                    title: {
+                        text: "Date",
+                        font: {
+                            color: "white"
+                        }
+                    },
+                    tickfont: {
+                        color: "white"
+                    }
+                },
+                yaxis: {
+                    range: [0, Math.max(...yarray)+20],
+                    title: {
+                        text: "Prices",
+                        font: {
+                            color: "white"
+                        }
+                    },
+                    tickfont: {
+                        color: "white"
+                    }
+                },
+                colorway: ['#7834a8'],
+                plot_bgcolor: "black",
+                paper_bgcolor: "black",
+            };
+            
+            document.querySelectorAll('.myplot').forEach((plot) => {
+                Plotly.newPlot(plot, data, layout);
+            });
+        }
+    });
+</script> 
+</body>
 </html>
