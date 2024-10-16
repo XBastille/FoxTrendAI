@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link rel="stylesheet" href="Dasboard.css">
     <style>
         table {
             width: 30%;
@@ -37,7 +38,7 @@
 
     
 </head>
-<body class="bg-black h-screen flex items-center justify-center overflow-hidden" style="background-color: white;">
+<body >
 
     <div class="Greeting-Message">
         <h2>Good Morning, [User's Name]! Time to seize the market</h2>
@@ -467,50 +468,50 @@
             
 
             </section>
-</body>
-
-<footer>
-    <div class="footer-links">
-    
-
             
-         <img src="website_logo.jpg" class="foot-logo">
+            <footer>
+              <div class="footer-links">
                 
-    
-
-            <div class="footer-block">
+                
+                
+                <img src="website_logo.jpg" class="foot-logo">
+                
+                
+                
+                <div class="footer-block">
             <div class="footer-title" id="Comp">Company</div>
-               <li><a class="links" id="mail">Mail us</a></li>
-                <li><a class="links" id="SERV">Services</a></li>
-            </div>
-
+            <li><a class="links" id="mail">Mail us</a></li>
+            <li><a class="links" id="SERV">Services</a></li>
+          </div>
+          
             <div class="footer-block">
             <div class="footer-title" id="more">More</div>
                 <li><a class="links" id="tandc">Blog</a></li>
                 <li><a class="links" id="career">License</a></li>
                 <li><a class="links" id="privacy">Privacy Policy</a></li>
-            </div>
+              </div>
         
-            <div class="footer-block">
-            <div class="footer-title" id="social">Social</div>
-            <li><a class="links" id="linkedin">LinkedIn</a></li>
-            <li> <a  class="links" id="yt">Instagram</a></li>
-            <li> <a  class="links" id="tw">X</a></li>
+              <div class="footer-block">
+                <div class="footer-title" id="social">Social</div>
+                <li><a class="links" id="linkedin">LinkedIn</a></li>
+                <li> <a  class="links" id="yt">Instagram</a></li>
+                <li> <a  class="links" id="tw">X</a></li>
+              </div>
+              
             </div>
-        
-    </div>
-</footer> 
+          </footer> 
+        </body>
 
-
-    <style>
-        .cloud::before,
-        .cloud::after {
+          
+          <style>
+            .cloud::before,
+            .cloud::after {
             content: '';
             position: absolute;
             background: inherit;
             border-radius: 50%;
             filter: url(#cloud-filter);
-        }
+          }
         .cloud::before {
             width: 50%;
             height: 100%;
@@ -518,34 +519,36 @@
             left: 5%;
         }
         .cloud::after {
-            width: 30%;
+          width: 30%;
             height: 60%;
             top: -30%;
             right: 15%;
-        }
-
-        .cloud-highlight {
-        position: absolute;
-        width: 30%;
-        height: 20%;
-        background: rgba(255, 255, 255, 0.6);
-        border-radius: 50%;
-        top: 10%;
-        left: 10%;
+          }
+          
+          .cloud-highlight {
+            position: absolute;
+            width: 30%;
+            height: 20%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
         }
 
         @keyframes floatCloud {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(10px); }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(10px); }
         }
-
+        
         .cloud {
-            animation: floatCloud 2s ease-in-out infinite;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            filter: url(#cloud-filter);
+          animation: floatCloud 2s ease-in-out infinite;
+          background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          filter: url(#cloud-filter);
+          margin-left: 500px;
+          
         }
-
+        
         @keyframes sunGlow {
         0%, 100% { box-shadow: 
             inset -15px -15px 40px rgba(0, 0, 0, 0.2),
@@ -558,6 +561,7 @@
         
         }
         #sun {
+          margin-left: 500px;
             animation: sunGlow 4s ease-in-out infinite;
             background: radial-gradient(circle at 30% 30%, 
             #ffff00 0%, 
@@ -643,7 +647,7 @@
             clouds[1].style.right = '10%';
             clouds[1].style.bottom = '10%';
             createRays();
-            updateRays(70, 1.6, 3, 25, -2, 267);
+            updateRays(70, 1.6, 3, 25, 500, 267);
             updateClouds(
                 [[0.8, 0.8], [1, 1], [0.9, 0.9]],
                 [[-10, 55], [40, 60], [30, 40]]
