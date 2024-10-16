@@ -1,243 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FoxTrendAI - Home</title>
-    <link rel="stylesheet" href="introPage.css">
+    <link rel="stylesheet" href="introPage.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="bg-container">
-    <header>  
-        <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66d91eed&is=66d7cd6d&hm=c975478b685c5a28864b4348cdb8d709a9bdb10a97ccd3348837922aab8c31fc&" class="logo">
-            <div class="navigationBar">
-                    <a href="#" class="serv">
-                        Services
-                    </a>
-                    <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    <a href="#" class="comp">
-                        Company
-                        <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
+      <header>
+        <img
+          src="https://cdn.discordapp.com/attachments/1194879339318222969/1273657710226833448/9d6116aa-ca70-4e9c-bb74-1b47198a340c_3-Photoroom.png?ex=66d91eed&is=66d7cd6d&hm=c975478b685c5a28864b4348cdb8d709a9bdb10a97ccd3348837922aab8c31fc&"
+          class="logo"
+        />
+        <div class="navigationBar">
+          <a href="#" class="serv"> Services </a>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 -4 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 7.5L10 12.5L15 7.5"
+              stroke="currentColor"
+              stroke-width="1.67"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <a href="#" class="comp"> Company </a>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 -4 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 7.5L10 12.5L15 7.5"
+              stroke="currentColor"
+              stroke-width="1.67"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
 
-                    <a href="#" class="blog">Blog</a>  
-                    <a href="#" class="port">Contact Us</a>
+          <a href="#" class="blog">Blog</a>
+          <a href="#" class="port">Contact Us</a>
 
-                    <div class="services-dropdown">
-                        <div class="services-dropdown-content">
-                            <div class="services-label">
-                                <h1>Services</h1>
-                            </div>
-                            <div class="services-dropdown-column">
-                                <div class="primary-section">
-                                <h2>Primary <span class="arrow">→</span></h2>
-                                <div class="primary-elements">
-                                    <a href="#">Stock Market Prediction</a>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="services-dropdown-column">
-                                <h3>Secondary <span class="arrow">→</span></h3>
-                                <div class="secondary-section">
-                                <div class="secondary-elements">
-                                    <a href="#">Used Car Prediction</a>
-                                    <a href="#">Housing Prediction</a>
-                                    <a href="#">Loan Approval Prediction</a>
-                                </div>
-                            </div>
-                            </div>
-                            <img src="media/services.jpg" alt="Your Alt Text" class="service-image">
-                        </div>
-                    </div>
-                        <div class="company-dropdown">
-                        <div class="company-dropdown-content">
-                            <div class="company-label">
-                                <h1>Company</h1>
-                            </div>
-                            <div class="company-dropdown-column">
-                                <h2>MORE ABOUT US</h2>
-                                <a href="#">About Us</a>
-                                <a href="#">Blog</a>
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">License</a>
-                            </div>
-                            <div class="company-dropdown-column">
-                                <h2>SOCIAL</h2>
-                                <a href="#">LinkedIn</a>
-                                <a href="#">Instagram</a>
-                                <a href="#">X</a>
-                            </div>
-                            <div class="company-dropdown-column">
-                                <h2>CONTACTS</h2>
-                                <a href="#">Book a Call</a>
-                                <a href="#">Mail Us</a>
-                            </div>
-                        </div>
-                    </div>
+          <div class="services-dropdown">
+            <div class="services-dropdown-content">
+              <div class="services-label">
+                <h1>Services</h1>
+              </div>
+              <div class="services-dropdown-column">
+                <div class="primary-section">
+                  <h2>Primary <span class="arrow">→</span></h2>
+                  <div class="primary-elements">
+                    <a href="#">Stock Market Prediction</a>
+                  </div>
                 </div>
-    </header>
-
-        <section class="intro">
-            <div>
-                <video autoplay muted loop id="background-video">
-                    <source src="stock_video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            <h1>Transforming Data into  </h1>
-            <h3><span class="purple-gradient">Decision-Making</span>&nbsp;power</h3>              
-            <h2>Leverage AI-driven predictions to navigate financial markets real estate</h2>
-            <h4> loans, and more with confidence</h4>
-            </div>
-            <div class="cta1">
-            <div class="cta-buttons">
-                <button class="text1"><span>Sign Up</span></button>
-            </div>
-            <div class="cta-buttons 2">
-                <button class = "text2"><span>Learn More</span></button>
-            </div>
-            </div>
-        </section>
-
-        <section class="industries">
-            <h2>Our Services</h2>
-            <ul>
-                <li id="StockContentButton" class = "StockButton" >
-                    Stock Price 
-                </li>
-                <li id="LoanContentButton" class="loanButton">
-                    Loan Approval
-                </li>
-                <li id="CarContentButton" class="carButton">
-                    Used Car Price Prediction
-                </li>
-                <li id="HouseContentButton" class="HouseButton">
-                    Housing Price Prediction
-                </li>
-            </ul>
-
-            <div  id="StockContent"  class="content active">
-                <img  src="https://cdn.discordapp.com/attachments/1210646327088906302/1274452642755772438/1eb7bba4-9a85-45de-9d6a-67f0f3ffb5a8.png?ex=66d96044&is=66d80ec4&hm=0298ca510683c092cf8a4fce081bc66d6ce51af8bc68b8d26a955b66c4d9e0ea&">
-                <p class="Sdesc1">Access real-time data and insights for any company, including cryptocurrency.</p>
-                <p class="Sdesc2">  Our platform provides you with all the essential market information, from </p>
-                <p class="Sdesc3">  historical prices to current trends, ensuring you stay ahead of the curve. </p>
-
-                <div class="cta2">
-                    <div class="cta-buttons 2">
-                        <button>Learn More</button>
-                    </div>
-                    </div>
-            </div>
-           
-            <div  id="LoanContent"  class="content">
-                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1274692179385647156/163ade66-5a46-4fb8-bf75-858c29bae3d6.png?ex=66d9969a&is=66d8451a&hm=26b87e6d9b0033d638616b1ca09c2e58f4f7b69b3f127f260a977f1dd1bea2ed&">
-                <p class="Ldesc1">Our platform analyzes your credit score, income, employment history and other</p>
-                <p class="Ldesc2"> Key factors to provide a personalized prediction of your loan approval chances.</p>
-
-                <div class="cta2">
-                    <div class="cta-buttons 2">
-                        <button>Learn More</button>
-                    </div>
-                    </div>
-            </div>
-
-            <div id="CarContent"  class="content">
-                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1274682570776379502/d5769398-682d-41d5-b4e1-ec0f88436b4c.png?ex=66d98da7&is=66d83c27&hm=014be24d9014864f400527db46837cba041b3b9e866ceb6b1d85f66bffccf6e9&">
-                <p class="Cdesc1">Get predictions backed by extensive market data, including recent sales, regional trends</p>
-                <p class="Cdesc2"> And vehicle depreciation ensuring you receive the most accurate and relevant price estimate.</p>
-
-                <div class="cta2">
-                    <div class="cta-buttons 2">
-                        <button>Learn More</button>
-                    </div>
-                    </div>
-
-            </div>
-
-            <div  id="HouseContent"  class="content">
-                <img src="https://cdn.discordapp.com/attachments/1194879339318222969/1274676309510852618/f10c8c30-7564-423e-ab8b-12f3bfed98f9.png?ex=66d987d2&is=66d83652&hm=71410750f7a47afad69ff380b771666543e33c4118f797482b4dce7dcdf9e7da&">
-                <p class="Hdesc1">Utilize our location-specific models to ensure your property valuation is accurate taking</p>
-                <p class="Hdesc2"> Into account  regional market trends, neighborhood characteristics, and local demand factors.</p>
-
-                <div class="cta2">
-                    <div class="cta-buttons 2">
-                        <button>Learn More</button>
-                    </div>
-                    </div>
-                    
-            </div>
-            
-          
-        </section>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
-       <div class="about-us-cont">
-            <h2 class="quote1">Our Journey</h2>
-             
-            <div class="quote-text ">
-                
-            <div class="quote2">About Us</div>
-            <div class="quote3">
-                We are four passionate computer science students, about to start our second year(at the time the project was deployed). Our team includes a frontend developer, two full-stack developers, and a machine learning engineer. We bonded over our shared love for coding and decided to collaborate on our first full-scale web application. Our mission is to gain practical experience in development and teamwork, while learning to maintain and improve our project through user feedback
-            </div>
-
-       </div>
-
-    </div>
-
-
-    <br>
-    <br>
-    <br>
-
-    
-    <footer>
-        <div class="footer-links">
-
-            <button class="footer-button" id="hidden" type="button" input type="text">Sign Up </button>
-
-                <div class="footer-block">
-                <div class="footer-title">Company</div>
-                    <a  class="links">Mail us</a>
-                    <a  class="links">Services</a>
+              </div>
+              <div class="services-dropdown-column">
+                <h3>Secondary <span class="arrow">→</span></h3>
+                <div class="secondary-section">
+                  <div class="secondary-elements">
+                    <a href="#">Used Car Prediction</a>
+                    <a href="#">Housing Prediction</a>
+                    <a href="#">Loan Approval Prediction</a>
+                  </div>
                 </div>
-
-                <div class="footer-block">
-                <div class="footer-title">More</div>
-                    <a  class="links">Blog</a>
-                    <a  class="links">Terms & Conditions</a>
-                    <a  class="links">Careers</a>
-                    <a  class="links">Privacy Policy</a>
-                </div>
-            
-                <div class="footer-block">
-                <div class="footer-title">Social</div>
-                    <a  class="links">LinkedIn</a>
-                    <a  class="links">YouTube</a>
-                </div>
-            
+              </div>
+              <img
+                src="media/services.jpg"
+                alt="Your Alt Text"
+                class="service-image"
+              />
+            </div>
+          </div>
+          <div class="company-dropdown">
+            <div class="company-dropdown-content">
+              <div class="company-label">
+                <h1>Company</h1>
+              </div>
+              <div class="company-dropdown-column">
+                <h2>MORE ABOUT US</h2>
+                <a href="#">About Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">License</a>
+              </div>
+              <div class="company-dropdown-column">
+                <h2>SOCIAL</h2>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">X</a>
+              </div>
+              <div class="company-dropdown-column">
+                <h2>CONTACTS</h2>
+                <a href="#">Book a Call</a>
+                <a href="#">Mail Us</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer> 
-    </div>
+      </header>
 
+      <section class="intro">
+        <div>
+          <video autoplay muted loop id="background-video">
+            <source src="stock_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <h1>Transforming Data into</h1>
+          <h3>
+            <span class="purple-gradient">Decision-Making</span>&nbsp;power
+          </h3>
+          <h2>
+            Leverage AI-driven predictions to navigate financial markets real
+            estate
+          </h2>
+          <h4>loans, and more with confidence</h4>
+        </div>
+        <div class="cta1">
+          <div class="cta-buttons">
+            <button class="text1"><span>Sign Up</span></button>
+          </div>
+          <div class="cta-buttons 2">
+            <button class="text2"><span>Learn More</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="industries">
+        <h2>Our Services</h2>
+        <ul>
+          <li id="StockContentButton" class="StockButton">Stock Price</li>
+          <li id="LoanContentButton" class="loanButton">Loan Approval</li>
+          <li id="CarContentButton" class="carButton">
+            Used Car Price Prediction
+          </li>
+          <li id="HouseContentButton" class="HouseButton">
+            Housing Price Prediction
+          </li>
+        </ul>
+
+        <div id="StockContent" class="content active">
+          <img
+            src="https://cdn.discordapp.com/attachments/1210646327088906302/1274452642755772438/1eb7bba4-9a85-45de-9d6a-67f0f3ffb5a8.png?ex=66d96044&is=66d80ec4&hm=0298ca510683c092cf8a4fce081bc66d6ce51af8bc68b8d26a955b66c4d9e0ea&"
+          />
+          <p class="Sdesc1">
+            Access real-time data and insights for any company, including
+            cryptocurrency.
+          </p>
+          <p class="Sdesc2">
+            Our platform provides you with all the essential market information,
+            from
+          </p>
+          <p class="Sdesc3">
+            historical prices to current trends, ensuring you stay ahead of the
+            curve.
+          </p>
+
+          <div class="cta2">
+            <div class="cta-buttons 2">
+              <button>Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="LoanContent" class="content">
+          <img
+            src="https://cdn.discordapp.com/attachments/1194879339318222969/1274692179385647156/163ade66-5a46-4fb8-bf75-858c29bae3d6.png?ex=66d9969a&is=66d8451a&hm=26b87e6d9b0033d638616b1ca09c2e58f4f7b69b3f127f260a977f1dd1bea2ed&"
+          />
+          <p class="Ldesc1">
+            Our platform analyzes your credit score, income, employment history
+            and other
+          </p>
+          <p class="Ldesc2">
+            Key factors to provide a personalized prediction of your loan
+            approval chances.
+          </p>
+
+          <div class="cta2">
+            <div class="cta-buttons 2">
+              <button>Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="CarContent" class="content">
+          <img
+            src="https://cdn.discordapp.com/attachments/1194879339318222969/1274682570776379502/d5769398-682d-41d5-b4e1-ec0f88436b4c.png?ex=66d98da7&is=66d83c27&hm=014be24d9014864f400527db46837cba041b3b9e866ceb6b1d85f66bffccf6e9&"
+          />
+          <p class="Cdesc1">
+            Get predictions backed by extensive market data, including recent
+            sales, regional trends
+          </p>
+          <p class="Cdesc2">
+            And vehicle depreciation ensuring you receive the most accurate and
+            relevant price estimate.
+          </p>
+
+          <div class="cta2">
+            <div class="cta-buttons 2">
+              <button>Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="HouseContent" class="content">
+          <img
+            src="https://cdn.discordapp.com/attachments/1194879339318222969/1274676309510852618/f10c8c30-7564-423e-ab8b-12f3bfed98f9.png?ex=66d987d2&is=66d83652&hm=71410750f7a47afad69ff380b771666543e33c4118f797482b4dce7dcdf9e7da&"
+          />
+          <p class="Hdesc1">
+            Utilize our location-specific models to ensure your property
+            valuation is accurate taking
+          </p>
+          <p class="Hdesc2">
+            Into account regional market trends, neighborhood characteristics,
+            and local demand factors.
+          </p>
+
+          <div class="cta2">
+            <div class="cta-buttons 2">
+              <button>Learn More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div class="about-us-cont">
+        <h2 class="quote1">Our Journey</h2>
+
+        <div class="quote-text">
+          <div class="quote2">About Us</div>
+          <div class="quote3">
+            We are four passionate computer science students, about to start our
+            second year(at the time the project was deployed). Our team includes
+            a frontend developer, two full-stack developers, and a machine
+            learning engineer. We bonded over our shared love for coding and
+            decided to collaborate on our first full-scale web application. Our
+            mission is to gain practical experience in development and teamwork,
+            while learning to maintain and improve our project through user
+            feedback
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <footer>
+        <div class="footer-links">
+          <button
+            class="footer-button"
+            id="hidden"
+            type="button"
+            input
+            type="text"
+          >
+            Sign Up
+          </button>
+
+          <div class="footer-block">
+            <div class="footer-title">Company</div>
+            <a class="links">Mail us</a>
+            <a class="links">Services</a>
+          </div>
+
+          <div class="footer-block">
+            <div class="footer-title">More</div>
+            <a class="links">Blog</a>
+            <a class="links">Terms & Conditions</a>
+            <a class="links">Careers</a>
+            <a class="links">Privacy Policy</a>
+          </div>
+
+          <div class="footer-block">
+            <div class="footer-title">Social</div>
+            <a class="links">LinkedIn</a>
+            <a class="links">YouTube</a>
+          </div>
+        </div>
+      </footer>
+    </div>
 
     <script src="script.js"></script>
-   
-
-</body>
+  </body>
 </html>
