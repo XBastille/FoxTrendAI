@@ -11,6 +11,7 @@ import mlflow.xgboost
 import logging
 from xgboost import XGBRegressor
 from main import StockDataVisualizer
+from transformers import pipeline, BertTokenizer, BertForSequenceClassification
 from sklearn.metrics import mean_squared_error, r2_score
 from bs4 import BeautifulSoup
 

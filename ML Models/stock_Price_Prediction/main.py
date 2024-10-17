@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf
 import ta
+import json
 
 class StockDataVisualizer:
     def __init__(self, company_name):
@@ -13,7 +14,9 @@ class StockDataVisualizer:
         end_date=datetime.datetime.now()
         start_date=end_date - datetime.timedelta(days=25*365)
         stock_data=yf.download(self.company_name, start=start_date, end=end_date)
-        print(yf.Ticker(self.company_name).info)
+        stock_info = yf.Ticker(self.company_name).info
+        with open('graph.json', 'w') as json_file:
+            json.dump(stock_info, json_file, indent=4)
         #stock_data.drop(columns=["Open", "High", "Low", "Adj Close", "Volume"], inplace=True)
         return stock_data
 
