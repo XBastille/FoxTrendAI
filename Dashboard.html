@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-    <link rel="stylesheet" href="Dasboard.css">
+    <link rel="stylesheet" href="Dashboard.css">
     <style>
         table {
             width: 30%;
@@ -41,33 +41,10 @@
 <body >
 
     <div class="Greeting-Message">
-        <h2>Good Morning, [User's Name]! Time to seize the market</h2>
+        <h2>Good Morning, [User's Name]!</h2>
+          <h3>Time to seize the market</h3>   
         <!-- <h2>Good afternoon, [User's Name]! Check the latest market pulse</h2>
         <h2>Good evening, [User's Name]! Review today’s market wrap-up.</h2> -->
-    </div>
-
-    <div id="scene" class="w-96 h-96 relative">
-        <div id="sun" class="absolute w-64 h-64 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div class="sun-texture"></div>
-        </div>
-        <div id="rays" class="absolute w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div class="ray absolute w-2 h-20 bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom"></div>
-        </div>
-        <div id="clouds" class="absolute inset-0">
-            <svg width="0" height="0">
-                <filter id="cloud-filter">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-                </filter>
-            </svg>
-            <div class="cloud absolute w-64 h-32 rounded-full">
-                <div class="cloud-highlight"></div>
-                <div class="cloud-shadow"></div>
-            </div>
-            <div class="cloud absolute w-72 h-36 rounded-full">
-                <div class="cloud-highlight"></div>
-                <div class="cloud-shadow"></div>
-            </div>
-        </div>
     </div>
 
     <header>
@@ -96,9 +73,40 @@
                     <img src="account.jpg" id="item5">
                     <span class="icon-name">Profile</span>
                 </li>
+
+                <li class="Arrow">
+                    <img src="media/arrow-right.jpg">
+                </li>
+                
             </ul>
         </nav>
     </header>
+
+    <div id="scene" class="w-96 h-96 relative">
+        <div id="sun" class="absolute w-64 h-64 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="sun-texture"></div>
+        </div>
+        <div id="rays" class="absolute w-full h-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="ray absolute w-2 h-20 bg-yellow-200 left-1/2 top-0 transform -translate-x-1/2 -translate-y-full origin-bottom"></div>
+        </div>
+        <div id="clouds" class="absolute inset-0">
+            <svg width="0" height="0">
+                <filter id="cloud-filter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+                </filter>
+            </svg>
+            <div class="cloud absolute w-64 h-32 rounded-full">
+                <div class="cloud-highlight"></div>
+                <div class="cloud-shadow"></div>
+            </div>
+            <div class="cloud absolute w-72 h-36 rounded-full">
+                <div class="cloud-highlight"></div>
+                <div class="cloud-shadow"></div>
+            </div>
+        </div>
+    </div>
+
+   
 
     <section class="dropdown">
         <a href="#" class="serv">
@@ -117,11 +125,6 @@
         <a href="#" class="port">Contact Us</a>
     </section>
 
-    <div class="Greeting-Message">
-        <h2>Good Morning, [User's Name]! Time to seize the market</h2>
-        <!-- <h2>Good afternoon, [User's Name]! Check the latest market pulse</h2>
-        <h2>Good evening, [User's Name]! Review today’s market wrap-up.</h2> -->
-    </div>
 
     <section class="trending">
         <section class="slider-container">
@@ -545,7 +548,7 @@
           background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
           filter: url(#cloud-filter);
-          margin-left: 500px;
+          margin-left: 1150px;
           
         }
         
@@ -561,7 +564,7 @@
         
         }
         #sun {
-          margin-left: 500px;
+          margin-left: 1150px;
             animation: sunGlow 4s ease-in-out infinite;
             background: radial-gradient(circle at 30% 30%, 
             #ffff00 0%, 
@@ -647,7 +650,7 @@
             clouds[1].style.right = '10%';
             clouds[1].style.bottom = '10%';
             createRays();
-            updateRays(70, 1.6, 3, 25, 500, 267);
+            updateRays(70, 1.6, 3, 25, 1150, 267);
             updateClouds(
                 [[0.8, 0.8], [1, 1], [0.9, 0.9]],
                 [[-10, 55], [40, 60], [30, 40]]
@@ -720,5 +723,6 @@
         }
     });
 </script> 
+<script src="Dashboard.js"></script>
 </body>
 </html>
