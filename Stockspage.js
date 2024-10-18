@@ -97,9 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const editButton = document.querySelector('.edit-button');
+  const profileForm = document.querySelector('.profile-section');
   const profileFields = document.querySelectorAll('.profile-field');
   const avatarUsername = document.querySelector('.profile-header h1'); 
   const confirmPasswordField = document.querySelector('.confirm-password'); 
+
+  profileForm.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+});
 
   function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -113,9 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   editButton.addEventListener('click', function() {
-      if (this.textContent.trim() === 'Edit Info') {
-          profileFields.forEach(field => {
-              const span = field.querySelector('span');
+    event.preventDefault();
+    if (this.textContent.trim() === 'Edit Info') {
+      profileFields.forEach(field => {
+        const span = field.querySelector('span');
               const input = field.querySelector('input');
               if (span && input) {
                   span.style.display = 'none'; 
@@ -125,26 +131,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
           confirmPasswordField.style.display = 'flex'; 
           this.textContent = 'Save Info'; 
-      } else {
+        } else {
           let isValid = true;
           let updatedUsername = '';
-
+          
           profileFields.forEach(field => {
-              clearError(field); 
-              const span = field.querySelector('span');
-              const input = field.querySelector('input');
-              const errorMessage = document.createElement('div');
-              errorMessage.className = 'error-message';
-              errorMessage.style.color = 'red';
-              errorMessage.style.fontSize = '12px';
-
-              if (input) {
-                  if (input.value.trim() === '') {
-                      isValid = false;
-                      input.classList.add('error');
-                      errorMessage.textContent = 'This field cannot be empty';
-                      field.appendChild(errorMessage);
-                  } else if (input.type === 'email' && !validateEmail(input.value)) {
+            clearError(field); 
+            const span = field.querySelector('span');
+            const input = field.querySelector('input');
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.style.color = 'red';
+            errorMessage.style.fontSize = '12px';
+            
+            if (input) {
+              if (input.value.trim() === '') {
+                isValid = false;
+                input.classList.add('error');
+                errorMessage.textContent = 'This field cannot be empty';
+                field.appendChild(errorMessage);
+              } else if (input.type === 'email' && !validateEmail(input.value)) {
                       isValid = false;
                       input.classList.add('error');
                       errorMessage.textContent = 'Please enter a valid email address';
@@ -155,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
                           updatedUsername = input.value;
                       }
                   }
-              }
-          });
+                }
+              });
           const passwordField = document.querySelector('.profile-field input[type="password"]');
           const confirmPasswordInput = document.querySelector('.confirm-password input');
           if (passwordField.value !== confirmPasswordInput.value) {
