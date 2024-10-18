@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
@@ -39,6 +39,83 @@
     
 </head>
 <body >
+
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search">
+        <i class="search-icon fas fa-search"></i>
+        <div class="magnifying-glass">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="navigationBar">
+            <a href="#" class="serv">
+                Services
+                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" class="comp">
+                Company
+                <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" class="blog">Blog</a>  
+            <a href="#" class="port">Contact Us</a>
+            <div class="services-dropdown">
+                <div class="services-dropdown-content">
+                    <div class="services-label">
+                        <h1>Services</h1>
+                    </div>
+                    <div class="services-dropdown-column">
+                        <div class="primary-section">
+                        <h2>Primary <span class="arrow">→</span></h2>
+                        <div class="primary-elements">
+                            <a href="#">Stock Market Prediction</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="services-dropdown-column">
+                        <h3>Secondary <span class="arrow">→</span></h3>
+                        <div class="secondary-section">
+                        <div class="secondary-elements">
+                            <a href="#">Used Car Prediction</a>
+                            <a href="#">Housing Prediction</a>
+                            <a href="#">Loan Approval Prediction</a>
+                        </div>
+                    </div>
+                    </div>
+                    <img src="media/services.jpg" alt="Your Alt Text" class="service-image">
+                </div>
+            </div>
+
+
+                <div class="company-dropdown">
+                <div class="company-dropdown-content">
+                    <div class="company-label">
+                        <h1>Company</h1>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>MORE ABOUT US</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">License</a>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>SOCIAL</h2>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">X</a>
+                    </div>
+                    <div class="company-dropdown-column">
+                        <h2>CONTACTS</h2>
+                        <a href="#">Book a Call</a>
+                        <a href="#">Mail Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="Greeting-Message">
         <h2>Good Morning, [User's Name]!</h2>
@@ -108,22 +185,7 @@
 
    
 
-    <section class="dropdown">
-        <a href="#" class="serv">
-            Services
-            <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-        </a>
-        <a href="#" class="comp">
-            Company
-            <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-        </a>
-        <a href="#" class="blog">Blog</a>  
-        <a href="#" class="port">Contact Us</a>
-    </section>
+   
 
 
     <section class="trending">
@@ -548,7 +610,9 @@
           background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
           filter: url(#cloud-filter);
-          margin-left: 1150px;
+          margin-left: 850px;
+          margin-top: -150px;
+        margin-bottom: 100px;
           
         }
         
@@ -564,7 +628,9 @@
         
         }
         #sun {
-          margin-left: 1150px;
+           margin-top: -150px;
+           margin-bottom: 100px;
+          margin-left: 850px;
             animation: sunGlow 4s ease-in-out infinite;
             background: radial-gradient(circle at 30% 30%, 
             #ffff00 0%, 
@@ -650,7 +716,7 @@
             clouds[1].style.right = '10%';
             clouds[1].style.bottom = '10%';
             createRays();
-            updateRays(70, 1.6, 3, 25, 1150, 267);
+            updateRays(70, 1.6, 3, 25, 850, 110);
             updateClouds(
                 [[0.8, 0.8], [1, 1], [0.9, 0.9]],
                 [[-10, 55], [40, 60], [30, 40]]
