@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></script>
+    <link rel="stylesheet" href="userprofile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+</head>
+<body>   
+
+    <ul class="icons open"> 
+        <a href="#" class="fox-icon-link">
+            <img src="media/fox.jpg" alt="Fox Icon" class="logo">
+          </a>
+        <li class="Icon-items" data-name="Home">
+            <img src="media/home.jpg" id="item1"> 
+            <span class="icon-name">Home</span>
+        </li>
+        <li class="Icon-items" data-name="Watch">
+            <img src="media/recent_watch.jpg" id="item2"> 
+            <span class="icon-name">Watch</span>
+        </li>
+        <li class="Icon-items" data-name="Lists">
+            <img src="media/list.jpg" id="item3">
+            <span class="icon-name">Lists</span>
+        </li>
+        <li class="Icon-items" data-name="Donate">
+            <img src="media/donate.jpg" id="item4">
+            <span class="icon-name">Donate</span>
+        </li>
+        <li class="Icon-items" data-name="Profile">
+            <img src="media/account.jpg" id="item5">
+            <span class="icon-name">Profile</span>
+        </li>
+        <li class="Arrow">
+            <img src="media/arrow-right.jpg">
+        </li>
+    </ul>     
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search">
+                <i class="search-icon fas fa-search"></i>
+                <div class="magnifying-glass">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="navigationBar">
+                    <a href="#" class="serv">
+                        Services
+                        <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="comp">
+                        Company
+                        <svg width="20" height="20" viewBox="0 -4 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="blog">Blog</a>  
+                    <a href="#" class="port">Contact Us</a>
+                    <div class="services-dropdown">
+                        <div class="services-dropdown-content">
+                            <div class="services-label">
+                                <h1>Services</h1>
+                            </div>
+                            <div class="services-dropdown-column">
+                                <div class="primary-section">
+                                <h2>Primary <span class="arrow">→</span></h2>
+                                <div class="primary-elements">
+                                    <a href="#">Stock Market Prediction</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="services-dropdown-column">
+                                <h3>Secondary <span class="arrow">→</span></h3>
+                                <div class="secondary-section">
+                                <div class="secondary-elements">
+                                    <a href="#">Used Car Prediction</a>
+                                    <a href="#">Housing Prediction</a>
+                                    <a href="#">Loan Approval Prediction</a>
+                                </div>
+                            </div>
+                            </div>
+                            <img src="media/services.jpg" alt="Your Alt Text" class="service-image">
+                        </div>
+                    </div>
+                        <div class="company-dropdown">
+                        <div class="company-dropdown-content">
+                            <div class="company-label">
+                                <h1>Company</h1>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>MORE ABOUT US</h2>
+                                <a href="#">About Us</a>
+                                <a href="#">Blog</a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">License</a>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>SOCIAL</h2>
+                                <a href="#">LinkedIn</a>
+                                <a href="#">Instagram</a>
+                                <a href="#">X</a>
+                            </div>
+                            <div class="company-dropdown-column">
+                                <h2>CONTACTS</h2>
+                                <a href="#">Book a Call</a>
+                                <a href="#">Mail Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <style>
+            ul {
+              list-style-type: none;
+              padding-inline-start: 0;
+            }
+          </style>
+          <div class="profile-container">
+            <div class="profile-header">
+                <div class="avatar-container">
+                    <img src="media/fox.jpg" alt="User Avatar" class="avatar">
+                    <i class="fas fa-pen avatar-edit"></i>
+                </div>
+                <h1>XBastille</h1>
+            </div>
+            <div class="avatar-popup">
+                <div class="avatar-selection">
+                    <div class="avatar-grid">
+                        <img src="media/fox.jpg" class="avatar-option selected" alt="Avatar 1">
+                        <img src="media/fox_1.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_2.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_4.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_5.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_6.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_7.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_8.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_9.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_10.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_11.jpg" class="avatar-option" alt="Avatar 2">
+                        <img src="media/fox_12.jpg" class="avatar-option" alt="Avatar 2">
+                    </div>
+                    <button class="select-button">
+                        <i class="fas fa-check"></i> Select Avatar
+                    </button>
+                </div>
+            </div>
+            <div class="profile-section">
+                <h2>Personal Information</h2>
+                <div class="profile-field">
+                    <label>Name:</label>
+                    <span>Bibhor Puhan</span>
+                    <input type="text" value="Bibhor Puhan">
+                </div>
+                <div class="profile-field">
+                    <label>Username:</label>
+                    <span>XBastille</span>
+                    <input type="text" value="XBastille">
+                </div>
+                <div class="profile-field">
+                    <label>Email:</label>
+                    <span>eziopuhan825@gmail.com</span>
+                    <input type="email" value="eziopuhan825@gmail.com">
+                </div>
+                <div class="profile-field">
+                    <label>Password:</label>
+                    <span>••••••••</span>
+                    <input type="password" value="password123">
+                </div>
+                <div class="profile-field confirm-password">
+                    <label>Confirm Password:</label>
+                    <input type="password" value="password123">
+                </div>
+                <button class="edit-button">
+                    <i class="fas fa-pen"></i> Edit Info
+                </button>
+            </div>
+            <div class="profile-section">
+                <h2>Connected Accounts</h2>
+                <div class="connected-accounts">
+                    <div class="account-item" data-account="google">
+                        <div class="account-info">
+                            <img src="media/google-logo.jpg" alt="Google" class="account-icon">
+                        </div>
+                        <button class="connect-button">Connect</button>
+                    </div>
+                    <div class="account-item" data-account="github">
+                        <div class="account-info">
+                            <img src="media/github.jpg" alt="GitHub" class="account-icon">
+                        </div>
+                        <button class="connect-button">Connect</button>
+                    </div>
+                    <div class="account-item" data-account="linkedin">
+                        <div class="account-info">
+                            <img src="media/linkedin-logo.jpg" alt="LinkedIn" class="account-icon">
+                        </div>
+                        <button class="connect-button">Connect</button>
+                    </div>
+                    <div class="account-item" data-account="microsoft">
+                        <div class="account-info">
+                            <img src="media/microsoft-logo.jpg" alt="Microsoft" class="account-icon">
+                        </div>
+                        <button class="connect-button">Connect</button>
+                    </div>
+                </div>
+            </div>                     
+        </div>
+    <footer>
+        <div class="footer-links">
+             <img src="media/website_logo.jpg" class="foot-logo">
+                <div class="footer-block">
+                <div class="footer-title" id="Comp">Company</div>
+                   <li><a class="links" id="mail">Mail us</a></li>
+                    <li><a class="links" id="SERV">Services</a></li>
+                </div>
+
+                <div class="footer-block">
+                <div class="footer-title" id="more">More</div>
+                    <li><a class="links" id="tandc">Blog</a></li>
+                    <li><a class="links" id="career">License</a></li>
+                    <li><a class="links" id="privacy">Privacy Policy</a></li>
+                </div>
+                <div class="footer-block">
+                <div class="footer-title" id="social">Social</div>
+                <li><a class="links" id="linkedin">LinkedIn</a></li>
+                <li> <a  class="links" id="yt">Instagram</a></li>
+                <li> <a  class="links" id="tw">X</a></li>
+                </div>
+        </div>
+    </footer> 
+    <script src="Stockspage.js"></script>
+</body>
+</html>
+
+editButton.addEventListener('click', function() {
+    const isEditing = this.textContent === 'Edit Info';
+    profileFields.forEach(field => {
+        field.classList.toggle('editing', isEditing);
+        const input = field.querySelector('input');
+        const span = field.querySelector('span');
+        if (isEditing) {
+            input.value = span ? span.textContent : input.value;
+        } else if (span) {
+            span.textContent = input.type === 'password' ? '••••••••' : input.value;
+        }
+    });
+    document.querySelector('.profile-field.confirm-password').classList.toggle('editing', isEditing);
+    this.textContent = isEditing ? 'Save Edit' : 'Edit Info';
+});
