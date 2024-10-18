@@ -23,12 +23,12 @@ logger = logging.getLogger(__name__)
 class StockPredictor:
     def __init__(self, company_name, num_days_pred, no_of_trial, stock_data):
         self.company_name=company_name
-        mlflow.set_experiment(f"Stock_Prediction_{company_name}")
+        mlflow.set_experiment(f"Stock_Prediction_{company_name}_{num_days_pred}")
         self.num_days_pred=num_days_pred
         self.no_of_trial=no_of_trial
         self.stock_data=stock_data
         self.df_xgb=self.prepare_data()
-        logger.info(f"Initializing StockPredictor for {company_name}")
+        logger.info(f"Initializing StockPredictor for {company_name} with {num_days_pred} days prediction")
 
     def mean_absolute_percentage_error(self, y_true, y_pred):
         y_true, y_pred=np.array(y_true), np.array(y_pred)
@@ -181,7 +181,7 @@ class StockPredictor:
             mlflow.log_metric("rmse", rmse)
             mlflow.log_metric("r2", r2)
             mlflow.log_metric("mape", mape)
-            model_name = f"{self.company_name}_stock_predictor"
+            model_name = f"{self.company_name}_{self.num_days_pred}_stock_predictor"
             mlflow.xgboost.log_model(best_model, "xgboost_model", registered_model_name=model_name)
             model_version = client.get_latest_versions(model_name, stages=["None"])[0].version            
             client.transition_model_version_stage(
