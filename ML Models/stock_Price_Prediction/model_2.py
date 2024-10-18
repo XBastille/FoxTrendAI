@@ -11,7 +11,8 @@ import mlflow.xgboost
 import logging
 from xgboost import XGBRegressor
 from main import StockDataVisualizer
-from transformers import pipeline, BertTokenizer, BertForSequenceClassification
+from mlflow.tracking import MlflowClient
+#from transformers import pipeline, BertTokenizer, BertForSequenceClassification
 from sklearn.metrics import mean_squared_error, r2_score
 from bs4 import BeautifulSoup
 
@@ -55,7 +56,7 @@ class StockPredictor:
         df["volatility"]=df["Close"].rolling(window=self.num_days_pred).std()
         df["EMA"]=df["Close"].ewm(span=self.num_days_pred, adjust=False).mean()
         df["momentum"]=df["Close"]-df["Close"].shift(self.num_days_pred//2)
-        df["sentiment"]=self.get_sentiment_score()
+        #df["sentiment"]=self.get_sentiment_score()
         return df
 
     def get_sentiment_score(self):
@@ -117,6 +118,8 @@ class StockPredictor:
         study=optuna.create_study(direction="minimize")
         study.optimize(objective, n_trials=self.no_of_trial)
         best_params=study.best_trial.params
+        for param_name, param_value in best_params.items():
+            mlflow.log_param(param_name, param_value)
         print("Best parameters found by Optuna:")
         for key, value in best_params.items():
             print(f"{key}: {value}")
@@ -162,6 +165,7 @@ class StockPredictor:
         return ((final_price-initial_price)/initial_price)*100
 
     def run(self):
+        client = MlflowClient()
         with mlflow.start_run():
             X_train, X_test, y_train, y_test=self.split_data()
             best_params=self.optimize_model(X_train, y_train, X_test, y_test)
@@ -177,7 +181,14 @@ class StockPredictor:
             mlflow.log_metric("rmse", rmse)
             mlflow.log_metric("r2", r2)
             mlflow.log_metric("mape", mape)
-            mlflow.xgboost.log_model(best_model, "xgboost_model")
+            model_name = f"{self.company_name}_stock_predictor"
+            mlflow.xgboost.log_model(best_model, "xgboost_model", registered_model_name=model_name)
+            model_version = client.get_latest_versions(model_name, stages=["None"])[0].version            
+            client.transition_model_version_stage(
+                name=model_name,
+                version=model_version,
+                stage="Staging"
+            )
             percentage_change=self.calculate_percentage_change(future_predictions["pred"])
             print(f"Predicted Future Prices:\n{future_predictions}")
             print(f"Predicted percentage change over the next {self.num_days_pred} days: {percentage_change:.2f}%")
@@ -185,6 +196,7 @@ class StockPredictor:
                 print("The model predicts an upward trend. It might be a good time to buy.")
             else:
                 print("The model predicts a downward trend. It might be better to wait.")
+            print(f"Model {model_name} version {model_version} has been registered and transitioned to Staging.")
 
 if __name__=="__main__":
     logger.info("Starting prediction run")
