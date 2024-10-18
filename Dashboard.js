@@ -46,4 +46,69 @@ document.addEventListener('DOMContentLoaded', function () {
     }) 
   
   });
+
+  const arrowButton = document.querySelector('.Arrow');
+  
+
+document.addEventListener("DOMContentLoaded", function () {
+  const primarySection = document.querySelector('.primary-section');
+  const secondarySection = document.querySelector('.secondary-section');
+  const primaryElements = document.querySelector('.primary-elements');
+  const secondaryElements = document.querySelector('.secondary-elements');
+  
+  const servicesDropdown = document.querySelector('.services-dropdown');
+  const companyDropdown = document.querySelector('.company-dropdown');
+  const servicesLink = document.querySelector('.serv');
+  const companyLink = document.querySelector('.comp');
+
+  function showDropdown(dropdown) {
+      dropdown.style.display = 'block';
+      dropdown.classList.add('show');
+      dropdown.classList.remove('hide');
+  }
+
+  function hideDropdown(dropdown) {
+      dropdown.classList.add('hide');
+      dropdown.classList.remove('show');
+      
+      setTimeout(() => {
+          dropdown.style.display = 'none';
+      }, 300); 
+  }
+
+  primaryElements.style.display = 'block';
+  secondaryElements.style.display = 'none';
+
+  primarySection.addEventListener('mouseenter', function() {
+      primaryElements.style.display = 'block';  
+      secondaryElements.style.display = 'none'; 
+  });
+
+  secondarySection.addEventListener('mouseenter', function() {
+      secondaryElements.style.display = 'block'; 
+      primaryElements.style.display = 'none';    
+  });
+
+  servicesDropdown.addEventListener('mouseleave', function() {
+      hideDropdown(servicesDropdown);
+  });
+
+  servicesLink.addEventListener('mouseenter', function(event) {
+      showDropdown(servicesDropdown);
+      hideDropdown(companyDropdown);
+  });
+
+  companyLink.addEventListener('mouseenter', function(event) {
+      showDropdown(companyDropdown);
+      hideDropdown(servicesDropdown);
+  });
+
+  servicesDropdown.addEventListener('mouseleave', function() {
+      hideDropdown(servicesDropdown);
+  });
+
+  companyDropdown.addEventListener('mouseleave', function() {
+      hideDropdown(companyDropdown);
+  });
+});
   
