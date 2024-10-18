@@ -12,7 +12,7 @@ import logging
 from xgboost import XGBRegressor
 from main import StockDataVisualizer
 from mlflow.tracking import MlflowClient
-#from transformers import pipeline, BertTokenizer, BertForSequenceClassification
+from transformers import pipeline, BertTokenizer, BertForSequenceClassification
 from sklearn.metrics import mean_squared_error, r2_score
 from bs4 import BeautifulSoup
 
@@ -56,7 +56,7 @@ class StockPredictor:
         df["volatility"]=df["Close"].rolling(window=self.num_days_pred).std()
         df["EMA"]=df["Close"].ewm(span=self.num_days_pred, adjust=False).mean()
         df["momentum"]=df["Close"]-df["Close"].shift(self.num_days_pred//2)
-        #df["sentiment"]=self.get_sentiment_score()
+        df["sentiment"]=self.get_sentiment_score()
         return df
 
     def get_sentiment_score(self):
