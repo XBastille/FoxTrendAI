@@ -112,3 +112,80 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
   
+
+document.querySelector('.filter-icon').addEventListener('click', function() {
+    const filterBox = document.getElementById('filterBox');
+    filterBox.style.display = filterBox.style.display === 'none' ? 'block' : 'none';
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterIcon = document.querySelector('.filter-icon');
+    const filterBox = document.getElementById('filterBox');
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const priceRangeSpan = document.getElementById('priceRange');
+    const clearFiltersBtn = document.getElementById('clearFilters');
+    const percentageChangeSelect = document.getElementById('percentageChange');
+    const sortBySelect = document.getElementById('sortBy');
+    const quickFilterButtons = document.querySelectorAll('.quick-filter');
+    const customMinInput = document.getElementById('customMin');
+    const customMaxInput = document.getElementById('customMax');
+    const applyFiltersBtn = document.getElementById('applyFilters');
+  
+    filterIcon.addEventListener('click', function() {
+        filterBox.classList.toggle('show');
+        filterBox.classList.toggle('hide');
+    });
+  
+    function updatePriceRange() {
+        priceRangeSpan.textContent = `$${minPriceInput.value} - $${maxPriceInput.value}`;
+    }
+  
+    function validatePriceRange() {
+      if (parseInt(minPriceInput.value) > parseInt(maxPriceInput.value)) {
+          maxPriceInput.value = minPriceInput.value;
+      }
+      updatePriceRange();
+    }
+  
+    function validateCustomRange() {
+      let min = parseFloat(customMinInput.value);
+      let max = parseFloat(customMaxInput.value);
+      
+      min = Math.max(-100, Math.min(100, min));
+      max = Math.max(-100, Math.min(100, max));
+      
+      if (min > max) {
+          max = min;
+      } else if (max < min) {
+          min = max;
+      }
+      
+      customMinInput.value = min;
+      customMaxInput.value = max;
+    }
+  
+    minPriceInput.addEventListener('input', validatePriceRange);
+    maxPriceInput.addEventListener('input', validatePriceRange);
+    customMinInput.addEventListener('input', validateCustomRange);
+    customMaxInput.addEventListener('input', validateCustomRange);
+  
+    quickFilterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            this.classList.toggle('selected');
+        });
+    });
+  
+    clearFiltersBtn.addEventListener('click', function() {
+        minPriceInput.value = 0;
+        maxPriceInput.value = 1000;
+        updatePriceRange();
+        percentageChangeSelect.value = '';
+        sortBySelect.value = 'priceAsc';
+        customMinInput.value = '';
+        customMaxInput.value = '';
+        quickFilterButtons.forEach(button => button.classList.remove('selected'));
+    });
+  
+    updatePriceRange();
+  });
