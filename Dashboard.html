@@ -30,9 +30,7 @@
            height: 30px;
         }
 
-        .myplot{
-            z-index: -999;
-        }
+        
         
     </style>
 
@@ -293,12 +291,28 @@
 
     <br><br><br>
 
+            
+     <div class="Graphbox">
+
             <!--Graph Box-->
+        <div class="graphs">
+       
             <section>
-                <div class="myplot" style="width:30%; height:40%;"></div>
+                <div class="myplot" style="width:490px; height:400px;"></div>
+            </section> 
+            
+            <section>
+                <div class="myplot" style="width:490px; height:400px;"></div>
             </section>
 
-            <section class="graph-section">
+            <section>
+                <div class="myplot" style="width:490px; height:400px;"></div>
+            </section>
+
+        </div>
+
+        <div class="sections">
+            <section class="graphsection">
                 <table>
                     <tr>
                         <td>Total Trade</td>
@@ -321,12 +335,10 @@
             </section>
 
 
+          
 
-            <section>
-                <div class="myplot" style="width:30%; height:40%;"></div>
-            </section>
-            
-            <section class="graph-section">
+       
+            <section class="graphsection">
                 <table>
                     <tr>
                             <td>Total Trade</td>
@@ -347,26 +359,23 @@
                 </tr>
             </table>
             </section>
+        
 
-
-
-            <section>
-                <div class="myplot" style="width:30%; height:40%;"></div>
-            </section>
+        
                
-            <section class="graph-section">
+            <section class="graphsection">
                 <table>
-                    <tr>
+                        <tr>
                             <td>Total Trade</td>
                             <td>6,148.77</td>
                             <td>1,12,731</td>
                         </tr>
                         
-                        <tr>
+                    <tr>
                         <td>Total Volume</td>
                         <td>16,02,74,857</td>
                         <td>-32.13</td>
-                </tr>
+                    </tr>
 
                 <tr>
                     <td>Total Volume(mn)</td>
@@ -375,71 +384,76 @@
                 </tr>
                 </table>
             </section>
+        </div>
 
-            <br><br><br>
+            
 
+        </div>
 
-
-            <section class="Top-Value-List">
-                <h4>Top value list</h4>
-                <div class="search-container">
-                    <input type="text" class="search-bar" placeholder="Search">
+        
+        <div class="PeopleAlsoWatch">
+            <div class="recently-watched-header">
+                <h2 id="people">Recently Watched</h2>
+                <div class="company-search-container">
+                    <input type="text" class="company-search-bar" placeholder="Search company">
                     <i class="search-icon fas fa-search"></i>
-                    <div class="magnifying-glass">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
+                    <img src="media/filter.jpg" alt="Filter" class="filter-icon">                
+                    <div class="filter-box" id="filterBox">
+                        <h3>Filter Options</h3>
+                        
+                        <div class="filter-section">
+                            <label>Price Range:</label>
+                            <input type="range" id="minPrice" min="0" max="1000" value="0">
+                            <input type="range" id="maxPrice" min="0" max="1000" value="1000">
+                            <span id="priceRange">$0 - $1000</span>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <label>Percentage Change:</label>
+                            <select id="percentageChange">
+                                <option value="">All</option>
+                                <option value="positive1">> 1%</option>
+                                <option value="positive5">> 5%</option>
+                                <option value="negative1">< -1%</option>
+                                <option value="negative5">< -5%</option>
+                                <option value="neutral">0% to 1%</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <label>Custom Range:</label>
+                            <input type="number" id="customMin" placeholder="Min %">
+                            <input type="number" id="customMax" placeholder="Max %">
+                            <span id="customRangeError" class="error-message"></span>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <label>Sort by:</label>
+                            <select id="sortBy">
+                                <option value="priceAsc">Price (Low to High)</option>
+                                <option value="priceDesc">Price (High to Low)</option>
+                                <option value="changeAsc">% Change (Low to High)</option>
+                                <option value="changeDesc">% Change (High to Low)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <label>Quick Filters:</label>
+                            <button class="quick-filter" data-filter="gainers">Gainers</button>
+                            <button class="quick-filter" data-filter="losers">Losers</button>
+                            <button class="quick-filter" data-filter="stable">Stable</button>
+    
+                        </div>
+                        
+                        <div class="filter-actions">
+                            <button id="clearFilters">Clear Filters</button>
+                            <button id="applyFilters">Apply Filters</button>
+                        </div>
+                    </div>                
                 </div>
+            </div>
 
-                <img src="filter.jpg" alt="Filter-Icon">
-                <div class="filter-section">
-                    <label>Price Range:</label>
-                    <input type="range" id="minPrice" min="0" max="1000" value="0">
-                    <input type="range" id="maxPrice" min="0" max="1000" value="1000">
-                    <span id="priceRange">$0 - $1000</span>
-                </div>
-                
-                <div class="filter-section">
-                    <label>Percentage Change:</label>
-                    <select id="percentageChange">
-                        <option value="">All</option>
-                        <option value="positive1">> 1%</option>
-                        <option value="positive5">> 5%</option>
-                        <option value="negative1">< -1%</option>
-                        <option value="negative5">< -5%</option>
-                        <option value="neutral">0% to 1%</option>
-                    </select>
-                </div>
-                
-                <div class="filter-section">
-                    <label>Custom Range:</label>
-                    <input type="number" id="customMin" placeholder="Min %">
-                    <input type="number" id="customMax" placeholder="Max %">
-                    <span id="customRangeError" class="error-message"></span>
-                </div>
-                
-                <div class="filter-section">
-                    <label>Sort by:</label>
-                    <select id="sortBy">
-                        <option value="priceAsc">Price (Low to High)</option>
-                        <option value="priceDesc">Price (High to Low)</option>
-                        <option value="changeAsc">% Change (Low to High)</option>
-                        <option value="changeDesc">% Change (High to Low)</option>
-                    </select>
-                </div>
-                
-                <div class="filter-section">
-                    <label>Quick Filters:</label>
-                    <button class="quick-filter" data-filter="gainers">Gainers</button>
-                    <button class="quick-filter" data-filter="losers">Losers</button>
-                    <button class="quick-filter" data-filter="stable">Stable</button>
-                    
-                </div>
-                
-                <div class="filter-actions">
-                    <button id="clearFilters">Clear Filters</button>
-                    <button id="applyFilters">Apply Filters</button>
-                </div>
-                
+            <div class="Market">
                 
                 <table>
                     <th>COMPANY</th>
@@ -530,10 +544,8 @@
                         <td> Data </td> 
                     </tr>
                 </table>
-            
-                
-            </section>
-            
+            </div>   
+        </div>   
         </body>
             <footer>
               <div class="footer-links">
