@@ -184,8 +184,8 @@ li {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
-  width: 180px;
-  height: 255px;
+  width: 255px;
+  height: 180px;
   border-radius: 8px;
   background-color: #000000;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -205,7 +205,7 @@ li {
 
 .company-price {
   color: rgb(4, 184, 4);
-  margin-top: 120px;
+  margin-top: 50px;
   margin-right: 4px;
   transform: scale(1.5);
 }
@@ -256,7 +256,7 @@ li {
 }
 
 .slider-container {
-  width: 1110px;
+  width: 1250px;
   margin: 0 auto;
   border-top: 1px solid wheat;
   padding-top: 40px;
@@ -734,20 +734,50 @@ pointer-events: none;
 
 /* Graph sections */ 
 
-.Graphbox{
+/*.Graphbox{
   margin-left: 190px;
 
-}
+}*/
 
 .graphs{
   display: flex;
-  margin-left: 10px;
+  padding: 70px;
+  justify-content: space-evenly;
 }
 
-.sections{
+.graph1{
   display: flex;
-  margin-left: 130px;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 165px;
+ /* border: 1px solid white;*/
+  border-radius: 5px;
+  height: 450px;
 }
+
+.graph2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ /* border: 1px solid white;*/
+  border-radius: 5px;
+  height: 450px;
+}
+
+.graph3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ /* border: 1px solid white;*/
+  border-radius: 5px;
+  height: 450px;
+}
+
+.graphsection{
+  padding-left: 60px;
+  justify-self:center;
+}
+
 
 
 
@@ -966,8 +996,5 @@ cursor: pointer;
   margin-left: 180px;
 }
 
-td{
-  cursor: pointer;
-}
 
 
