@@ -18,6 +18,7 @@ function slide(direction) {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
 
     let expand = false;
@@ -47,7 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
   });
 
-  const arrowButton = document.querySelector('.Arrow');
+const arrowButton = document.querySelector('.Arrow');
+const iconsList = document.querySelector('.icons');
+arrowButton.addEventListener('click', () => {
+    iconsList.classList.toggle('open');
+    iconsList.classList.toggle('closed');
+});
   
 
 document.addEventListener("DOMContentLoaded", function () {
